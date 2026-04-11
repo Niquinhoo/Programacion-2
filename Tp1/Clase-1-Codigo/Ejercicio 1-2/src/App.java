@@ -4,7 +4,7 @@
 public class App {
     public static void main(String[] args) {
         System.out.println("========================================");
-        System.out.println("   EJECUCIÓN DE EJERCICIOS - TP1");
+        System.out.println("   EJECUCION DE EJERCICIOS - TP1");
         System.out.println("========================================\n");
 
         // Demostración Ejercicio 1.1 y 1.2: Sistema Gestor
@@ -17,7 +17,7 @@ public class App {
         // Demostración Ejercicio 1.3: Cuenta Bancaria
         System.out.println(">>> Ejercicio 1.3: Cuenta Bancaria");
         CuentaBancaria miCuenta = new CuentaBancaria("ABC-789-XYZ");
-        System.out.println("Número de Cuenta: " + miCuenta.getNumeroCuenta());
+        System.out.println("Numero de Cuenta: " + miCuenta.getNumeroCuenta());
         
         // Operaciones
         miCuenta.depositar(2500.75);

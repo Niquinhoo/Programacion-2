@@ -63,7 +63,7 @@ public class Usuario {
 
     // Demostración del ejercicio 2.2
     public static void main(String[] args) {
-        System.out.println("--- Demostración de Sobrecarga de Constructores ---");
+        System.out.println("--- Demostracion de Sobrecarga de Constructores ---");
         Usuario user1 = new Usuario();
         Usuario user2 = new Usuario("Nicolas");
         Usuario user3 = new Usuario("Andres", 22);
@@ -72,7 +72,7 @@ public class Usuario {
         user2.mostrarInfo();
         user3.mostrarInfo();
 
-        System.out.println("\n--- Demostración de Sobrecarga de Métodos ---");
+        System.out.println("\n--- Demostracion de Sobrecarga de Metodos ---");
         user2.actualizarPerfil("nico@example.com");
         user3.actualizarPerfil("andres.prof@gmail.com", 11223344);
     }

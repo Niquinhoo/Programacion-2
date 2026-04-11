@@ -20,7 +20,7 @@ public class SistemaGestor {
      * Imprime el límite máximo de conexiones permitido por el sistema.
      */
     public void imprimirLimiteConexiones() {
-        System.out.println("Límite máximo de conexiones: " + MAX_CONEXIONES);
+        System.out.println("Limite maximo de conexiones: " + MAX_CONEXIONES);
     }
 
     public static void main(String[] args) {

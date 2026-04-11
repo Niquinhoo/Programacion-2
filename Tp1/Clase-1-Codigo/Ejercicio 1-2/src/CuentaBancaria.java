@@ -26,7 +26,7 @@ public class CuentaBancaria {
         // Validación para asegurar que no se depositen montos negativos
         if (monto > 0) {
             this.saldo += monto;
-            System.out.println("Depósito exitoso de: $" + monto);
+            System.out.println("Deposito exitoso de: $" + monto);
         } else {
             System.out.println("Error: No se pueden depositar montos negativos (" + monto + ").");
         }
@@ -52,7 +52,7 @@ public class CuentaBancaria {
     public static void main(String[] args) {
         CuentaBancaria miCuenta = new CuentaBancaria("987654321");
         
-        System.out.println("Número de Cuenta: " + miCuenta.getNumeroCuenta());
+        System.out.println("Numero de Cuenta: " + miCuenta.getNumeroCuenta());
         
         // Caso de éxito
         miCuenta.depositar(1500.0);

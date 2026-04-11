@@ -49,9 +49,9 @@ public class Reporte {
         System.out.println(cuerpo);
 
         // Ejercicio 2.3
-        System.out.println("\n--- Demostración de Argumentos Variables (var-args) ---");
+        System.out.println("\n--- Demostracion de Argumentos Variables (var-args) ---");
         System.out.println("Llamada con 3 argumentos:");
-        miReporte.imprimirSecciones("Introducción", "Desarrollo", "Conclusión");
+        miReporte.imprimirSecciones("Introduccion", "Desarrollo", "Conclusion");
         
         System.out.println("\nLlamada sin argumentos:");
         miReporte.imprimirSecciones();

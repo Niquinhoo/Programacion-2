@@ -42,5 +42,22 @@ Checklist verificada contra la consigna de [TP1.txt](/home/nicolas/Documentos/Pr
 - [x] Los ejercicios pedidos por la consigna estan implementados.
 - [x] Las salidas de consola de `SistemaGestor`, `CuentaBancaria`, `Reporte` y `Usuario` coinciden con la documentacion.
 - [ ] `App.java` no ejecuta correctamente como archivo aislado con `java App.java` porque depende de otras clases del mismo directorio; no forma parte de un punto requerido de la consigna, pero conviene compilarlo junto al resto si se quiere usar como lanzador general.
+- [x] La aplicacion compila correctamente, solamente faltaba un paso previo de compilacion:
+    - PS C:\Users\nicot\Desktop\Programacion-2\Tp1\Clase-1-Codigo\Ejercicio 1-2\src> javac .\App.java
+    - PS C:\Users\nicot\Desktop\Programacion-2\Tp1\Clase-1-Codigo\Ejercicio 1-2\src> java .\App.java 
+    - ========================================
+    - EJECUCION DE EJERCICIOS - TP1
+    - ========================================
+
+    - >>> Ejercicio 1.1 y 1.2: Sistema Gestor
+    - Limite maximo de conexiones: 10
+
+    - >>> Ejercicio 1.3: Cuenta Bancaria
+    - Numero de Cuenta: ABC-789-XYZ
+    - Deposito exitoso de: $2500.75
+    - Error: No se pueden depositar montos negativos (-100.0).
+    - Saldo de la cuenta: $2500.75
+
+    - =========================================
 
 **Estado final:** TP1 correcto segun la consigna.

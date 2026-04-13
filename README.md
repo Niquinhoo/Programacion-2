@@ -1,55 +1,32 @@
-# 📘 Programación 2 — Repositorio de Cursada
+# 📘 TP1 - Programación 2
 
-Repositorio personal donde organizo todo el material producido durante la materia **Programación 2**. Incluye el código resuelto en clase, trabajos prácticos completos, consignas originales y documentación de verificación generada por Codex.
+Este repositorio contiene todo el material y código relacionado con el **Trabajo Práctico N.º 1** de la materia **Programación 2**.
 
 ---
 
-## 🗂️ Estructura General
+## 🗂️ Estructura del TP1
 
 ```
-Programacion 2/
+TP1-P2/
 │
-├── Tp1/                         # Trabajo Práctico N.º 1
-│   ├── Clase-1-Codigo/          # Código desarrollado en la Clase 1
-│   │   └── Ejercicio 1-2/       # Ejercicios resueltos durante esa clase
-│   │       └── src/             # Fuentes Java
-│   │           ├── App.java     # Codigo X
-│   │
-│   └── Documentacion/
-│       ├── Checklist-Logs/
-│       │   └── TP1/
-│       │       ├── CHECKLIST.md      # Verificación de consignas cumplidas
-│       │       └── LOGS_CONSOLA.md   # Salida de ejecución documentada
-│       └── Ejercicio/
-│           └── TP1/
-│               └── TP1.txt           # Consigna original del profesor
+├── Clase-1-Codigo/          # Código desarrollado en la Clase 1
+│   └── Ejercicio 1-2/       # Ejercicios resueltos durante esa clase
+│       └── src/             # Fuentes Java
+│           ├── App.java     # Código X
 │
-└── README.md
+└── Documentacion/
+    ├── Checklist-Logs/
+    │   └── TP1/
+    │       ├── CHECKLIST.md      # Verificación de consignas cumplidas
+    │       └── LOGS_CONSOLA.md   # Salida de ejecución documentada
+    └── Ejercicio/
+        └── TP1/
+            └── TP1.txt           # Consigna original del profesor
 ```
 
 ---
 
-## 📁 Criterio de Organización
-
-### Trabajos Prácticos (`Tp<N>/`)
-Cada trabajo práctico tiene su propia carpeta raíz. Dentro se dividen en dos secciones:
-
-#### 🖥️ Código por clase (`Clase-<N>-Codigo/`)
-Contiene una subcarpeta por cada clase dictada, nombrada con un índice y (eventualmente) la fecha correspondiente. Adentro se guardan los ejercicios resueltos ese día, organizados de forma individual.
-
-> Cuando todos los ejercicios de un TP estén integrados, aparecerá la carpeta **`TP COMPLETO X`** con el trabajo consolidado.
-
-#### 📄 Documentación (`Documentacion/`)
-Dividida en dos partes:
-
-| Carpeta | Contenido |
-|---|---|
-| `Checklist-Logs/` | Checklists y logs de consola generados por **Codex 5.4**, que verifican el cumplimiento punto a punto de cada consigna. |
-| `Ejercicio/` | Consignas en crudo tal como las entregó el profesor (`.txt`), sin modificaciones. |
-
----
-
-## ✅ Estado Actual
+## ✅ Estado del Trabajo Práctico
 
 | TP | Clases cubiertas | Estado |
 |---|---|---|
@@ -62,11 +39,3 @@ Dividida en dos partes:
 - **Lenguaje**: Java
 - **Entorno**: VS Code + Extension Pack for Java
 - **Herramienta de verificación**: Codex 5.4 (checklists y logs automáticos)
-
----
-
-## 📌 Notas
-
-- Los nombres de las carpetas de clase se actualizarán a medida que avance la cursada.
-- A medida que se completen los TPs, se consolidará el código en una carpeta `TP COMPLETO X` dentro del TP correspondiente.
-- Este repositorio es de uso personal y académico.

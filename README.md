@@ -9,20 +9,7 @@ Repositorio personal donde organizo todo el material producido durante la materi
 ```
 Programacion 2/
 │
-├── Tp1/                         # Trabajo Práctico N.º 1
-│   ├── Clase-1-Codigo/          # Código desarrollado en la Clase 1
-│   │   └── Ejercicio 1-2/       # Ejercicios resueltos durante esa clase
-│   │       └── src/             # Fuentes Java
-│   │           ├── App.java     # Codigo X
-│   │
-│   └── Documentacion/
-│       ├── Checklist-Logs/
-│       │   └── TP1/
-│       │       ├── CHECKLIST.md      # Verificación de consignas cumplidas
-│       │       └── LOGS_CONSOLA.md   # Salida de ejecución documentada
-│       └── Ejercicio/
-│           └── TP1/
-│               └── TP1.txt           # Consigna original del profesor
+├── (Branch) TP1-P2/             # Trabajo Práctico N.º 1 (Repositorio Independiente)
 │
 └── README.md
 ```
@@ -53,7 +40,7 @@ Dividida en dos partes:
 
 | TP | Clases cubiertas | Estado |
 |---|---|---|
-| TP1 | Clase 1 | ✅ Completado |
+| [TP1 - TP1-P2](https://github.com/Niquinhoo/TP1-P2) | Clase 1 | ✅ Completado (Repo Independiente) |
 
 ---
 

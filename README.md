@@ -11,6 +11,8 @@ Programacion 2/
 │
 ├── (Branch) TP1-P2/             # Trabajo Práctico N.º 1 (Repositorio Independiente)
 │
+├── (Branch) GuiaColecciones1/   # Guía de Colecciones (Ejercicios y Documentación)
+│
 └── README.md
 ```
 
@@ -41,6 +43,7 @@ Dividida en dos partes:
 | TP | Clases cubiertas | Estado |
 |---|---|---|
 | [TP1 - TP1-P2](https://github.com/Niquinhoo/TP1-P2) | Clase 1 | ✅ Completado (Repo Independiente) |
+| [Guía de Colecciones](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | Clase 2 Virtual | 🏗️ En proceso (Branch GuiaColecciones1) |
 
 ---
 

@@ -1,41 +1,57 @@
-# 📘 TP1 - Programación 2
+# TP1 - Programacion 2
 
-Este repositorio contiene todo el material y código relacionado con el **Trabajo Práctico N.º 1** de la materia **Programación 2**.
+Este repositorio contiene la resolucion del Trabajo Practico 1 de Programacion 2, junto con la documentacion de seguimiento y los archivos de salida de consola.
 
----
+## Estructura del proyecto
 
-## 🗂️ Estructura del TP1
-
-```
-TP1-P2/
-│
-├── Clase-1-Codigo/          # Código desarrollado en la Clase 1
-│   └── Ejercicio 1-2/       # Ejercicios resueltos durante esa clase
-│       └── src/             # Fuentes Java
-│           ├── App.java     # Código X
-│
+```text
+Programacion-2/
+├── GuiaFundamentos/
+│   └── src/
+│       ├── App.java
+│       ├── SistemaGestor.java
+│       ├── CuentaBancaria.java
+│       ├── Reporte.java
+│       ├── Usuario.java
+│       ├── Documento.java
+│       ├── Factura.java
+│       ├── Recibo.java
+│       ├── Exportable.java
+│       ├── Auditable.java
+│       └── ServicioImpresion.java
 └── Documentacion/
-    ├── Checklist-Logs/
-    │   └── TP1/
-    │       ├── CHECKLIST.md      # Verificación de consignas cumplidas
-    │       └── LOGS_CONSOLA.md   # Salida de ejecución documentada
-    └── Ejercicio/
-        └── TP1/
-            └── TP1.txt           # Consigna original del profesor
+    ├── Checklist/
+    │   └── CHECKLIST-TP1.md
+    ├── Conclusion/
+    │   └── CONCLUSIONFYPOOADVANCED.MD
+    └── Logs/
+        └── LOGS_CONSOLA-TP1.md
 ```
 
----
+## Contenido
 
-## ✅ Estado del Trabajo Práctico
+- `GuiaFundamentos/src`: codigo Java de la guia.
+- `Documentacion/Checklist`: checklist con la fundamentacion de cada ejercicio resuelto.
+- `Documentacion/Logs`: salida de consola obtenida al compilar y ejecutar el proyecto.
+- `Documentacion/Conclusion`: cierre general de la resolucion de la guia.
 
-| TP | Clases cubiertas | Estado |
-|---|---|---|
-| TP1 | Clase 1 | ✅ Completado |
+## Como ejecutar
 
----
+Desde la carpeta `GuiaFundamentos/src`:
 
-## 🛠️ Tecnologías
+```powershell
+javac *.java
+java App
+```
 
-- **Lenguaje**: Java
-- **Entorno**: VS Code + Extension Pack for Java
-- **Herramienta de verificación**: Codex 5.4 (checklists y logs automáticos)
+## Estado
+
+| TP | Estado |
+|---|---|
+| TP1 | Completado |
+
+## Herramientas utilizadas
+
+- Java
+- VS Code
+- Codex para la implementacion y documentacion

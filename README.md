@@ -4,59 +4,63 @@ Repositorio personal donde organizo todo el material producido durante la materi
 
 ---
 
-## 🗂️ Estructura General
+## 🗂️ Estructura de Ramas
 
-```
-Programacion 2/
-│
-├── (Branch) TP1-P2/             # Trabajo Práctico N.º 1 (Repositorio Independiente)
-│
-├── (Branch) GuiaColecciones1/   # Guía de Colecciones (Ejercicios y Documentación)
-│
-└── README.md
-```
+El proyecto se organiza mediante ramas (branches) para cada unidad temática y Trabajo Práctico:
+
+- **`GuiaFundamentos`**: Fundamentos de Programación (TP1)
+- **`GuiaColecciones1`**: Colecciones y Estructuras de Datos (TP2)
+- **`GestionErroresyExcepciones`**: Manejo de Errores y Excepciones (TP3)
+- **`FuncionalyStreams`**: Programación Funcional y Streams (TP4)
+- **`ConcurrenciayMultitareaBasica`**: Concurrencia y Multitarea (TP5)
 
 ---
 
 ## 📁 Criterio de Organización
 
-### Trabajos Prácticos (`Tp<N>/`)
-Cada trabajo práctico tiene su propia carpeta raíz. Dentro se dividen en dos secciones:
+Cada rama mantiene una estructura consistente para facilitar la navegación y el seguimiento:
 
-#### 🖥️ Código por clase (`Clase-<N>-Codigo/`)
-Contiene una subcarpeta por cada clase dictada, nombrada con un índice y (eventualmente) la fecha correspondiente. Adentro se guardan los ejercicios resueltos ese día, organizados de forma individual.
+### Trabajos Prácticos
+Dentro de cada rama se dividen en dos secciones principales:
 
-> Cuando todos los ejercicios de un TP estén integrados, aparecerá la carpeta **`TP COMPLETO X`** con el trabajo consolidado.
+#### 🖥️ Código Fuente (`src/`)
+Contiene los archivos `.java` con la implementación de los ejercicios y el `App.java` principal.
 
 #### 📄 Documentación (`Documentacion/`)
-Dividida en dos partes:
+Organizada para asegurar la trazabilidad del desarrollo:
 
 | Carpeta | Contenido |
 |---|---|
-| `Checklist-Logs/` | Checklists y logs de consola generados por **Codex 5.4**, que verifican el cumplimiento punto a punto de cada consigna. |
-| `Ejercicio/` | Consignas en crudo tal como las entregó el profesor (`.txt`), sin modificaciones. |
+| `Checklist/` | Verificación de requerimientos punto a punto. |
+| `Logs/` | Registros de ejecución y validación de consola. |
+| `Ejercicio/` | Consignas originales y enunciados del TP. |
+| `Conclusion/` | Reflexiones y aprendizajes finales del módulo. |
 
 ---
 
-## ✅ Estado Actual
+## ✅ Estado del Proyecto
 
-| TP | Clases cubiertas | Estado |
-|---|---|---|
-| [TP1 - TP1-P2](https://github.com/Niquinhoo/TP1-P2) | Clase 1 | ✅ Completado (Repo Independiente) |
-| [Guía de Colecciones](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | Clase 2 Virtual | 🏗️ En proceso (Branch GuiaColecciones1) |
+| TP | Temática | Branch | Estado |
+|---|---|---|---|
+| **TP1** | Fundamentos | [GuiaFundamentos](https://github.com/Niquinhoo/Programacion-2/tree/GuiaFundamentos) | ✅ Finalizado |
+| **TP2** | Colecciones | [GuiaColecciones1](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | ✅ Finalizado |
+| **TP3** | Errores | [GestionErroresyExcepciones](https://github.com/Niquinhoo/Programacion-2/tree/GestionErroresyExcepciones) | ✅ Finalizado |
+| **TP4** | Funcional y Streams | [FuncionalyStreams](https://github.com/Niquinhoo/Programacion-2/tree/FuncionalyStreams) | ✅ Finalizado |
+| **TP5** | Concurrencia | [ConcurrenciayMultitareaBasica](https://github.com/Niquinhoo/Programacion-2/tree/ConcurrenciayMultitareaBasica) | 🏗️ En proceso |
 
 ---
 
 ## 🛠️ Tecnologías
 
-- **Lenguaje**: Java
+- **Lenguaje**: Java ☕
 - **Entorno**: VS Code + Extension Pack for Java
-- **Herramienta de verificación**: Codex 5.4 (checklists y logs automáticos)
+- **Control de Versiones**: Git & GitHub
 
 ---
 
 ## 📌 Notas
 
-- Los nombres de las carpetas de clase se actualizarán a medida que avance la cursada.
-- A medida que se completen los TPs, se consolidará el código en una carpeta `TP COMPLETO X` dentro del TP correspondiente.
+- Cada rama representa un hito en la cursada.
+- Se utiliza una estructura de documentación rigurosa para cada entrega.
 - Este repositorio es de uso personal y académico.
+

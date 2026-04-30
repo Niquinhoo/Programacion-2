@@ -1,62 +1,58 @@
-# 📘 Programación 2 — Repositorio de Cursada
+# Programacion 2 - Errores y Excepciones
 
-Repositorio personal donde organizo todo el material producido durante la materia **Programación 2**. Incluye el código resuelto en clase, trabajos prácticos completos, consignas originales y documentación de verificación generada por Codex.
+Proyecto Java enfocado en practica de manejo de errores y excepciones:
+- `try/catch/finally`
+- `multi-catch`
+- validaciones fail-fast
+- excepciones personalizadas checked/unchecked
+- `try-with-resources`
 
----
+## Arquitectura actual
 
-## 🗂️ Estructura General
+Arquitectura por capas simples, sin paquetes declarados, con clases en `ErroresyExcepciones/src`.
 
+```text
+ErroresyExcepciones/
+├── src/
+│   ├── App.java                         # Punto de entrada
+│   ├── ExerciseRunner.java              # Orquesta ejecucion de ejercicios
+│   ├── ExceptionExercises.java          # Casos 1.1 a 4.1
+│   ├── UserService.java                 # Validaciones de usuario
+│   ├── FileService.java                 # Lectura de archivo con try-with-resources
+│   ├── CuentaBancaria.java              # Dominio cuenta
+│   ├── Producto.java                    # Dominio producto
+│   ├── SaldoInsuficienteException.java  # Checked exception
+│   ├── ProductoInvalidoException.java   # Unchecked exception
+│   ├── ConsoleLogger.java               # Salida estandar de logs
+│   └── personas.txt                     # Input para ejercicio 4.1
+└── (sin Makefile activo)
 ```
-Programacion 2/
-│
-├── (Branch) TP1-P2/             # Trabajo Práctico N.º 1 (Repositorio Independiente)
-│
-├── (Branch) GuiaColecciones1/   # Guía de Colecciones (Ejercicios y Documentación)
-│
-└── README.md
+
+## Flujo de ejecucion
+
+1. `App` crea `ExerciseRunner`.
+2. `ExerciseRunner` inyecta `UserService` y `FileService` en `ExceptionExercises`.
+3. `ExceptionExercises` ejecuta todos los casos en secuencia y delega:
+   - reglas de usuario a `UserService`
+   - lectura de archivo a `FileService`
+   - reglas de dominio a `CuentaBancaria` y `Producto`
+4. `ConsoleLogger` normaliza salida `[INFO]/[ERROR]`.
+
+## Como correr
+
+Desde raiz repo:
+
+```bash
+cd ErroresyExcepciones/src
+java App.java
 ```
 
----
+Nota:
+- En este entorno, `java` funciona.
+- `javac` puede no estar disponible en PATH.
 
-## 📁 Criterio de Organización
+## Documentacion complementaria
 
-### Trabajos Prácticos (`Tp<N>/`)
-Cada trabajo práctico tiene su propia carpeta raíz. Dentro se dividen en dos secciones:
-
-#### 🖥️ Código por clase (`Clase-<N>-Codigo/`)
-Contiene una subcarpeta por cada clase dictada, nombrada con un índice y (eventualmente) la fecha correspondiente. Adentro se guardan los ejercicios resueltos ese día, organizados de forma individual.
-
-> Cuando todos los ejercicios de un TP estén integrados, aparecerá la carpeta **`TP COMPLETO X`** con el trabajo consolidado.
-
-#### 📄 Documentación (`Documentacion/`)
-Dividida en dos partes:
-
-| Carpeta | Contenido |
-|---|---|
-| `Checklist-Logs/` | Checklists y logs de consola generados por **Codex 5.4**, que verifican el cumplimiento punto a punto de cada consigna. |
-| `Ejercicio/` | Consignas en crudo tal como las entregó el profesor (`.txt`), sin modificaciones. |
-
----
-
-## ✅ Estado Actual
-
-| TP | Clases cubiertas | Estado |
-|---|---|---|
-| [TP1 - TP1-P2](https://github.com/Niquinhoo/TP1-P2) | Clase 1 | ✅ Completado (Repo Independiente) |
-| [Guía de Colecciones](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | Clase 2 Virtual | 🏗️ En proceso (Branch GuiaColecciones1) |
-
----
-
-## 🛠️ Tecnologías
-
-- **Lenguaje**: Java
-- **Entorno**: VS Code + Extension Pack for Java
-- **Herramienta de verificación**: Codex 5.4 (checklists y logs automáticos)
-
----
-
-## 📌 Notas
-
-- Los nombres de las carpetas de clase se actualizarán a medida que avance la cursada.
-- A medida que se completen los TPs, se consolidará el código en una carpeta `TP COMPLETO X` dentro del TP correspondiente.
-- Este repositorio es de uso personal y académico.
+- `Documentacion/Logs/LOGSERRORESYEXCEPCIONES.md`
+- `Documentacion/Checklist/CHECKLISTERRORESYEXCEPCIONES.md`
+- `Documentacion/Conclusion/CONCLUSIONERRORESYEXCEPCIONES.md`

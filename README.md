@@ -24,8 +24,8 @@ ErroresyExcepciones/
 │   ├── SaldoInsuficienteException.java  # Checked exception
 │   ├── ProductoInvalidoException.java   # Unchecked exception
 │   ├── ConsoleLogger.java               # Salida estandar de logs
-│   └── personas.txt                     # Input para ejercicio 4.1
-└── (sin Makefile activo)
+    └── personas.txt                     # Input para ejercicio 4.1
+
 ```
 
 ## Flujo de ejecucion

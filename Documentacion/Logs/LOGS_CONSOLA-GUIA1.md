@@ -1,6 +1,6 @@
 # Logs de Consola - Guia 1
 
-Salida obtenida al compilar con `javac` y ejecutar `java App` desde `Guia-Codigo/Ejercicio 1/src`:
+Salida obtenida al compilar con `javac` y ejecutar `java -cp . App` desde `Guia-Codigo/Ejercicio 1/src`:
 
 ```text
 ============================================================
@@ -76,16 +76,16 @@ Clave 300 -> Julian
 ------------------------------------------------------------
 Ejercicio 5.1 - Orden natural con Comparable
 ------------------------------------------------------------
-Lista original: [Empleado{nombre='Marina', edad=34}, Empleado{nombre='Alberto', edad=29}, Empleado{nombre='Zoe', edad=41}, Empleado{nombre='Bruno', edad=29}]
-Lista ordenada por edad (compareTo): [Empleado{nombre='Alberto', edad=29}, Empleado{nombre='Bruno', edad=29}, Empleado{nombre='Marina', edad=34}, Empleado{nombre='Zoe', edad=41}]
+Lista original: [Empleado{nombre='Marina', edad=34}, Empleado{nombre='Alberto', edad=41}, Empleado{nombre='Zoe', edad=29}, Empleado{nombre='Bruno', edad=29}]
+Lista ordenada por edad (compareTo): [Empleado{nombre='Zoe', edad=29}, Empleado{nombre='Bruno', edad=29}, Empleado{nombre='Marina', edad=34}, Empleado{nombre='Alberto', edad=41}]
 
 ------------------------------------------------------------
 Ejercicio 5.2 - Orden personalizado con Comparator
 ------------------------------------------------------------
-Lista original: [Empleado{nombre='Marina', edad=34}, Empleado{nombre='Alberto', edad=29}, Empleado{nombre='Zoe', edad=41}, Empleado{nombre='Bruno', edad=29}]
-Lista ordenada por nombre (Comparator): [Empleado{nombre='Alberto', edad=29}, Empleado{nombre='Bruno', edad=29}, Empleado{nombre='Marina', edad=34}, Empleado{nombre='Zoe', edad=41}]
+Lista original: [Empleado{nombre='Marina', edad=34}, Empleado{nombre='Alberto', edad=41}, Empleado{nombre='Zoe', edad=29}, Empleado{nombre='Bruno', edad=29}]
+Lista ordenada por nombre (Comparator): [Empleado{nombre='Alberto', edad=41}, Empleado{nombre='Bruno', edad=29}, Empleado{nombre='Marina', edad=34}, Empleado{nombre='Zoe', edad=29}]
 ```
 
 Nota: el orden de impresion de `HashSet` puede variar entre ejecuciones porque no garantiza orden.
 
-Esta documentacion fue testeada y generada por Claude
+Esta documentacion fue actualizada y testeada por Codex

@@ -8,9 +8,10 @@
 - [x] Validado el recorrido ordenado de `TreeMap` por claves
 - [x] Validado el orden natural por edad con `Comparable`
 - [x] Validado el orden personalizado por nombre con `Comparator`
+- [x] Ajustado el set de empleados para que el orden por nombre se vea distinto al orden por edad
 - [x] Logs de consola documentados
 - [x] README actualizado con instrucciones de ejecucion
 - [x] Documentacion Javadoc generada y testeada
 
 Nota: la validacion se realizo mediante ejecucion de consola, ya que el proyecto no posee configuracion de JUnit o build tool.
-Esta checklist fue testeada y generada por Codex
+Esta checklist fue actualizada y testeada por Codex

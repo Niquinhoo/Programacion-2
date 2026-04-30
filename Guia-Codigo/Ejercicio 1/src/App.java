@@ -258,8 +258,8 @@ public class App {
     private static List<Empleado> crearEmpleados() {
         List<Empleado> empleados = new ArrayList<>();
         empleados.add(new Empleado("Marina", 34));
-        empleados.add(new Empleado("Alberto", 29));
-        empleados.add(new Empleado("Zoe", 41));
+        empleados.add(new Empleado("Alberto", 41));
+        empleados.add(new Empleado("Zoe", 29));
         empleados.add(new Empleado("Bruno", 29));
         return empleados;
     }

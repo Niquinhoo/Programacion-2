@@ -13,15 +13,15 @@ GuiaColecciones1/
 |           |-- Empleado.java
 |           `-- EmpleadoPorNombreComparator.java
 `-- Documentacion/
-    |-- Checklist-Logs/
-    |   `-- Guia1/
-    |       |-- Checklist/
-    |       |   `-- CHECKLIST-GUIA1.md
-    |       `-- Logs/
-    |           `-- LOGS_CONSOLA-GUIA1.md
-    `-- Ejercicio/
-        `-- Guia1/
-            `-- GUIA1.txt
+    |-- Checklist/
+    |   `-- CHECKLIST-GUIA1.md
+    |-- Conclusion/
+    |   `-- CONCLUSION.md
+    |-- Ejercicio/
+    |   |-- GuiaColecciones.md
+    |   `-- Guía de Ejercicios colecciones 1eraParte.pdf
+    `-- Logs/
+        `-- LOGS_CONSOLA-GUIA1.md
 ```
 
 ## Contenido resuelto
@@ -39,10 +39,10 @@ Desde la carpeta `Guia-Codigo/Ejercicio 1/src`:
 
 ```powershell
 javac App.java Empleado.java EmpleadoPorNombreComparator.java
-java App
+java -cp . App
 ```
 
-La salida de la ejecucion queda documentada en `Documentacion/Checklist-Logs/Guia1/Logs/LOGS_CONSOLA-GUIA1.md`.
+La salida de la ejecucion queda documentada en `Documentacion/Logs/LOGS_CONSOLA-GUIA1.md`.
 
 ## Documentacion Javadoc
 
@@ -60,4 +60,11 @@ javadoc -d docs App.java Empleado.java EmpleadoPorNombreComparator.java
 
 Ese comando crea la carpeta `docs/` con la navegacion HTML de la documentacion generada.
 
-Toda la documentacion fue testeada por Codex
+## Documentacion adicional
+
+- `Documentacion/Ejercicio/GuiaColecciones.md`: resumen de la guia de ejercicios.
+- `Documentacion/Checklist/CHECKLIST-GUIA1.md`: validacion de requisitos y pruebas realizadas.
+- `Documentacion/Conclusion/CONCLUSION.md`: analisis final de la implementacion.
+- `Documentacion/Logs/LOGS_CONSOLA-GUIA1.md`: salida completa de la ejecucion en consola.
+
+Toda la documentacion fue actualizada y testeada por Codex.

@@ -44,7 +44,7 @@ Organizada para asegurar la trazabilidad del desarrollo:
 |---|---|---|---|
 | **TP1** | Fundamentos | [GuiaFundamentos](https://github.com/Niquinhoo/Programacion-2/tree/GuiaFundamentos) | ✅ Finalizado |
 | **TP2** | Colecciones | [GuiaColecciones1](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | ✅ Finalizado |
-| **TP3** | Errores | [GestionErroresyExcepciones](https://github.com/Niquinhoo/Programacion-2/tree/GestionErroresyExcepciones) | 🏗️ En proceso |
+| **TP3** | Errores | [GestionErroresyExcepciones](https://github.com/Niquinhoo/Programacion-2/tree/GestionErroresyExcepciones) | ✅ Finalizado |
 | **TP4** | Funcional y Streams | [FuncionalyStreams](https://github.com/Niquinhoo/Programacion-2/tree/FuncionalyStreams) | ✅ Finalizado |
 | **TP5** | Concurrencia | [ConcurrenciayMultitareaBasica](https://github.com/Niquinhoo/Programacion-2/tree/ConcurrenciayMultitareaBasica) | ✅ Finalizado |
 

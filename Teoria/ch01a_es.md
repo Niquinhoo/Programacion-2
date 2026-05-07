@@ -38,7 +38,7 @@ exam_objectives:
 
 - **C)** `volatile` es correcto. `volatile` es una palabra clave reservada que se utiliza para indicar que el valor de una variable será modificado por diferentes subprocesos.
 
-- **D)** `extiende` es correcto. `extends` es una palabra clave reservada que se utiliza en declaraciones de clase para heredar de una superclase.
+- **D)** `extends` es correcto. `extends` es una palabra clave reservada que se utiliza en declaraciones de clase para heredar de una superclase.
 
 
 
@@ -85,10 +85,10 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)** Cualquier otra clase en el mismo paquete o en cualquier otro paquete puede acceder a una clase o miembro `público`.
+- **A)** Cualquier otra clase en el mismo paquete o en cualquier otro paquete puede acceder a una clase o miembro `public`.
   - Esto es correcto. El modificador "público" otorga el nivel más alto de acceso. Se puede acceder a una clase o miembro "público" desde cualquier otra clase, independientemente de los paquetes a los que pertenezca.
 
-- **B)** Cualquier clase en su propio paquete puede acceder a un miembro `protegido`, pero desde fuera del paquete, solo las clases que extienden la clase que contiene el miembro protegido.
+- **B)** Cualquier clase en su propio paquete puede acceder a un miembro `protected`, pero desde fuera del paquete, solo las clases que extienden la clase que contiene el miembro protegido.
   - Esto es correcto. El nivel de acceso "protegido" permite acceder a un miembro dentro de su propio paquete y mediante subclases en cualquier paquete. Ofrece un nivel de acceso más restrictivo que el "público".
 
 - **C)** Cualquier clase en el mismo paquete puede acceder a un miembro con acceso `predeterminado` (sin modificador), pero no desde una clase en un paquete diferente.
@@ -119,7 +119,7 @@ exam_objectives:
   - Esta es la respuesta correcta. La sintaxis sigue el orden correcto: el modificador de acceso ("público"), seguido de la palabra clave "clase", y luego el nombre de la clase ("Vehículo"), que comienza correctamente con una letra mayúscula según las convenciones de nomenclatura de Java.
 
 - **E)** `claseVehículo público { }`
-  - Esta opción es incorrecta por varias razones: el orden de sintaxis es incorrecto, no hay espacio entre `clase` y el nombre de la clase y la posición del modificador de acceso es incorrecta.
+  - Esta opción es incorrecta por varias razones: el orden de sintaxis es incorrecto, no hay espacio entre `class` y el nombre de la clase y la posición del modificador de acceso es incorrecta.
 
 
 
@@ -163,7 +163,7 @@ exam_objectives:
 
 - **A)** `int public static final computeSum(int num1, int num2) { return num1 + num2 }` es incorrecto porque el tipo de retorno en las declaraciones de métodos va justo antes del nombre del método, no al principio.
 
-- **B)** `private void updateRecord(int id) lanza IOException {}` es correcto. Esta declaración de método es sintácticamente correcta en Java. Utiliza el modificador de acceso "privado", especifica un tipo de retorno ("void"), incluye una excepción ("IOException") que este método podría generar y define correctamente la lista de parámetros.
+- **B)** `private void updateRecord(int id) throws IOException {}` es correcto. Esta declaración de método es sintácticamente correcta en Java. Utiliza el modificador de acceso "privado", especifica un tipo de retorno ("void"), incluye una excepción ("IOException") que este método podría generar y define correctamente la lista de parámetros.
 
 - **C)** `checkStatus booleano sincronizado [estado int] { estado de retorno == 1; }` La sintaxis correcta requiere paréntesis para la lista de parámetros, incluso cuando no hay parámetros, lo que genera la declaración correcta `synchronized boolean checkStatus(int status)`.
 
@@ -177,15 +177,15 @@ exam_objectives:
 
 En Java, la firma de un método consta del nombre del método y la lista de parámetros. El tipo de retorno, el modificador de acceso y la lista de excepciones no se consideran parte de la firma del método.
 
-- **A)** (`actualización pública nula (int id, valor de cadena)`) 
-- **B)** (`actualización nula privada (identificador int, datos de cadena)`) 
+- **A)** (`public void update (int id, String value)`) 
+- **B)** (`private void update (int identifier, String data)`) 
   - Las opciones anteriores tienen la misma firma de método (`update(int, String)`) porque ambas tienen el mismo nombre de método y lista de parámetros (un `int` y un `String`, en ese orden). La diferencia en los nombres de los parámetros (`id` frente a `identificador` y `valor` frente a `datos`) no afecta la firma del método.
 
-- **C)** `actualización booleana pública (valor de cadena, int id)` 
-- **D)** `actualización nula (valor de cadena, int id)`
+- **C)** `public boolean update (String value, int id)` 
+- **D)** `void update (String value, int id)`
   - Esta opción tiene el mismo mfirma del método (`update(String, int)`) que C porque ambos tienen el mismo nombre de método y lista de parámetros (una `String` y un `int`, en ese orden). Los diferentes modificadores de acceso y tipos de retorno no afectan la firma del método.
 
-- **E)** `la actualización de vacío protegido (int id, valor int) arroja IOException`
+- **E)** `la protected void update (int id, int value) arroja IOException`
   - Esta opción también tiene una lista de parámetros diferente (`update(int, int)`).
 
 
@@ -195,16 +195,16 @@ En Java, la firma de un método consta del nombre del método y la lista de par�
 **Explicación:**
 
 - **A)** Se puede acceder al método `resetAccountPassword` desde cualquier clase dentro del mismo paquete, pero no desde una clase en un paquete diferente.
-  - Esta opción es incorrecta. El método `resetAccountPassword` tiene acceso `privado`, lo que significa que solo se puede acceder a él dentro de la clase `AccountManager`, no desde ninguna clase, ni siquiera dentro del mismo paquete. La afirmación inicial era ligeramente incorrecta al sugerir acceso a nivel de paquete para un método "privado".
+  - Esta opción es incorrecta. El método `resetAccountPassword` tiene acceso `private`, lo que significa que solo se puede acceder a él dentro de la clase `AccountManager`, no desde ninguna clase, ni siquiera dentro del mismo paquete. La afirmación inicial era ligeramente incorrecta al sugerir acceso a nivel de paquete para un método "privado".
 
 - **B)** Se puede acceder al método `auditTrail` desde cualquier clase dentro del mismo paquete y desde subclases en diferentes paquetes.
   - Esta opción es incorrecta porque el método `auditTrail` tiene acceso privado al paquete (sin modificador de acceso), lo que significa que es accesible desde cualquier clase dentro del mismo paquete pero no desde subclases en diferentes paquetes a menos que también estén dentro del mismo paquete.
 
 - **C)** Se puede acceder al método `notifyAccountChanges` desde cualquier clase dentro del mismo paquete y desde subclases en diferentes paquetes.
-  - Esta opción es correcta. El método `notifyAccountChanges` tiene acceso `protegido`, lo que significa que se puede acceder a él dentro del mismo paquete y por subclases, incluso si las subclases están en paquetes diferentes.
+  - Esta opción es correcta. El método `notifyAccountChanges` tiene acceso `protected`, lo que significa que se puede acceder a él dentro del mismo paquete y por subclases, incluso si las subclases están en paquetes diferentes.
 
 - **D)** Se puede acceder al método `updateAccountInformation` desde cualquier clase, independientemente de su paquete.
-  - Esta opción es correcta. El método `updateAccountInformation` es `público`, por lo que se puede acceder a él desde cualquier clase, independientemente del paquete al que pertenezca.
+  - Esta opción es correcta. El método `updateAccountInformation` es `public`, por lo que se puede acceder a él desde cualquier clase, independientemente del paquete al que pertenezca.
 
 
 
@@ -214,23 +214,47 @@ En Java, la firma de un método consta del nombre del método y la lista de par�
 
 Java es estrictamente de paso por valor. Esto significa que al pasar una variable a un método, Java pasa una copia del valor de la variable, no de la variable en sí. Los cambios en el parámetro dentro del método no afectan la variable original.
 
-- **A)**```
-Before calling changeValue: 10  
-After calling changeValue: 20  
- ```- Esta opción es incorrecta porque, aunque el método `changeValue` cambia el parámetro `value` a 20, este cambio no afecta a la variable original `originalValue` fuera del método. El cambio a "valor" se realiza en su copia, no en el propio "valor original".
+- **A)**
 
-- **B)**```
-Before calling changeValue: 10  
-After calling changeValue: 10  
-```- Esta es la respuesta correcta. `originalValue` se pasa por valor al método `changeValue`. Por lo tanto, las modificaciones al "valor" dentro de "cambiarValor" no afectan al "valor original". El resultado confirma que "originalValue" permanece sin cambios después de la llamada al método.
+```
 
-- **C)**```
+Before calling changeValue: 10  
+After calling changeValue: 20
+
+```
+
+- Esta opción es incorrecta porque, aunque el método `changeValue` cambia el parámetro `value` a 20, este cambio no afecta a la variable original `originalValue` fuera del método. El cambio a "valor" se realiza en su copia, no en el propio "valor original".
+
+- **B)**
+
+```
+
+Before calling changeValue: 10  
+After calling changeValue: 10
+
+```
+
+- Esta es la respuesta correcta. `originalValue` se pasa por valor al método `changeValue`. Por lo tanto, las modificaciones al "valor" dentro de "cambiarValor" no afectan al "valor original". El resultado confirma que "originalValue" permanece sin cambios después de la llamada al método.
+
+- **C)**
+
+```
+
 Before calling changeValue: 20  
-After calling changeValue: 20  
-```- **D)**```
+After calling changeValue: 20
+
+```
+
+- **D)**
+
+```
+
 Before calling changeValue: 20  
-After calling changeValue: 10  
-```- Estas opciones son incorrectas ya que sugieren que los cambios en los parámetros del método pueden afectar las variables originales, que no es como funciona la semántica de paso por valor de Java.
+After calling changeValue: 10
+
+```
+
+- Estas opciones son incorrectas ya que sugieren que los cambios en los parámetros del método pueden afectar las variables originales, que no es como funciona la semántica de paso por valor de Java.
 
 
 
@@ -238,10 +262,10 @@ After calling changeValue: 10
 
 **Explicación:**
 
-- **A)** `Objeto`
+- **A)** `Object`
   - Esta opción es incorrecta porque Java utiliza el método más específico aplicable a los parámetros. En este caso, `String` es más específico que `Object`, por lo que se llama al método `print(String s)`.
 
-- **B)** `Cadena`
+- **B)** `String`
   - Esta opción es correcta. Aunque "nulo" se puede asignar a cualquier tipo de referencia, Java prefiere el método más específico aplicable a los parámetros del método. Dado que `String` es un tipo más específico que `Object`, el método `print(String s)` se elige en lugar del método `print(Object o)`.
 
 - **C)** La compilación falla
@@ -256,19 +280,19 @@ After calling changeValue: 10
 
 **Explicación:**
 
-- **A)** `impresión pública vacía (cadena... mensajes, recuento int)`
+- **A)** `public void print (cadena... mensajes, int count)`
   - Esta opción es incorrecta porque varargs (argumentos variables) debe ser el último parámetro en la lista de parámetros de un método. Tener "int count" después de "String... mensajes" viola esta regla.
 
-- **B)** `impresión pública vacía (int count, String... mensajes)`
+- **B)** `public void print (int count, String... mensajes)`
   - Esta opción es correcta. Coloca correctamente el parámetro varargs `Cadena... mensajes` al final de la lista de parámetros del método, que es la sintaxis requerida para usar varargs.
 
-- **C)** `impresión pública vacía (mensajes de cadena...)`
-  - Esta opción es incorrecta porque la sintaxis `Mensajes de cadena...` no es válida. La sintaxis correcta para varargs es colocar puntos suspensivos (`...`) después del tipo y antes del nombre de la variable, como `String... message`.
+- **C)** `public void print (String... messages...)`
+  - Esta opción es incorrecta porque la sintaxis `String... messages...` no es válida. La sintaxis correcta para varargs es colocar puntos suspensivos (`...`) después del tipo y antes del nombre de la variable, como `String... message`.
 
-- **D)** `impresión pública vacía (Cadena[]... mensajes)`
-  - Esta opción es correcta. Demuestra el uso de varargs con un tipo de matriz, lo cual está permitido. Aquí, cada argumento pasado a `mensajes` puede ser en sí mismo una matriz de `Cadena`, y `mensajes` se tratará como una matriz de matrices (`Cadena[][]`).
+- **D)** `public void print (Cadena[]... mensajes)`
+  - Esta opción es correcta. Demuestra el uso de varargs con un tipo de matriz, lo cual está permitido. Aquí, cada argumento pasado a `mensajes` puede ser en sí mismo una matriz de `String`, y `mensajes` se tratará como una matriz de matrices (`Cadena[][]`).
 
-- **E)** `impresión pública vacía (cadena... mensajes, cadena último mensaje)`
+- **E)** `public void print (cadena... mensajes, cadena lastMessage)`
   - Esta opción es incorrecta, similar a la opción A, porque varargs debe ser el último parámetro en la lista de parámetros del método. No se permite tener otro parámetro después del parámetro varargs.
 
 
@@ -313,16 +337,16 @@ After calling changeValue: 10
 
 **Explicación:**
 
-- **A)** El bloque inicializador `estático` se ejecuta solo una vez cuando la clase se carga por primera vez en la memoria, inicializando el mapa de `configuración` con valores predeterminados.
+- **A)** El bloque inicializador `static` se ejecuta solo una vez cuando la clase se carga por primera vez en la memoria, inicializando el mapa de `configuración` con valores predeterminados.
   - Esta opción es correcta. Los bloques inicializadores estáticos se ejecutan una sola vez, cuando la clase se carga por primera vez en la memoria JVM. En este caso, inicializa el mapa de "configuración" con los valores de configuración predeterminados.
 
-- **B)** El bloque inicializador `estático` permite que los métodos de instancia modifiquen el mapa de `configuración` sin crear una instancia de la clase `Configuración`.
+- **B)** El bloque inicializador `static` permite que los métodos de instancia modifiquen el mapa de `configuración` sin crear una instancia de la clase `Configuración`.
   - Esta opción es engañosa. Si bien los métodos estáticos como `getSetting` pueden acceder y modificar campos estáticos como `settings` sin necesidad de una instancia de la clase, esta capacidad no se debe al bloque inicializador estático en sí, sino a la naturaleza de los campos y métodos estáticos.
 
 - **C)** Los bloques inicializadores `estáticos` se ejecutan cada vez que se crea una nueva instancia de la clase `Configuración`.
   - Esta opción es incorrecta. Los bloques inicializadores estáticos no se ejecutan cada vez que se crea una nueva instancia de la clase. Se ejecutan sólo una vez: cuando la clase se carga por primera vez.
 
-- **D)** El bloque inicializador `estático` se ejecuta antes que cualquier bloque inicializador o constructor de instancia, cuando se crea una instancia de la clase.
+- **D)** El bloque inicializador `static` se ejecuta antes que cualquier bloque inicializador o constructor de instancia, cuando se crea una instancia de la clase.
   - Esta afirmación es parcialmente correcta en el sentido de que los bloques inicializadores estáticos se ejecutan antes que cualquier constructor o bloque inicializador de instancia, pero es engañosa ya que implica una secuencia con la creación de la instancia. El punto clave es que los bloques inicializadores estáticos se ejecutan una vez al cargar la clase, independientemente de la creación de instancias.
 
 
@@ -341,37 +365,61 @@ En Java, el orden de inicialización cuando se carga una clase y se crea una ins
 
 La numeración de la salida para `"3. Inicializador de instancia"` y `"3. Inicializador de valor de instancia"` en la pregunta podría parecer sugerir que se ejecutan simultáneamente o fuera de orden, pero es importante recordar que los campos de instancia y los inicializadores de instancia se ejecutan en el orden en que aparecen en la clase, antes de que se ejecute el constructor. La numeración duplicada significa que los inicializadores de campo de instancia se ejecutan primero, seguidos de los inicializadores de instancia y, finalmente, se ejecuta el constructor.
 
-- **A)**```
+- **A)**
+
+```
+
 1. Static initializer
 2. Static value initializer
 3. Instance initializer
 3. Instance value initializer
-4. Constructor 
-```- Esta opción es incorrecta.
+4. Constructor
 
-- **B)**```
+```
+
+- Esta opción es incorrecta.
+
+- **B)**
+
+```
+
 1. Static initializer
 2. Static value initializer
 3. Instance value initializer
 3. Instance initializer
 4. Constructor
-```- Esta opción es correcta.
 
-- **C)**```
+```
+
+- Esta opción es correcta.
+
+- **C)**
+
+```
+
 1. Static initializer
 3. Instance initializer
 2. Static value initializer
 3. Instance value initializer
 4. Constructor
-```- Esta opción es incorrecta. 
 
-- **D)**```
+```
+
+- Esta opción es incorrecta. 
+
+- **D)**
+
+```
+
 2. Static value initializer
 1. Static initializer
 3. Instance value initializer
 3. Instance initializer
-4. Constructor 
-```- Esta opción es incorrecta.
+4. Constructor
+
+```
+
+- Esta opción es incorrecta.
 
 
 
@@ -389,7 +437,7 @@ La numeración de la salida para `"3. Inicializador de instancia"` y `"3. Inicia
   - Esta opción es correcta. El método `hashCode()` está diseñado para devolver una representación entera de la dirección de memoria del objeto o un valor derivado de ella. Si bien la implementación exacta no se especifica y puede variar, es consistente durante la ejecución de un programa para cualquier objeto determinado.
 
 - **D)** El método `clone()` se puede utilizar para crear una copia superficial de una instancia de `CustomObject` sin la necesidad de que `CustomObject` implemente la interfaz `Cloneable`. 
-  - Esta opción es incorrecta. El método `clone()` en `java.lang.Object` está protegido y genera una `CloneNotSupportedException` a menos que la clase implemente la interfaz `Cloneable`. Sin que `CustomObject` implemente explícitamente `Cloneable` y anule `clone()` para hacerlo `público`, no se puede usar para clonar instancias de `CustomObject`.
+  - Esta opción es incorrecta. El método `clone()` en `java.lang.Object` está protegido y genera una `CloneNotSupportedException` a menos que la clase implemente la interfaz `Cloneable`. Sin que `CustomObject` implemente explícitamente `Cloneable` y anule `clone()` para hacerlo `public`, no se puede usar para clonar instancias de `CustomObject`.
 
 
 
@@ -469,7 +517,7 @@ La numeración de la salida para `"3. Inicializador de instancia"` y `"3. Inicia
 
 **Explicación:**
 
-- **A)** Un archivo fuente puede contener mMúltiples clases públicas.
+- **A)** Un archivo fuente puede contener múltiples clases públicas.
   - Esta opción es incorrecta. Un archivo fuente Java no puede contener más de una clase "pública". Si una clase se declara "pública", debe ser la única clase "pública" en el archivo y el nombre del archivo debe coincidir con el nombre de la clase.
 
 - **B)** Las clases privadas se pueden declarar en el nivel superior en un archivo fuente.

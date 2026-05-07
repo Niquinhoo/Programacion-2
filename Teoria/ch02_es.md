@@ -53,7 +53,10 @@ En el nivel más alto, el alcance de una variable está determinado por el lugar
 - Campos (variables de instancia)
 - Variables de clase (campos estáticos)
 
-Aquí te dejamos un diagrama para visualizarlo:```
+Aquí te dejamos un diagrama para visualizarlo:
+
+```
+
 ┌───────────────────────────────────────────────┐
 │ Class                                         │
 │ ┌───────────────────────────────────────────┐ │
@@ -76,7 +79,12 @@ Aquí te dejamos un diagrama para visualizarlo:```
 │ │ └───────────────────────────────────────┘ │ │
 │ └───────────────────────────────────────────┘ │
 └───────────────────────────────────────────────┘
-```Las variables locales se declaran dentro del método donde están definidas, mientras que las variables de bloque solo son accesibles dentro del bloque donde están definidas. Entran en el alcance en su declaración y salen del alcance al final del método/bloque adjunto:```java
+
+```
+
+Las variables locales se declaran dentro del método donde están definidas, mientras que las variables de bloque solo son accesibles dentro del bloque donde están definidas. Entran en el alcance en su declaración y salen del alcance al final del método/bloque adjunto:
+
+```java
 void myMethod() {
     int x = 1;
     if (x > 0) { 
@@ -86,18 +94,28 @@ void myMethod() {
     System.out.println(x); // Only x is in scope here
     System.out.println(y); // Compile error! y is out of scope
 }
-```Como puede ver, "y" solo es visible dentro del bloque "if" donde se declaró. Intentar acceder a él fuera de ese bloque genera un error de compilación.
 
-Si declara una variable dentro de un bucle, no podrá acceder a ella fuera del bucle. Incluso si todo está en el mismo método, el alcance aún termina al cerrar el ciclo `}`. Por ejemplo:```java
+```
+
+Como puede ver, "y" solo es visible dentro del bloque "if" donde se declaró. Intentar acceder a él fuera de ese bloque genera un error de compilación.
+
+Si declara una variable dentro de un bucle, no podrá acceder a ella fuera del bucle. Incluso si todo está en el mismo método, el alcance aún termina al cerrar el ciclo `}`. Por ejemplo:
+
+```java
 void myLoopingMethod() {
     for (int i = 0; i < 10; i++) { 
         System.out.println(i);
     }
     System.out.println(i); // Compile error! i is out of scope
 }
-```De manera similar, las variables declaradas en un inicializador de bucle for, como `int i` arriba, tienen como alcance solo el cuerpo del bucle, no todo el método adjunto.
 
-Este concepto también se aplica a otros bloques como "if/else". Una variable declarada dentro de un `if` no es visible en el `else` correspondiente:```java
+```
+
+De manera similar, las variables declaradas en un inicializador de bucle for, como `int i` arriba, tienen como alcance solo el cuerpo del bucle, no todo el método adjunto.
+
+Este concepto también se aplica a otros bloques como "if/else". Una variable declarada dentro de un `if` no es visible en el `else` correspondiente:
+
+```java
 void myIfElseMethod(int x) {
     if (x > 0) {
         int y = 1; 
@@ -105,9 +123,14 @@ void myIfElseMethod(int x) {
         System.out.println(y); // Compile error! y not in scope
     }
 }
-```Luego tenemos los parámetros del método. Estas también se consideran variables locales, pero con un alcance que cubre todo el cuerpo del método. Entran en el ámbito cuando se llama al método y salen del ámbito cuando se completa el método.
 
-Los parámetros son locales del método, ningún otro método puede verlos, incluso si el método se está ejecutando actualmente:```java
+```
+
+Luego tenemos los parámetros del método. Estas también se consideran variables locales, pero con un alcance que cubre todo el cuerpo del método. Entran en el ámbito cuando se llama al método y salen del ámbito cuando se completa el método.
+
+Los parámetros son locales del método, ningún otro método puede verlos, incluso si el método se está ejecutando actualmente:
+
+```java
 void methodA(int x) {
     methodB();
     System.out.println(x); // x is in scope
@@ -116,7 +139,12 @@ void methodA(int x) {
 void methodB() {
     System.out.println(x); // Compile error! x is not in scope
 }
-```Los campos, o variables de instancia, son variables declaradas a nivel de clase, fuera de cualquier método. Entran en el alcance cuando se crea una instancia del objeto y permanecen en el alcance mientras el objeto esté en la memoria:```java
+
+```
+
+Los campos, o variables de instancia, son variables declaradas a nivel de clase, fuera de cualquier método. Entran en el alcance cuando se crea una instancia del objeto y permanecen en el alcance mientras el objeto esté en la memoria:
+
+```java
 class MyClass {
     private int x; // Instance variable (field)
 
@@ -124,7 +152,10 @@ class MyClass {
         System.out.println(x); // x is in scope here
     }
 }
-```Dado que las variables de instancia pertenecen a una instancia de objeto, no se puede acceder a ellas desde contextos estáticos, pero se puede acceder a ellas mediante cualquier método de instancia de la clase.
+
+```
+
+Dado que las variables de instancia pertenecen a una instancia de objeto, no se puede acceder a ellas desde contextos estáticos, pero se puede acceder a ellas mediante cualquier método de instancia de la clase.
 
 Un error común es pensar que las variables de instancia se recolectan como basura tan pronto como finaliza el método que las utiliza, lo cual no es el caso. Los campos de un objeto permanecen en la memoria hasta que el objeto en sí sea elegible para la recolección de basura, lo que puede pasar mucho tiempo después de que se complete una llamada a un método en particular.
 
@@ -132,7 +163,9 @@ Además, recuerde que si la variable o su clase se declara "privada", solo la cl
 
 Finalmente, las variables de clase, o campos estáticos, son variables "estáticas" declaradas a nivel de clase. Entran en el ámbito cuando se carga la clase y permanecen en el ámbito hasta que finaliza el programa. Sólo hay una copia de una variable de clase compartida entre todas las instancias de la clase.
 
-Las variables de clase pertenecen a la clase misma, no a una instancia de objeto específica. Y a diferencia de las variables de instancia, se puede acceder a las variables de clase desde contextos estáticos y de instancia:```java
+Las variables de clase pertenecen a la clase misma, no a una instancia de objeto específica. Y a diferencia de las variables de instancia, se puede acceder a las variables de clase desde contextos estáticos y de instancia:
+
+```java
 class MyClass {
     private static int x; // Class variable
 
@@ -144,9 +177,14 @@ class MyClass {
         System.out.println(x); // x is also in scope
     }
 }
-```Se puede acceder a las variables de clase desde cualquier lugar de su programa, incluso sin crear una instancia de la clase. Pero todavía están sujetos a controles de acceso como "privado" y "público".
 
-Un caso interesante es cuando tienes dos variables con el mismo nombre pero con diferentes alcances:```java
+```
+
+Se puede acceder a las variables de clase desde cualquier lugar de su programa, incluso sin crear una instancia de la clase. Pero todavía están sujetos a controles de acceso como "privado" y "público".
+
+Un caso interesante es cuando tienes dos variables con el mismo nombre pero con diferentes alcances:
+
+```java
 class MyClass {
     private int x; // Instance variable 
     
@@ -156,7 +194,10 @@ class MyClass {
         System.out.println(this.x); // Prints 0 (instance variable) 
     }
 }
-```En esta situación, la variable local sigue a la variable de instancia dentro de su alcance. Para acceder a la variable de instancia, tenemos que usar la palabra clave `this`. Hablaremos de esto más adelante en el capítulo, pero, como puede ver, limitar adecuadamente el alcance no se trata de mejorar el rendimiento, sino de organizar nuestro código y controlar el acceso a las variables.
+
+```
+
+En esta situación, la variable local sigue a la variable de instancia dentro de su alcance. Para acceder a la variable de instancia, tenemos que usar la palabra clave `this`. Hablaremos de esto más adelante en el capítulo, pero, como puede ver, limitar adecuadamente el alcance no se trata de mejorar el rendimiento, sino de organizar nuestro código y controlar el acceso a las variables.
 
 
 ### Declaraciones de variables
@@ -168,7 +209,9 @@ Los campos se declaran directamente dentro de una clase, pero fuera de cualquier
 
 Las variables locales, por otro lado, se declaran dentro de un método o constructor. Solo existen mientras dura la llamada al método o constructor y no se puede acceder a ellos desde el exterior. Una vez que el método ha terminado de ejecutarse, las variables locales desaparecen.
 
-He aquí un ejemplo:```java
+He aquí un ejemplo:
+
+```java
 public class MyClass {
     private int myField; // This is a field
 
@@ -177,16 +220,26 @@ public class MyClass {
         // Do something with myLocalVar...
     } // myLocalVar no longer exists after this point
 }
-```Ahora, podrías estar pensando: "Está bien, entonces los campos están en la clase y las variables locales están en los métodos. ¿Pero no puedo usarlos indistintamente de otra manera?" Bueno, no del todo. Hay algunas diferencias clave en cómo se comportan.
+
+```
+
+Ahora, podrías estar pensando: "Está bien, entonces los campos están en la clase y las variables locales están en los métodos. ¿Pero no puedo usarlos indistintamente de otra manera?" Bueno, no del todo. Hay algunas diferencias clave en cómo se comportan.
 
 Por un lado, los campos obtienen automáticamente valores predeterminados si no los inicializas explícitamente. Para tipos numéricos (como `int`, `long`, `float`, `double`) el valor predeterminado es `0`. Para "booleano", es "falso". Para tipos de referencia (como `String` o cualquier objeto), es `null`.
 
-Por otro lado, las variables locales no obtienen ningún valor predeterminado. Si intenta utilizar una variable local antes de inicializarla, obtendrá un error de compilación. En otras palabras, el compilador de Java quiere que usted sea explícito acerca de sus intenciones con las variables locales:```java
+Por otro lado, las variables locales no obtienen ningún valor predeterminado. Si intenta utilizar una variable local antes de inicializarla, obtendrá un error de compilación. En otras palabras, el compilador de Java quiere que usted sea explícito acerca de sus intenciones con las variables locales:
+
+```java
 public void myMethod() {
     int uninitialized;
     System.out.println(uninitialized); // Compile error!
 }
-```Entonces Java requiere que inicialices una variable local antes de usarla. Pero, ¿cuándo exactamente necesitas realizar esta inicialización? La regla es simple: la inicialización debe ocurrir en todas las rutas de ejecución posibles antes del primer uso de la variable:```java
+
+```
+
+Entonces Java requiere que inicialices una variable local antes de usarla. Pero, ¿cuándo exactamente necesitas realizar esta inicialización? La regla es simple: la inicialización debe ocurrir en todas las rutas de ejecución posibles antes del primer uso de la variable:
+
+```java
 int myVar;
 if (someCondition) {
     myVar = 1;
@@ -200,24 +253,49 @@ if (someCondition) {
     myOtherVar = 1;
 }
 System.out.println(myOtherVar); // Compile error! Not initialized on the else path.
-```En el primer ejemplo, se garantiza que `myVar` se inicializará antes de usarse, independientemente de la ruta que tome `if/else`. Pero en el segundo ejemplo, si `someCondition` es `false`, `myOtherVar` no se inicializará antes de su primer uso, de ahí el error de compilación.
 
-En cualquier caso, campos o variables locales, Java permite declarar varias variables del mismo tipo en una sola línea, separadas por comas:```java
+```
+
+En el primer ejemplo, se garantiza que `myVar` se inicializará antes de usarse, independientemente de la ruta que tome `if/else`. Pero en el segundo ejemplo, si `someCondition` es `false`, `myOtherVar` no se inicializará antes de su primer uso, de ahí el error de compilación.
+
+En cualquier caso, campos o variables locales, Java permite declarar varias variables del mismo tipo en una sola línea, separadas por comas:
+
+```java
 int a, b, c;
-```Pero esto no significa que estas variables compartan el mismo valor. Son variables completamente independientes que simplemente se declaran juntas. Puedes asignarles diferentes valores:```java
+
+```
+
+Pero esto no significa que estas variables compartan el mismo valor. Son variables completamente independientes que simplemente se declaran juntas. Puedes asignarles diferentes valores:
+
+```java
 int a = 1, b = 2, c = 3;
-```De hecho, no es necesario asignarles todos los valores de inmediato. Está totalmente bien hacer esto:```java
+
+```
+
+De hecho, no es necesario asignarles todos los valores de inmediato. Está totalmente bien hacer esto:
+
+```java
 int a, b, c;
 a = 1;
 b = 2;
 // c remains uninitialized for now
-```Solo recuerda que no puedes usar `c` hasta que lo inicialices con un valor, o obtendrás un error de compilación.
 
-Ahora bien, ¿qué pasa cuando deseas declarar múltiples variables de diferentes tipos? Bueno, no puedes hacer eso en una sola línea como puedes hacerlo con variables del mismo tipo. Tendrás que declarar cada uno por separado:```java
+```
+
+Solo recuerda que no puedes usar `c` hasta que lo inicialices con un valor, o obtendrás un error de compilación.
+
+Ahora bien, ¿qué pasa cuando deseas declarar múltiples variables de diferentes tipos? Bueno, no puedes hacer eso en una sola línea como puedes hacerlo con variables del mismo tipo. Tendrás que declarar cada uno por separado:
+
+```java
 int a = 1;
 String b = "hello";
 // This won't compile: int a = 1, String b = "hello";
-```Otra diferencia entre las variables locales y los campos está en cómo se usa "final". Marcar un campo como "final" significa que debe inicializarse cuando se construye el objeto y luego nunca podrá volver a cambiarse. Con una variable local, "final" solo significa que solo puedes asignarle un valor una vez. Pero esa asignación no tiene que ocurrir cuando se declara la variable:```java
+
+```
+
+Otra diferencia entre las variables locales y los campos está en cómo se usa "final". Marcar un campo como "final" significa que debe inicializarse cuando se construye el objeto y luego nunca podrá volver a cambiarse. Con una variable local, "final" solo significa que solo puedes asignarle un valor una vez. Pero esa asignación no tiene que ocurrir cuando se declara la variable:
+
+```java
 public class MyClass {
     private final int myFinalField = 42; // Must initialize here
 
@@ -231,47 +309,87 @@ public class MyClass {
         // Can't assign to myFinalVar again after this point
     }
 }
-```La asignación debe ocurrir antes del primer uso de la variable y solo puede ocurrir una vez. Esto suele resultar útil cuando desea asignar un valor de forma condicional, como en el ejemplo anterior. O cuando desea asignar un valor en un bucle pero asegurarse de que no cambie después del bucle:```java
+
+```
+
+La asignación debe ocurrir antes del primer uso de la variable y solo puede ocurrir una vez. Esto suele resultar útil cuando desea asignar un valor de forma condicional, como en el ejemplo anterior. O cuando desea asignar un valor en un bucle pero asegurarse de que no cambie después del bucle:
+
+```java
 final int myFinalVar;
 for (int i = 0; i < 10; i++) {
     // Some calculation...
     myFinalVar = result;
     // Can't assign to myFinalVar again after this point
 }
-```Sin embargo, cuando se trabaja con referencias y objetos, si convierte una variable local en "final", puede cambiar las propiedades del objeto al que hace referencia. `final` solo le impide asignar un nuevo valor a la variable misma. Si la variable es una referencia a un objeto, aún puedes modificar ese objeto:```java
+
+```
+
+Sin embargo, cuando se trabaja con referencias y objetos, si convierte una variable local en "final", puede cambiar las propiedades del objeto al que hace referencia. `final` solo le impide asignar un nuevo valor a la variable misma. Si la variable es una referencia a un objeto, aún puedes modificar ese objeto:
+
+```java
 final StringBuilder sb = new StringBuilder();
 sb.append("Hello"); // This is fine
 sb = new StringBuilder(); // This won't compile
-```En este ejemplo, podemos llamar a métodos en `sb` que modifican el objeto `StringBuilder`, pero no podemos asignar una nueva instancia de `StringBuilder` a `sb`.
+
+```
+
+En este ejemplo, podemos llamar a métodos en `sb` que modifican el objeto `StringBuilder`, pero no podemos asignar una nueva instancia de `StringBuilder` a `sb`.
 
 ### Inferencia de tipo de variable
-Java 10 y versiones posteriores introdujeron una nueva característica, "var". Te permite declarar una variable local sin especificar su tipo:```java
-var myVar = 42;
-```Esto se llama inferencia de tipo de variable local. El compilador analiza el valor que está asignando a la variable y determina el tipo apropiado para usted. En este caso, infiere que "myVar" debería ser un "int".
+Java 10 y versiones posteriores introdujeron una nueva característica, "var". Te permite declarar una variable local sin especificar su tipo:
 
-Tradicionalmente, declarar variables locales a menudo podía generar código detallado y repetitivo. Por ejemplo:```java
+```java
+var myVar = 42;
+
+```
+
+Esto se llama inferencia de tipo de variable local. El compilador analiza el valor que está asignando a la variable y determina el tipo apropiado para usted. En este caso, infiere que "myVar" debería ser un "int".
+
+Tradicionalmente, declarar variables locales a menudo podía generar código detallado y repetitivo. Por ejemplo:
+
+```java
 HashMap<Integer, String> map = new HashMap<>();
 List<String> list = new ArrayList<>();
 AtomicInteger counter = new AtomicInteger(0);
-```En cada caso, el tipo se menciona dos veces, una en el lado izquierdo y otra en el lado derecho. Aquí es donde entra en juego la palabra clave `var`.
 
-Al usar `var`, el código anterior se puede reescribir como:```java
+```
+
+En cada caso, el tipo se menciona dos veces, una en el lado izquierdo y otra en el lado derecho. Aquí es donde entra en juego la palabra clave `var`.
+
+Al usar `var`, el código anterior se puede reescribir como:
+
+```java
 var map = new HashMap<Integer, String>();
 var list = new ArrayList<String>();
 var counter = new AtomicInteger(0);
-```El compilador infiere los tipos de "mapa", "lista" y "contador" en función de las expresiones del inicializador. Esto hace que el código sea más conciso y legible, manteniendo al mismo tiempo la seguridad de tipos.
+
+```
+
+El compilador infiere los tipos de "mapa", "lista" y "contador" en función de las expresiones del inicializador. Esto hace que el código sea más conciso y legible, manteniendo al mismo tiempo la seguridad de tipos.
 
 Es importante tener en cuenta que `var` se comporta como una palabra clave en su contexto de uso, aunque técnicamente es un nombre de tipo reservado para la inferencia de tipos de variables locales. Esto significa que el código que utiliza `var` como variable, método o nombre de paquete no se verá afectado.
 
-`var` está restringido a variables locales dentro de métodos, constructores o bloques inicializadores. No se puede utilizar para declarar variables de instancia (campos) o variables de clase (estáticas). Esta restricción garantiza que el tipo de clase y las variables de instancia siempre estén claros en la API de la clase, no solo en su implementación:```java
+`var` está restringido a variables locales dentro de métodos, constructores o bloques inicializadores. No se puede utilizar para declarar variables de instancia (campos) o variables de clase (estáticas). Esta restricción garantiza que el tipo de clase y las variables de instancia siempre estén claros en la API de la clase, no solo en su implementación:
+
+```java
 public class MyClass {
    var myVar = "Hello"; // This will not compile
 }
-```Al igual que las variables de instancia y clase, `var` no se puede utilizar para declarar parámetros de método. Las firmas de métodos son parte de la API pública de la clase y deben indicar explícitamente sus tipos de parámetros para mayor claridad y garantizar la estabilidad del contrato:```java
+
+```
+
+Al igual que las variables de instancia y clase, `var` no se puede utilizar para declarar parámetros de método. Las firmas de métodos son parte de la API pública de la clase y deben indicar explícitamente sus tipos de parámetros para mayor claridad y garantizar la estabilidad del contrato:
+
+```java
 public void myMethod(var param) { // This will not compile
    // ...
 }
-```Aparte de eso, `var` se puede utilizar en otras situaciones. Por ejemplo, en índices de bucle `for`:```java
+
+```
+
+Aparte de eso, `var` se puede utilizar en otras situaciones. Por ejemplo, en índices de bucle `for`:
+
+```java
 var numbers = Arrays.asList(1, 2, 3, 4, 5);
 for (var num : numbers) {
     System.out.println(num);
@@ -282,32 +400,67 @@ for (var num : numbers) {
 for (var i = 1; i <= 10; i++) {
     System.out.println(i);
 }
-```En declaraciones de "probar con recursos":```java
+
+```
+
+En declaraciones de "probar con recursos":
+
+```java
 try (var stream = Files.lines(Path.of("file.txt"))) {
     stream.forEach(System.out::println);
 }
-```O para los parámetros de expresiones lambda escritas implícitamente:```java
-Function<Integer, String> toString = (var i) -> String.valueOf(i);
-```Tenga en cuenta que en una expresión lambda, todos los parámetros deben declararse con `var` o ninguno de ellos. No se permite mezclar `var` con tipos manifiestos o tipos inferidos.
 
-Sin embargo, tenga cuidado con `var`, no siempre es la mejor opción. A veces, declarar explícitamente el tipo puede hacer que el código sea más legible y fácil de mantener. Solo puedes usar `var` cuando estás inicializando la variable allí mismo en la declaración:```java
+```
+
+O para los parámetros de expresiones lambda escritas implícitamente:
+
+```java
+Function<Integer, String> toString = (var i) -> String.valueOf(i);
+
+```
+
+Tenga en cuenta que en una expresión lambda, todos los parámetros deben declararse con `var` o ninguno de ellos. No se permite mezclar `var` con tipos manifiestos o tipos inferidos.
+
+Sin embargo, tenga cuidado con `var`, no siempre es la mejor opción. A veces, declarar explícitamente el tipo puede hacer que el código sea más legible y fácil de mantener. Solo puedes usar `var` cuando estás inicializando la variable allí mismo en la declaración:
+
+```java
 var myVar; // This won't compile
 var myOtherVar = someMethodThatReturnsAnObject(); // Fine, as long as the method return type is clear
-```De manera similar, `var` no se puede usar al inicializar una variable con un valor `nulo` sin especificar su tipo porque el compilador no puede inferir el tipo de la variable:```java
+
+```
+
+De manera similar, `var` no se puede usar al inicializar una variable con un valor `null` sin especificar su tipo porque el compilador no puede inferir el tipo de la variable:
+
+```java
 // This will not compile because the type cannot be inferred
 var myVar = null;
-```Sin embargo, una vez que se ha usado `var` para declarar una variable con un tipo concreto, se le puede reasignar un valor `nulo`:```java
+
+```
+
+Sin embargo, una vez que se ha usado `var` para declarar una variable con un tipo concreto, se le puede reasignar un valor `null`:
+
+```java
 var myString = "Hello, World!"; // Inferred as String
 myString = null; // This is allowed
-```Finalmente, cuando se usa `var` con inicializadores de matriz, se requiere una creación de instancias explícita. No puede utilizar sintaxis abreviada porque no se puede inferir el tipo:```java
+
+```
+
+Finalmente, cuando se usa `var` con inicializadores de matriz, se requiere una creación de instancias explícita. No puede utilizar sintaxis abreviada porque no se puede inferir el tipo:
+
+```java
 var numbers = new int[] {1, 2, 3}; // This works
 // var numbers = {1, 2, 3}; // This will not compile
- ```## Herencia
+
+```
+
+## Herencia
 
 ### Presentamos la herencia
 La herencia es uno de los conceptos centrales en la programación orientada a objetos. Le permite definir una nueva clase basada en una clase existente. La nueva clase hereda los atributos y métodos de la clase existente, lo que le permite reutilizar el código y construir relaciones jerárquicas entre sus clases.
 
-¿Recuerdas la clase `Cookie` del principio del capítulo anterior?```java
+¿Recuerdas la clase `Cookie` del principio del capítulo anterior?
+
+```java
 public class Cookie {
     // Attributes
     String flavor; 
@@ -318,9 +471,14 @@ public class Cookie {
         System.out.println("That was yummy!");
     }
 }
-```¿Cómo definirías una clase de galletas con chispas de chocolate? 
 
-Bueno, las galletas con chispas de chocolate tienen sabor, cantidad de chispas y se pueden comer como galletas normales. Pero también tienen propiedades adicionales como la cantidad de chips por galleta. Entonces nuestra clase ingenua inicial `ChocolateChipCookie` podría verse así:```java
+```
+
+¿Cómo definirías una clase de galletas con chispas de chocolate? 
+
+Bueno, las galletas con chispas de chocolate tienen sabor, cantidad de chispas y se pueden comer como galletas normales. Pero también tienen propiedades adicionales como la cantidad de chips por galleta. Entonces nuestra clase ingenua inicial `ChocolateChipCookie` podría verse así:
+
+```java
 public class ChocolateChipCookie {
 
   String flavor;  
@@ -333,7 +491,10 @@ public class ChocolateChipCookie {
   int chips;
 
 }
-```¡Hemos duplicado los atributos y métodos de las cookies! No es un buen diseño.
+
+```
+
+¡Hemos duplicado los atributos y métodos de las cookies! No es un buen diseño.
 
 Aquí es donde entra el concepto de herencia en la programación orientada a objetos.
 
@@ -341,7 +502,9 @@ Todas las variedades de galletas comparten propiedades comunes como tener sabor 
 
 Las clases secundarias, como `ChocolateChipCookie`, pueden heredar estos elementos de cookie comunes de la clase principal `Cookie`. De esta manera, podemos crear muchas variedades específicas que heredan propiedades de cookies compartidas. Las clases secundarias aún pueden definir sus propios atributos especializados, como la cantidad de chispas de chocolate, pero reutilizan el código principal heredado.
 
-En Java, se utiliza la palabra clave `extends` para crear una subclase que hereda de una superclase. Así es como se puede definir la clase `ChocolateChipCookie` usando herencia:```java
+En Java, se utiliza la palabra clave `extends` para crear una subclase que hereda de una superclase. Así es como se puede definir la clase `ChocolateChipCookie` usando herencia:
+
+```java
 public class ChocolateChipCookie extends Cookie {
 
   int chips;
@@ -350,8 +513,11 @@ public class ChocolateChipCookie extends Cookie {
     this.chips += chipsPerCookie;
   }
 
-}  
-```Aquí, "ChocolateChipCookie" es una subclase de "Cookie". Hereda los campos `sabor` y `size` y el método `eat()`. La subclase puede declarar sus propios métodos, como `ChocolateChipCookie` declara el método `addChips()`.
+}
+
+```
+
+Aquí, "ChocolateChipCookie" es una subclase de "Cookie". Hereda los campos `sabor` y `size` y el método `eat()`. La subclase puede declarar sus propios métodos, como `ChocolateChipCookie` declara el método `addChips()`.
 
 Sin embargo, una subclase no puede acceder directamente a miembros "privados" de su superclase. Las subclases sólo pueden acceder directamente a los miembros "protegidos" y "públicos" de la superclase. Para acceder a campos "privados", la superclase debe proporcionar accesores "públicos" o "protegidos".
 
@@ -363,11 +529,16 @@ Una cosa importante que hay que saber es que en Java, una clase sólo puede exte
 
 Algunos modificadores de clase importantes relacionados con la herencia son "final", "abstracto" y "sellado".
 
-Las clases finales no se pueden subclasificar. Si intenta extender una clase "final", obtendrá un error de compilación. Usando el ejemplo de las cookies, si la clase `Cookie` fuera declarada como `final`:```java
+Las clases finales no se pueden subclasificar. Si intenta extender una clase "final", obtendrá un error de compilación. Usando el ejemplo de las cookies, si la clase `Cookie` fuera declarada como `final`:
+
+```java
 public final class Cookie {
     // ...
 }
-```La declaración de la clase `ChocolateChip` generará un error de compilación.
+
+```
+
+La declaración de la clase `ChocolateChip` generará un error de compilación.
 
 Hacer que una clase sea "final" garantiza que su implementación no pueda cambiarse mediante subclases. Sin embargo, contrariamente a una idea errónea común, las clases "finales" no son más eficientes en tiempo de ejecución sólo porque sean "finales". El modificador "final" tiene que ver con la herencia, no con el rendimiento.
 
@@ -378,23 +549,40 @@ Las clases selladas proporcionan un punto medio entre las clases finales y no fi
 Repasemos con más detalle las clases abstractas y selladas.
 
 ### Clases abstractas
-Una clase abstracta es una clase de la que no se pueden crear instancias, lo que significa que no se pueden crear nuevas instancias de una clase abstracta. Sirve como base para subclases:```java
+Una clase abstracta es una clase de la que no se pueden crear instancias, lo que significa que no se pueden crear nuevas instancias de una clase abstracta. Sirve como base para subclases:
+
+```java
 abstract class Cookie {
     abstract void flavor(); 
 }
-```Debes utilizar la palabra clave `abstracto` para declarar una clase o un método como abstracto. Una clase abstracta puede incluir o no métodos abstractos.
 
-Los métodos abstractos se declaran sin implementación (sin llaves y seguidos de un punto y coma):```java
+```
+
+Debes utilizar la palabra clave `abstracto` para declarar una clase o un método como abstracto. Una clase abstracta puede incluir o no métodos abstractos.
+
+Los métodos abstractos se declaran sin implementación (sin llaves y seguidos de un punto y coma):
+
+```java
 abstract void flavor();
-```Los métodos abstractos son similares a los métodos regulares en el sentido de que los declaras con o sin parámetros, con un valor de retorno o "void" y cualquier modificador de acceso como "public", "protected" o default. La única diferencia es que los métodos abstractos no tienen ninguna implementación, no pueden tener cuerpo, por lo tanto, terminan con punto y coma (`;`) y no con corchetes (`{}`).
 
-Para usar una clase abstracta, debes heredarla de otra clase usando la palabra clave `extends`. Veamos un ejemplo:```java
+```
+
+Los métodos abstractos son similares a los métodos regulares en el sentido de que los declaras con o sin parámetros, con un valor de retorno o "void" y cualquier modificador de acceso como "public", "protected" o default. La única diferencia es que los métodos abstractos no tienen ninguna implementación, no pueden tener cuerpo, por lo tanto, terminan con punto y coma (`;`) y no con corchetes (`{}`).
+
+Para usar una clase abstracta, debes heredarla de otra clase usando la palabra clave `extends`. Veamos un ejemplo:
+
+```java
 class OatmealRaisinCookie extends Cookie {
     void flavor() {
         System.out.println("Oatmeal and raisin flavor");
     }
 }
-```Cuando se hereda de una clase abstracta, la subclase generalmente proporciona implementaciones para todos los métodos abstractos de su clase principal. Si no es así, entonces la subclase también debe declararse abstracta:```java
+
+```
+
+Cuando se hereda de una clase abstracta, la subclase generalmente proporciona implementaciones para todos los métodos abstractos de su clase principal. Si no es así, entonces la subclase también debe declararse abstracta:
+
+```java
 abstract class Cookie {
     abstract void flavor();
     
@@ -413,7 +601,10 @@ abstract class OatmealRaisinCookie extends Cookie {
         System.out.println("Adding raisins");
     }
 }
-```¿Por qué?
+
+```
+
+¿Por qué?
 
 Porque una clase abstracta está (o pretende estar) incompleta. Crear un objeto a partir de una clase incompleta sería incorrecto.  Es necesario ampliar una clase abstracta para poder utilizarla, de forma muy parecida a una plantilla.
 
@@ -421,7 +612,9 @@ Las clases abstractas son útiles para compartir código entre clases estrechame
 
 Es bueno pensar en las clases concretas como especializaciones de clases abstractas. De la misma manera que un automóvil compacto es una especialización del concepto general de automóvil, las clases abstractas son el concepto general y las clases concretas son una implementación específica de ese concepto.
 
-Las clases concretas tienen que implementar todos los métodos abstractos pero también pueden definir sus propios métodos nuevos. No todos los métodos tienen que ser abstractos en una clase concreta, sólo los declarados como abstractos en la clase abstracta principal. Aquí hay un ejemplo para ilustrar esto:```java
+Las clases concretas tienen que implementar todos los métodos abstractos pero también pueden definir sus propios métodos nuevos. No todos los métodos tienen que ser abstractos en una clase concreta, sólo los declarados como abstractos en la clase abstracta principal. Aquí hay un ejemplo para ilustrar esto:
+
+```java
 abstract class Cookie {
     abstract void flavor();
     
@@ -453,13 +646,18 @@ class OatmealRaisinCookie extends Cookie {
         System.out.println("Adding raisins");
     }
 }
-```En este ejemplo, `Cookie` es una clase abstracta con un método abstracto `flavor()` y un método concreto `bake()`.
+
+```
+
+En este ejemplo, `Cookie` es una clase abstracta con un método abstracto `flavor()` y un método concreto `bake()`.
 
 Las clases `ChocolateCookie` y `OatmealRaisinCookie` son clases concretas que amplían la clase abstracta `Cookie`. Ambos implementan el método abstracto `flavor()` que heredaron de `Cookie`. Nuevamente, esto es obligatorio; de lo contrario, también tendrían que declararse abstractos.
 
 Pero `ChocolateCookie` y `OatmealRaisinCookie` también definen sus propios métodos nuevos, `addChocolateChips()` y `addRaisins()` respectivamente. Estos métodos son específicos de cada tipo de cookie y no están relacionados con la clase abstracta.
 
-Cuando creas instancias de `ChocolateCookie` y `OatmealRaisinCookie`, puedes llamar a todos sus métodos:```java
+Cuando creas instancias de `ChocolateCookie` y `OatmealRaisinCookie`, puedes llamar a todos sus métodos:
+
+```java
 ChocolateCookie chocolateCookie = new ChocolateCookie();
 chocolateCookie.flavor();          // Output: Chocolate flavor
 chocolateCookie.addChocolateChips();  // Output: Adding chocolate chips
@@ -469,7 +667,12 @@ OatmealRaisinCookie oatmealRaisinCookie = new OatmealRaisinCookie();
 oatmealRaisinCookie.flavor();      // Output: Oatmeal and raisin flavor
 oatmealRaisinCookie.addRaisins();  // Output: Adding raisins
 oatmealRaisinCookie.bake();        // Output: Cookie is baking
-```Las clases abstractas pueden tener constructores. Los necesita para inicializar atributos y ejecutar cualquier lógica que deba ejecutarse cuando se crea una instancia de la (sub)clase concreta. Una clase abstracta es una clase y, como cualquier otra clase, puede tener atributos y es posible que sea necesario inicializar esos atributos cuando se crea una instancia (de la clase concreta). He aquí un ejemplo:```java
+
+```
+
+Las clases abstractas pueden tener constructores. Los necesita para inicializar atributos y ejecutar cualquier lógica que deba ejecutarse cuando se crea una instancia de la (sub)clase concreta. Una clase abstracta es una clase y, como cualquier otra clase, puede tener atributos y es posible que sea necesario inicializar esos atributos cuando se crea una instancia (de la clase concreta). He aquí un ejemplo:
+
+```java
 abstract class Cookie {
     protected String name;
     
@@ -484,7 +687,10 @@ abstract class Cookie {
         System.out.println(name + " is baking");
     }
 }
-```En este ejemplo actualizado, la clase abstracta `Cookie` ahora tiene un constructor que toma un parámetro `name`. Inicializa el atributo "nombre" de la cookie. El atributo "nombre" se declara como "protegido", lo que significa que es accesible para las subclases.
+
+```
+
+En este ejemplo actualizado, la clase abstracta `Cookie` ahora tiene un constructor que toma un parámetro `name`. Inicializa el atributo "nombre" de la cookie. El atributo "nombre" se declara como "protegido", lo que significa que es accesible para las subclases.
 
 De esta manera, las clases concretas `ChocolateCookie` y `OatmealRaisinCookie` pueden llamar al constructor de la clase abstracta `Cookie` usando `super()`, pasando el nombre específico para cada tipo de cookie. Veremos cómo usar `super()` más adelante en este capítulo.
 
@@ -521,11 +727,16 @@ Entonces, ¿qué es exactamente una interfaz y en qué se diferencia de una clas
 
 Una interfaz en Java es un tipo de referencia, similar a una clase, que sólo puede contener constantes, firmas de métodos, métodos predeterminados, métodos estáticos y tipos anidados. No se pueden crear instancias de las interfaces, solo se pueden implementar mediante clases o ampliar mediante otras interfaces.
 
-Para declarar una interfaz, utilice la palabra clave "interfaz" en lugar de la palabra clave "clase". He aquí un ejemplo:```java
+Para declarar una interfaz, utilice la palabra clave "interfaz" en lugar de la palabra clave "clase". He aquí un ejemplo:
+
+```java
 public interface Drawable {
     void draw();
 }
-```Cualquier clase que implemente la interfaz `Drawable` debe proporcionar una implementación para el método `draw()`.
+
+```
+
+Cualquier clase que implemente la interfaz `Drawable` debe proporcionar una implementación para el método `draw()`.
 
 A primera vista, las interfaces pueden parecer muy similares a las clases abstractas. Después de todo, ambos pueden contener métodos abstractos, métodos sin cuerpo. Sin embargo, existen algunas diferencias clave:
 - Una clase abstracta puede tener variables de instancia y constructores, mientras que una interfaz no.
@@ -536,33 +747,55 @@ A primera vista, las interfaces pueden parecer muy similares a las clases abstra
 
 Entonces, si bien existe cierta superposición, las interfaces y las clases abstractas tienen propósitos diferentes y no son intercambiables.
 
-Para utilizar una interfaz, una clase debe implementarla. La palabra clave `implements` se utiliza para implementar una interfaz:```java
+Para utilizar una interfaz, una clase debe implementarla. La palabra clave `implements` se utiliza para implementar una interfaz:
+
+```java
 public class Circle implements Drawable {
     public void draw() {
         System.out.println("Drawing a circle");
     }
 }
-```Si una clase implementa una interfaz pero no implementa todos los métodos, debe declararse como "abstracta".```java
+
+```
+
+Si una clase implementa una interfaz pero no implementa todos los métodos, debe declararse como "abstracta".
+
+```java
 public abstract class Shape implements Drawable {
     // Class content
 }
-```Todos los métodos en una interfaz son implícitamente "públicos" y "abstractos". No es necesario utilizar la palabra clave "pública" o "abstracta" al declarar métodos en una interfaz. 
+
+```
+
+Todos los métodos en una interfaz son implícitamente "públicos" y "abstractos". No es necesario utilizar la palabra clave "pública" o "abstracta" al declarar métodos en una interfaz. 
 
 Todas las variables declaradas en una interfaz son implícitamente "públicas", "estáticas" y "finales".
 
-Entonces esto:```java
+Entonces esto:
+
+```java
 public interface MyInterface {
     int NUMBER = 10;
     void method();
 }
-```Es equivalente a esto:```java
+
+```
+
+Es equivalente a esto:
+
+```java
 public interface MyInterface {
     public static final int NUMBER = 10;
     public abstract void method();
 }
-```Es importante tener en cuenta que debido a que los métodos de interfaz son "abstractos", no pueden declararse como "privados", "protegidos", "finales" o "estáticos" (con la excepción de los métodos "estáticos", que cubriremos más adelante).
 
-Una interfaz puede extender otra interfaz, de manera similar a cómo una clase puede extender otra clase. La palabra clave "extiende" se utiliza para esto:```java
+```
+
+Es importante tener en cuenta que debido a que los métodos de interfaz son "abstractos", no pueden declararse como "privados", "protegidos", "finales" o "estáticos" (con la excepción de los métodos "estáticos", que cubriremos más adelante).
+
+Una interfaz puede extender otra interfaz, de manera similar a cómo una clase puede extender otra clase. La palabra clave "extiende" se utiliza para esto:
+
+```java
 public interface Moveable {
     void move();
 }
@@ -570,9 +803,14 @@ public interface Moveable {
 public interface Drawable extends Moveable {
     void draw();
 }
-```En este caso, cualquier clase que implemente `Drawable` debe proporcionar implementaciones tanto para `draw()` como para `move()`.
 
-Una clase sólo puede extenderse desde una clase. Sin embargo, una clase puede implementar múltiples interfaces. Esta es una forma de lograr una forma de herencia múltiple en Java:```java
+```
+
+En este caso, cualquier clase que implemente `Drawable` debe proporcionar implementaciones tanto para `draw()` como para `move()`.
+
+Una clase sólo puede extenderse desde una clase. Sin embargo, una clase puede implementar múltiples interfaces. Esta es una forma de lograr una forma de herencia múltiple en Java:
+
+```java
 public interface Moveable {
     void move();
 }
@@ -590,7 +828,12 @@ public class Circle implements Drawable, Moveable {
         System.out.println("Moving a circle");
     }
 }
-```Esto no viola la regla de herencia única de Java porque las interfaces no contienen ninguna implementación. Si una clase implementa dos interfaces que tienen el mismo método, no hay problema. La clase simplemente proporciona una implementación del método, resolviendo los problemas de ambigüedad y complejidad:```java
+
+```
+
+Esto no viola la regla de herencia única de Java porque las interfaces no contienen ninguna implementación. Si una clase implementa dos interfaces que tienen el mismo método, no hay problema. La clase simplemente proporciona una implementación del método, resolviendo los problemas de ambigüedad y complejidad:
+
+```java
 public interface A {
     void method();
 }
@@ -604,16 +847,26 @@ public class C implements A, B {
         System.out.println("Method implementation");
     }
 }
-```Además, las interfaces pueden tener métodos predeterminados. Estos son métodos con un cuerpo que proporciona una implementación predeterminada si una clase no los anula:```java
+
+```
+
+Además, las interfaces pueden tener métodos predeterminados. Estos son métodos con un cuerpo que proporciona una implementación predeterminada si una clase no los anula:
+
+```java
 public interface Drawable {
     void draw();
     default void print() {
         System.out.println("Printing...");
     }
 }
-```Las clases que implementan `Drawable` pueden, aunque no es necesario, anular el método `print()`.
 
-Si una clase implementa dos interfaces y ambas tienen el mismo método predeterminado, la clase debe anular el método. Si quiere llamar al método predeterminado desde una de las interfaces, puede hacerlo usando la palabra clave `super`:```java
+```
+
+Las clases que implementan `Drawable` pueden, aunque no es necesario, anular el método `print()`.
+
+Si una clase implementa dos interfaces y ambas tienen el mismo método predeterminado, la clase debe anular el método. Si quiere llamar al método predeterminado desde una de las interfaces, puede hacerlo usando la palabra clave `super`:
+
+```java
 public interface A {
     default void method() {
         System.out.println("A's method");
@@ -631,17 +884,32 @@ public class C implements A, B {
         A.super.method();
     }
 }
-```Las interfaces también pueden tener métodos estáticos, similares a los métodos estáticos de las clases:```java
+
+```
+
+Las interfaces también pueden tener métodos estáticos, similares a los métodos estáticos de las clases:
+
+```java
 public interface Drawable {
     static void staticMethod() {
         System.out.println("Static method");
     }
 }
-```Los métodos estáticos en las interfaces no son heredados por clases o interfaces que extienden la interfaz.
 
-Para el ejemplo anterior, usaría la interfaz `Drawable` para llamar a `staticMethod` de esta manera:```java
+```
+
+Los métodos estáticos en las interfaces no son heredados por clases o interfaces que extienden la interfaz.
+
+Para el ejemplo anterior, usaría la interfaz `Drawable` para llamar a `staticMethod` de esta manera:
+
+```java
 Drawable.staticMethod();
-```Además de los métodos predeterminados y "estáticos", las interfaces también pueden tener métodos "privados". Estos son útiles para compartir código entre métodos predeterminados en la interfaz:```java
+
+```
+
+Además de los métodos predeterminados y "estáticos", las interfaces también pueden tener métodos "privados". Estos son útiles para compartir código entre métodos predeterminados en la interfaz:
+
+```java
 public interface Drawable {
     default void print() {
         printLine();
@@ -652,7 +920,10 @@ public interface Drawable {
         System.out.println("---");
     }
 }
-```Las clases que implementan la interfaz no pueden acceder a los métodos privados en las interfaces.
+
+```
+
+Las clases que implementan la interfaz no pueden acceder a los métodos privados en las interfaces.
 
 ### Clases selladas
 Imaginemos una familia real con una regla estricta: sólo ciertas personas pueden convertirse en futuros reyes o reinas, y esta regla es inmutable. En Java, las clases selladas son como esta familia real. Permiten que una clase controle estrictamente qué otras clases pueden extenderlo, al igual que la familia real controla quién puede estar en la fila para el trono.
@@ -664,7 +935,9 @@ Esta característica es útil por varias razones:
 - Permite modelar jerarquías y máquinas de estados con un conjunto finito de subclases.
 - Proporciona seguridad en tiempo de compilación al limitar las posibilidades de código externo.
 
-Para crear una clase sellada, utiliza el modificador "sellado" en la declaración de clase, junto con la cláusula "permisos" para especificar las subclases permitidas:```java
+Para crear una clase sellada, utiliza el modificador "sellado" en la declaración de clase, junto con la cláusula "permisos" para especificar las subclases permitidas:
+
+```java
 public sealed class Vehicle permits Car, Truck, Motorcycle {
     public void startEngine() {
         System.out.println("Starting the vehicle's engine.");
@@ -691,7 +964,10 @@ final class Motorcycle extends Vehicle {
         System.out.println("Starting the motorcycle's engine." );
     }
 }
-```El modificador "sellado" indica que la clase está sellada. La cláusula "permisos" enumera las clases a las que se les permite extender la clase sellada.
+
+```
+
+El modificador "sellado" indica que la clase está sellada. La cláusula "permisos" enumera las clases a las que se les permite extender la clase sellada.
 
 Las clases selladas y sus subclases deben declararse en el mismo paquete (o módulo con nombre) que sus subclases directas. Esto asegura una estrecha relación entre la clase sellada y sus subclases permitidas.
 
@@ -707,7 +983,9 @@ Marcar una subclase como "no sellada" simplemente significa que está abierta a 
 
 La cláusula `permisos` es opcional si la clase sellada y sus subclases directas se declaran dentro del mismo archivo o las subclases están anidadas dentro de la clase sellada. El compilador puede inferir las subclases permitidas en estos casos, por lo que puede omitir el listado explícito.
 
-A continuación se muestra un ejemplo en el que se omite la cláusula "permisos":```java
+A continuación se muestra un ejemplo en el que se omite la cláusula "permisos":
+
+```java
 // Beverage.java
 public sealed class Beverage {
     void pour();
@@ -724,7 +1002,10 @@ final class Tea implements Beverage {
         System.out.println("Pouring tea");
     }
 }
-```Dado que `Coffee` y `Tea` se declaran en el mismo archivo que la clase `Beverage` sellada (`Beverage.java`), el compilador puede inferir la cláusula `permisos`.
+
+```
+
+Dado que `Coffee` y `Tea` se declaran en el mismo archivo que la clase `Beverage` sellada (`Beverage.java`), el compilador puede inferir la cláusula `permisos`.
 
 Entonces, ¿las clases selladas solo se pueden usar dentro del mismo archivo? No, las clases selladas y sus subclases pueden estar en archivos diferentes, siempre y cuando estén en el mismo paquete o módulo. La restricción del mismo archivo solo es relevante para omitir la cláusula "permisos".
 
@@ -736,7 +1017,9 @@ Si se pregunta si existe un límite en la cantidad de subclases que puede permit
 
 El sellamiento no se limita solo a las clases. También puedes sellar interfaces.
 
-Las interfaces se pueden sellar para limitar las clases que las implementan o las interfaces que las amplían. He aquí un ejemplo:```java
+Las interfaces se pueden sellar para limitar las clases que las implementan o las interfaces que las amplían. He aquí un ejemplo:
+
+```java
 public sealed interface Shape permits Circle, Rectangle, Triangle, Polygon {
     double getArea();
 }
@@ -782,7 +1065,10 @@ final class IrregularPolygon implements Polygon {
         // Implementation of getNumberOfSides() for irregular polygons
     }
 }
-```En este ejemplo, la interfaz `Shape` está sellada y permite que cuatro clases la implementen: `Circle`, `Rectangle`, `Triangle` y `Polygon`. Esto significa que sólo estas cuatro clases pueden implementar directamente la interfaz `Shape`.
+
+```
+
+En este ejemplo, la interfaz `Shape` está sellada y permite que cuatro clases la implementen: `Circle`, `Rectangle`, `Triangle` y `Polygon`. Esto significa que sólo estas cuatro clases pueden implementar directamente la interfaz `Shape`.
 
 Pero la interfaz "Polygon" también está sellada y amplía la interfaz "Shape". Permite que dos clases lo implementen: `RegularPolygon` y `IrregularPolygon`. Esto demuestra cómo se puede utilizar el sellado para controlar qué interfaces pueden extender una interfaz sellada.
 
@@ -808,7 +1094,9 @@ Para resumir, estas son las reglas clave para las clases selladas:
 ### La referencia "esta"
 Cuando escribes código en Java, a menudo verás la palabra clave "esto" en tus métodos y constructores. Pero, ¿qué es exactamente "esto" y por qué lo usamos?
 
-`this` es una referencia a la instancia actual de una clase. En otras palabras, cuando estás dentro de un método o constructor de una clase, "esto" se refiere al objeto específico al que pertenece el método o constructor. He aquí un ejemplo sencillo:```java
+`this` es una referencia a la instancia actual de una clase. En otras palabras, cuando estás dentro de un método o constructor de una clase, "esto" se refiere al objeto específico al que pertenece el método o constructor. He aquí un ejemplo sencillo:
+
+```java
 public class Person {
     private String name;
     
@@ -816,13 +1104,18 @@ public class Person {
         this.name = name;
     }
 }
-```En el constructor, usamos `this.name` para especificar que estamos hablando del campo `name` de este objeto `Persona` en particular, no de alguna otra variable `name`.
+
+```
+
+En el constructor, usamos `this.name` para especificar que estamos hablando del campo `name` de este objeto `Persona` en particular, no de alguna otra variable `name`.
 
 Pero espera, quizás estés pensando: "Entonces, `esta` es sólo otra variable que puedo cambiar, ¿verdad?" Bueno, no exactamente. `this` es una referencia final, lo que significa que no puedes asignarla a otra cosa. Siempre apunta a la instancia del objeto actual.
 
 `this` no se puede usar en ninguna parte del código, como en los métodos estáticos. Solo es relevante dentro del contexto de un método de instancia o constructor. Los métodos estáticos pertenecen a la clase misma, no a una instancia específica, por lo que "esto" no tiene ningún significado allí.
 
-Entonces, ¿tienes que usar "esto" cada vez que te refieres a un atributo o método, pase lo que pase? No necesariamente. Si no hay ambigüedad, a menudo puedes omitir "esto". Sin embargo, hay ocasiones en las que usar "esto" puede aclarar el código y evitar confusiones. Por ejemplo:```java
+Entonces, ¿tienes que usar "esto" cada vez que te refieres a un atributo o método, pase lo que pase? No necesariamente. Si no hay ambigüedad, a menudo puedes omitir "esto". Sin embargo, hay ocasiones en las que usar "esto" puede aclarar el código y evitar confusiones. Por ejemplo:
+
+```java
 public class Person {
     private String name;
     
@@ -834,14 +1127,19 @@ public class Person {
         System.out.println("Hi " + other.name + ", I'm " + this.name);
     }
 }
-```Aquí, usar `this.name` deja claro que nos estamos refiriendo al `nombre` de la instancia actual de `Persona`, no a la `otra` `Persona`. 
+
+```
+
+Aquí, usar `this.name` deja claro que nos estamos refiriendo al `nombre` de la instancia actual de `Persona`, no a la `otra` `Persona`. 
 
 A continuación se muestran algunas situaciones en las que "esto" es necesario:
 - Para eliminar la ambigüedad entre variables locales y variables de instancia con el mismo nombre
 - Pasar la instancia actual como argumento a un método.
 - Para llamar a otro constructor desde dentro de un constructor
 
-Hablando de constructores, no puedes usar "this" para llamar a un constructor desde cualquier lugar de mi clase. Sólo puedes usar `this` para llamar a otro constructor desde dentro de un constructor, y debe ser la primera declaración:```java
+Hablando de constructores, no puedes usar "this" para llamar a un constructor desde cualquier lugar de mi clase. Sólo puedes usar `this` para llamar a otro constructor desde dentro de un constructor, y debe ser la primera declaración:
+
+```java
 public class Person {
     private String name;
     private int age;
@@ -855,9 +1153,14 @@ public class Person {
         this.age = age;
     }
 }
-```Esto es útil cuando tienes varios constructores y quieres evitar la duplicación de código.
 
-Sin embargo, una regla es que si estás usando "this" para invocar otro constructor, debe ser la primera declaración en el constructor. Esta regla garantiza que se llame a otro constructor antes de ejecutar cualquier código en el constructor que contiene esta llamada, evitando el uso de campos no inicializados o la duplicación del código de inicialización. Por ejemplo, lo siguiente no se compilará:```java
+```
+
+Esto es útil cuando tienes varios constructores y quieres evitar la duplicación de código.
+
+Sin embargo, una regla es que si estás usando "this" para invocar otro constructor, debe ser la primera declaración en el constructor. Esta regla garantiza que se llame a otro constructor antes de ejecutar cualquier código en el constructor que contiene esta llamada, evitando el uso de campos no inicializados o la duplicación del código de inicialización. Por ejemplo, lo siguiente no se compilará:
+
+```java
 public class Person {
     private String name;
     private int age;
@@ -873,13 +1176,18 @@ public class Person {
         this.age = age;
     }
 }
-```Además, recuerde que "esto" no se refiere a la clase en sí. `this` se refiere a la instancia actual. Cada instancia obtiene su propia referencia "esta". No puede ser "nulo".
+
+```
+
+Además, recuerde que "esto" no se refiere a la clase en sí. `this` se refiere a la instancia actual. Cada instancia obtiene su propia referencia "esta". No puede ser "nulo".
 
 Esto también significa que "esto" se usa, por ejemplo, miembros. Los campos y métodos estáticos pertenecen a la clase misma, no a una instancia específica, por lo que "esto" no es aplicable.
 
 Además, cuando usas "this" dentro de un método, te refieres a la instancia del objeto a la que pertenece el método, no al método en sí.
 
-Finalmente, pasar `this` como argumento es útil cuando desea otorgar acceso a otro método a la instancia actual. Por ejemplo, podrías pasar `this` a un método de otra clase para que pueda volver a llamar al objeto de origen:```java
+Finalmente, pasar `this` como argumento es útil cuando desea otorgar acceso a otro método a la instancia actual. Por ejemplo, podrías pasar `this` a un método de otra clase para que pueda volver a llamar al objeto de origen:
+
+```java
 public class Person {
     private String name;
     
@@ -901,19 +1209,33 @@ public class IntroductionService {
         System.out.println("Hello, my name is " + person.getName());
     }
 }
-```En este ejemplo, tenemos dos clases: `Persona` y `IntroductionService`.
+
+```
+
+En este ejemplo, tenemos dos clases: `Persona` y `IntroductionService`.
 
 La clase `Persona` tiene un método llamado `introduceYourselfTo`, que toma un `IntroductionService` como parámetro. Dentro de este método, `this` (refiriéndose a la instancia actual de `Persona`) se pasa como argumento al método `introduce` de `IntroductionService`.
 
 La clase `IntroductionService` tiene un método `introduce` que toma una `Persona` como parámetro. Este método puede luego acceder al método `getName()` de la `Persona` para imprimir la introducción.
 
-Así es como puedes usar estas clases:```java
+Así es como puedes usar estas clases:
+
+```java
 Person alice = new Person("Steve");
 IntroductionService service = new IntroductionService();
 alice.introduceYourselfTo(service);
-```Y este es el resultado:```
+
+```
+
+Y este es el resultado:
+
+```
+
 Hello, my name is Steve
-```### La referencia `super`
+
+```
+
+### La referencia `super`
 
 Entonces, la palabra clave `this` se usa para hacer referencia a la instancia actual de la clase. Pero, ¿qué sucede si desea hacer referencia a la superclase de la que hereda su clase actual? Ahí es donde entra en juego "súper".
 
@@ -921,32 +1243,49 @@ La palabra clave `super` actúa como referencia a la clase principal (superclase
 
 El objetivo principal de "super" es diferenciar entre miembros de la superclase y miembros de la clase actual cuando tienen el mismo nombre. Al anteponer "super" al nombre de un miembro, especifica que desea utilizar la versión de la superclase de ese miembro, en lugar de la versión de la clase actual.
 
-La sintaxis para usar "super" es sencilla:```java
+La sintaxis para usar "super" es sencilla:
+
+```java
 super.memberName
-```Aquí, `memberName` puede ser un campo, método o constructor de la superclase.
+
+```
+
+Aquí, `memberName` puede ser un campo, método o constructor de la superclase.
 
 La anulación en Java es una característica que permite que una subclase o clase secundaria proporcione una implementación específica de un método que ya proporciona una de sus superclases o clases principales. 
 
 Cuando anulas un método en una subclase, no estás borrando ni reemplazando el método original en la superclase. El método de la superclase todavía está ahí, pero cuando llamas al método en un objeto de la subclase, en su lugar se ejecuta la versión anulada en la subclase. Entonces, al anular un método en una subclase, es posible que desees llamar a la implementación original del método desde la superclase. 
 
-En ese caso, puedes usar `super` para invocar la versión del método de la superclase:```java
+En ese caso, puedes usar `super` para invocar la versión del método de la superclase:
+
+```java
 @Override
 public void someMethod() {
     super.someMethod(); // Calls the superclass's implementation
     // Additional code specific to the subclass
 }
-```Otro caso de uso común para "super" es cuando deseas invocar el constructor de la superclase desde el constructor de la clase actual. Al igual que con `this`, debes llamar a `super()` como primera declaración en el constructor:```java
+
+```
+
+Otro caso de uso común para "super" es cuando deseas invocar el constructor de la superclase desde el constructor de la clase actual. Al igual que con `this`, debes llamar a `super()` como primera declaración en el constructor:
+
+```java
 public class SubClass extends SuperClass {
     public SubClass() {
         super(); // Invokes the superclass constructor
         // Other initialization code
     }
 }
-```De lo contrario, obtendrá un error de compilación. 
+
+```
+
+De lo contrario, obtendrá un error de compilación. 
 
 Si su superclase no tiene un constructor predeterminado (sin argumentos), deberá llamar explícitamente a un constructor parametrizado usando `super(argumentos)`. No puede utilizar "super" sin especificar los argumentos requeridos.
 
-Considere este ejemplo:```java
+Considere este ejemplo:
+
+```java
 // Superclass without a default constructor
 public class Person {
     private String name;
@@ -983,7 +1322,10 @@ public class Student extends Person {
         return studentID;
     }
 }
-```En el constructor `Estudiante`, `super(nombre, edad);` se usa para llamar explícitamente al constructor parametrizado de la clase `Persona`. Esto es necesario porque "Persona" no tiene un constructor sin argumentos. Si se omitiera esta llamada `super`, el código no se compilaría, ya que Java intentaría llamar a un constructor predeterminado en la clase `Persona`, que no existe en este caso.
+
+```
+
+En el constructor `Estudiante`, `super(nombre, edad);` se usa para llamar explícitamente al constructor parametrizado de la clase `Persona`. Esto es necesario porque "Persona" no tiene un constructor sin argumentos. Si se omitiera esta llamada `super`, el código no se compilaría, ya que Java intentaría llamar a un constructor predeterminado en la clase `Persona`, que no existe en este caso.
 
 Ahora, quizás te preguntes: si uso "super", ¿eso significa que no puedo usar "this" en el mismo método? La respuesta es no. Puede utilizar tanto `this` como `super` en el mismo método, ya que tienen diferentes propósitos. `this` se refiere a la instancia actual, mientras que `super` se refiere a la superclase.
 
@@ -991,7 +1333,9 @@ Sin embargo, es importante tener en cuenta que "super" no se puede utilizar para
 
 Finalmente, también vale la pena señalar que si bien "super" se usa principalmente para llamar a métodos o acceder a campos desde la clase principal inmediata, indirectamente permite la interacción con la jerarquía de herencia más amplia. En particular, si la clase principal inmediata hereda métodos de sus antepasados ​​(clases primarias y posteriores), "super" también puede acceder indirectamente a estos métodos. Esto se debe a que los métodos heredados de la clase principal, a los que `super` puede llamar, pueden llamar a métodos de sus antepasados ​​dentro de la cadena de herencia. Sin embargo, no es posible la invocación directa de métodos o el acceso a campos desde clases primarias o superiores, utilizando "super". Para acceder a dichos métodos directamente, normalmente confiaría en los métodos heredados que encapsulan esta funcionalidad dentro de su superclase inmediata.
 
-Considere el siguiente ejemplo, que amplía el ejemplo anterior agregando una nueva clase, `GraduateStudent`, que hereda de `Student`, y una clase principal, `Human`, de la que `Person` hereda:```java
+Considere el siguiente ejemplo, que amplía el ejemplo anterior agregando una nueva clase, `GraduateStudent`, que hereda de `Student`, y una clase principal, `Human`, de la que `Person` hereda:
+
+```java
 // Grandparent class
 public class Human {
     private String nationality;
@@ -1056,7 +1400,9 @@ public class GraduateStudent extends Student {
     }
 }
 
-```En este ejemplo, la clase `GraduateStudent` usa `super.sayHello()` en su método `introduce`. Esto llama al método `sayHello` de la clase `Student`, que a su vez anula el método `sayHello` de `Person`. El método `sayHello` de la clase `Person` luego llama al método `sayHello` de `Human`. Esto demuestra cómo se puede usar "super" para acceder indirectamente a métodos en la cadena de herencia, desde la clase "Human" hasta la clase "GraduateStudent", aunque el acceso directo a los métodos de "Human" desde "GraduateStudent" usando "super" no es posible.
+```
+
+En este ejemplo, la clase `GraduateStudent` usa `super.sayHello()` en su método `introduce`. Esto llama al método `sayHello` de la clase `Student`, que a su vez anula el método `sayHello` de `Person`. El método `sayHello` de la clase `Person` luego llama al método `sayHello` de `Human`. Esto demuestra cómo se puede usar "super" para acceder indirectamente a métodos en la cadena de herencia, desde la clase "Human" hasta la clase "GraduateStudent", aunque el acceso directo a los métodos de "Human" desde "GraduateStudent" usando "super" no es posible.
 
 Ahora hablemos más sobre anulación y polimorfismo.
 
@@ -1076,7 +1422,9 @@ Para anular correctamente un método, el método de la subclase debe tener lo mi
 - Tipo de devolución
 - Lista de parámetros
 
-Como método en la superclase. He aquí un ejemplo:```java
+Como método en la superclase. He aquí un ejemplo:
+
+```java
 class Animal {
     public void makeSound() {
         System.out.println("The animal makes a sound");
@@ -1096,7 +1444,13 @@ class Duck extends Animal {
         System.out.println("Quack");
     }
 }
-```Y un diagrama para visualizar esta jerarquía:```
+
+```
+
+Y un diagrama para visualizar esta jerarquía:
+
+```
+
 ┌──────────────────────────────────────────┐
 │            Animal makeSound()            │
 └──────────────────────┬───────────────────┘
@@ -1107,13 +1461,20 @@ class Duck extends Animal {
 │    Pig (Oink)     │  │   Duck (Quack)    │
 └───────────────────┘  └───────────────────┘
 
-```La clase `Animal` tiene un método llamado `makeSound()`. Las clases `Pig` y `Duck`, que extienden `Animal`, anulan el método `makeSound()` para proporcionar sus propias implementaciones. Ahora, veamos el polimorfismo en acción:```java
+```
+
+La clase `Animal` tiene un método llamado `makeSound()`. Las clases `Pig` y `Duck`, que extienden `Animal`, anulan el método `makeSound()` para proporcionar sus propias implementaciones. Ahora, veamos el polimorfismo en acción:
+
+```java
 Animal animal1 = new Pig();
 Animal animal2 = new Duck();
 
 animal1.makeSound(); // Output: Oink
 animal2.makeSound(); // Output: Quack
-```Aquí, creamos dos variables de tipo `Animal`, pero les asignamos objetos de las clases `Pig` y `Duck`. Cuando llamamos al método `makeSound()` en cada variable, se llama al método anulado apropiado en la subclase respectiva. Éste es el poder del polimorfismo, la capacidad de tratar objetos de diferentes subclases como objetos de una superclase común.
+
+```
+
+Aquí, creamos dos variables de tipo `Animal`, pero les asignamos objetos de las clases `Pig` y `Duck`. Cuando llamamos al método `makeSound()` en cada variable, se llama al método anulado apropiado en la subclase respectiva. Éste es el poder del polimorfismo, la capacidad de tratar objetos de diferentes subclases como objetos de una superclase común.
 
 Es importante comprender que anular no es lo mismo que sobrecargar. La sobrecarga se refiere a tener múltiples métodos con el mismo nombre pero diferentes listas de parámetros dentro de la misma clase. Anular, por otro lado, consiste en proporcionar una implementación diferente de un método en una subclase.
 
@@ -1125,7 +1486,9 @@ Exploremos algunas reglas relacionadas con la anulación.
 Hay varias reglas que debes seguir al anular métodos de una superclase:
 
 **Regla #1: Firmas de métodos**  
-La primera y más importante regla es que la firma del método debe coincidir exactamente entre la superclase y la subclase. Esto significa que el nombre, los parámetros y el tipo de retorno deben ser idénticos (con una excepción que discutiremos más adelante). No puedes cambiar los parámetros o el tipo de retorno como quieras:```java
+La primera y más importante regla es que la firma del método debe coincidir exactamente entre la superclase y la subclase. Esto significa que el nombre, los parámetros y el tipo de retorno deben ser idénticos (con una excepción que discutiremos más adelante). No puedes cambiar los parámetros o el tipo de retorno como quieras:
+
+```java
 // Superclass
 class Cookie {
     // Define a method 'eat' in the superclass
@@ -1142,7 +1505,10 @@ class ChocolateChipCookie extends Cookie {
         return "Eating a chocolate chip cookie";
     }
 }
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - La clase `Cookie` define un método llamado `eat` que devuelve una `String`.
 
 - La clase `ChocolateChipCookie`, que extiende `Cookie`, anula el método `eat`. El método principal en `ChocolateChipCookie` tiene el mismo nombre, tipo de retorno y lista de parámetros (en este caso, ninguno) que el método en `Cookie`.
@@ -1152,7 +1518,9 @@ class ChocolateChipCookie extends Cookie {
 ¿Por qué la firma del método tiene que permanecer igual? Bueno, piénselo como un contrato entre la superclase y la subclase. La superclase define un método específico que las subclases pueden anular si es necesario. Si cambias la firma, estás rompiendo ese contrato. El método de la subclase ya no sería una verdadera anulación del método de la superclase.
 
 **Regla #2: Modificadores de acceso**  
-Al anular un método, puede hacer que el modificador de acceso sea más indulgente, pero no más restrictivo. Por ejemplo, podría anular un método "protegido" en la superclase y hacerlo "público" en la subclase. Pero no puedes hacer lo contrario, como cambiar un método "público" a "privado":```java
+Al anular un método, puede hacer que el modificador de acceso sea más indulgente, pero no más restrictivo. Por ejemplo, podría anular un método "protegido" en la superclase y hacerlo "público" en la subclase. Pero no puedes hacer lo contrario, como cambiar un método "público" a "privado":
+
+```java
 // Superclass
 class Cookie {
     // Define a method with 'protected' access modifier in the superclass
@@ -1169,17 +1537,22 @@ class ChocolateChipCookie extends Cookie {
         return "Chocolate chip cookie recipe";
     }
 }
-```En este ejemplo:
-- La clase `Cookie` define un método `receta` con un modificador de acceso `protegido`. Esto significa que solo se puede acceder al método `recipe` dentro de su propia clase, subclases o dentro del mismo paquete.
+
+```
+
+En este ejemplo:
+- La clase `Cookie` define un método `receta` con un modificador de acceso `protected`. Esto significa que solo se puede acceder al método `recipe` dentro de su propia clase, subclases o dentro del mismo paquete.
 
 - La clase `ChocolateChipCookie`, que extiende `Cookie`, anula el método `recipe`, cambiando el modificador de acceso del método principal a `public`, que es menos restrictivo que `protected`.
 
-- Intentar acceder al método "receta" directamente desde una instancia de "Cookie" provocaría un error en tiempo de compilación, debido al control de acceso "protegido". Sin embargo, acceder al método `receta` a través de una instancia de `ChocolateChipCookie` es posible porque es `público`.
+- Intentar acceder al método "receta" directamente desde una instancia de "Cookie" provocaría un error en tiempo de compilación, debido al control de acceso "protegido". Sin embargo, acceder al método `receta` a través de una instancia de `ChocolateChipCookie` es posible porque es `public`.
 
 Esto muchas veces confunde a la gente. Piensan: "Dado que es mi subclase, ¿no debería poder limitar el acceso al método si quiero?" Sin embargo, esto va en contra de la idea de que una subclase siempre debería funcionar dondequiera que se utilice su superclase. Si restringes el método en la subclase, alteras esta compatibilidad.
 
 **Regla #3: Excepciones marcadas**  
-Revisaremos las excepciones con más detalle en un capítulo posterior, pero si el método de la superclase declara excepciones marcadas en su cláusula `throws`, el método anulado en la subclase solo puede declarar excepciones que sean iguales o más específicas. No puede agregar nuevas excepciones marcadas que no sean una subclase de las declaradas por el método de superclase:```java
+Revisaremos las excepciones con más detalle en un capítulo posterior, pero si el método de la superclase declara excepciones marcadas en su cláusula `throws`, el método anulado en la subclase solo puede declarar excepciones que sean iguales o más específicas. No puede agregar nuevas excepciones marcadas que no sean una subclase de las declaradas por el método de superclase:
+
+```java
 class BakingException extends Exception {
     public BakingException(String message) {
         super(message);
@@ -1208,7 +1581,10 @@ class ChocolateChipCookie extends Cookie {
         return "Chocolate chip cookie is baked";
     }
 }
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - `BakingException` es una excepción marcada que representa un error de horneado general.
 
 - `OverBakingException` es una excepción marcada más específica, que indica que la cookie se ha sobrecalentado y extiende `BakingException`.
@@ -1224,7 +1600,9 @@ La gente suele pensar que pueden lanzar cualquier excepción marcada que quieran
 
 Por ejemplo, si el método de la superclase devuelve un "Número", la subclase podría devolver un "Entero", ya que "Entero" es una subclase de "Número". Sin embargo, no puede devolver una "Cadena", a pesar de cualquier relación vaga percibida con el "Número" original. Los tipos de devolución necesitan esa relación jerárquica directa.
 
-Aquí hay un ejemplo para ilustrar esta regla:```java
+Aquí hay un ejemplo para ilustrar esta regla:
+
+```java
 class Cookie {
     // A method in the superclass that returns an instance of Cookie
     public Cookie getCookie() {
@@ -1240,7 +1618,10 @@ class ChocolateChipCookie extends Cookie {
         return new ChocolateChipCookie();
     }
 }
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - La clase `Cookie` tiene un método `getCookie` que devuelve una instancia de `Cookie`.
 
 - La clase `ChocolateChipCookie` extiende `Cookie` y anula el método `getCookie`. El tipo de retorno del método anulado es "ChocolateChipCookie", que es una subclase de "Cookie". Este cambio en el tipo de retorno es un ejemplo del uso de tipos de retorno covariantes.
@@ -1253,7 +1634,9 @@ Está bien.
 
 La anotación `@Override` marca explícitamente los métodos que están destinados a anular un método de superclase. ¿Pero cuál es el punto de usarlo? ¿Es sólo por claridad o tiene un propósito real?
 
-Si bien es cierto que `@Override` puede hacer que su código sea más legible al indicar claramente los métodos anulados, proporciona una protección contra errores accidentales. Considere este escenario:```java
+Si bien es cierto que `@Override` puede hacer que su código sea más legible al indicar claramente los métodos anulados, proporciona una protección contra errores accidentales. Considere este escenario:
+
+```java
 class Cookie {
     public String recipe() {
         return "Default cookie recipe";
@@ -1266,13 +1649,18 @@ class ChocolateChipCookie extends Cookie {
         return "Chocolate chip cookie recipe";
     }
 }
-```En este caso, la subclase tenía la intención de anular "receta", pero accidentalmente introdujo un error tipográfico y la nombró "recetas". Sin la anotación `@Override`, esto se compilaría bien. La subclase simplemente tendría dos métodos separados: la "receta" heredada y las "recetas" nuevas.
+
+```
+
+En este caso, la subclase tenía la intención de anular "receta", pero accidentalmente introdujo un error tipográfico y la nombró "recetas". Sin la anotación `@Override`, esto se compilaría bien. La subclase simplemente tendría dos métodos separados: la "receta" heredada y las "recetas" nuevas.
 
 Pero con `@Override`, el compilador detectará el error y producirá un error, indicando que `recipes` no anula ningún método. La anotación obliga al compilador a verificar que el método realmente anula un método de superclase, proporcionando una capa adicional de seguridad.
 
 Ahora bien, ¿qué sucede si redeclaras un método privado de la superclase en una subclase? ¿Se considera eso primordial? La respuesta es no. Los métodos privados no se heredan en absoluto, por lo que no hay nada que anular.
 
-Si redeclaras un método privado en la subclase, es esencialmente un método completamente separado que casualmente tiene el mismo nombre. No interactúa con el método de la superclase de ninguna manera. Por ejemplo:```java
+Si redeclaras un método privado en la subclase, es esencialmente un método completamente separado que casualmente tiene el mismo nombre. No interactúa con el método de la superclase de ninguna manera. Por ejemplo:
+
+```java
 class Cookie {
     private String recipe() {
         return "Default cookie recipe";
@@ -1284,13 +1672,18 @@ class ChocolateChipCookie extends Cookie {
         return "Chocolate chip cookie recipe";
     }
 }
-```En este caso, "Cookie" y "ChocolateChipCookie" tienen cada una su propia "receta". Llamar a `recipe` en una instancia de `ChocolateChipCookie` siempre invocará la versión de subclase, nunca la de superclase.
+
+```
+
+En este caso, "Cookie" y "ChocolateChipCookie" tienen cada una su propia "receta". Llamar a `recipe` en una instancia de `ChocolateChipCookie` siempre invocará la versión de subclase, nunca la de superclase.
 
 Otra fuente de confusión es la diferencia entre ocultar y anular métodos estáticos. Cuando se redeclara un método "estático" en una subclase, se le llama ocultar, no anular. El método de la subclase oculta el método de la superclase, pero en realidad no lo anula.
 
 La diferencia clave es que anular es un concepto de tiempo de ejecución, mientras que ocultar es un concepto de tiempo de compilación. Con la anulación, el método específico invocado está determinado por el tipo de objeto real en tiempo de ejecución. Pero con la ocultación, el método invocado está determinado por el tipo de referencia en tiempo de compilación.
 
-Aquí hay un ejemplo para ilustrar esto:```java
+Aquí hay un ejemplo para ilustrar esto:
+
+```java
 class Cookie {
     public static String bake() {
         return "Cookie is baked";
@@ -1302,7 +1695,12 @@ class ChocolateChipCookie extends Cookie {
         return "Chocolate chip cookie is baked";
     }
 }
-```Ahora, considere el siguiente código:```java
+
+```
+
+Ahora, considere el siguiente código:
+
+```java
 Cookie obj1 = new Cookie();
 System.out.println(obj1.bake());  // Output: "Cookie is baked"
 
@@ -1311,11 +1709,16 @@ System.out.println(obj2.bake());  // Output: "Chocolate chip cookie is baked"
 
 Cookie obj3 = new ChocolateChipCookie();
 System.out.println(obj3.bake());  // Output: "Cookie is baked"
-```En el último caso, aunque `obj3` es en realidad una instancia de `ChocolateChipCookie` en tiempo de ejecución, el tipo de referencia es `Cookie`. Por lo tanto, invoca el método oculto `Cookie`, no el método anulado `ChocolateChipCookie`.
+
+```
+
+En el último caso, aunque `obj3` es en realidad una instancia de `ChocolateChipCookie` en tiempo de ejecución, el tipo de referencia es `Cookie`. Por lo tanto, invoca el método oculto `Cookie`, no el método anulado `ChocolateChipCookie`.
 
 Al igual que los métodos estáticos, las variables se pueden ocultar en subclases. Si una subclase declara una variable con el mismo nombre que una variable de la superclase, oculta la variable de la superclase dentro del alcance de la subclase.
 
-He aquí un ejemplo:```java
+He aquí un ejemplo:
+
+```java
 class Cookie {
     protected int size = 10;
 }
@@ -1323,12 +1726,20 @@ class Cookie {
 class ChocolateChipCookie extends Cookie {
     private int size = 20;
 }
-```En este caso, la variable `tamaño` en `ChocolateChipCookie` oculta la variable `tamaño` de `Cookie`. Cualquier referencia al `tamaño` dentro de `ChocolateChipCookie` accederá a la variable de subclase, no a la de superclase.
 
-Pero aquí está la parte complicada. La variable de superclase oculta no desaparece. Todavía está allí y se puede acceder a él a través de una referencia de superclase. Considere esto:```java
+```
+
+En este caso, la variable `tamaño` en `ChocolateChipCookie` oculta la variable `tamaño` de `Cookie`. Cualquier referencia al `tamaño` dentro de `ChocolateChipCookie` accederá a la variable de subclase, no a la de superclase.
+
+Pero aquí está la parte complicada. La variable de superclase oculta no desaparece. Todavía está allí y se puede acceder a él a través de una referencia de superclase. Considere esto:
+
+```java
 Cookie cookie = new ChocolateChipCookie();
 System.out.println(cookie.size);  // Output: 10
-```Aunque "cookie" es en realidad una instancia de "ChocolateChipCookie", la variable se declara como tipo "Cookie". Entonces accede a la variable oculta `Cookie`, no a la `ChocolateChipCookie`.
+
+```
+
+Aunque "cookie" es en realidad una instancia de "ChocolateChipCookie", la variable se declara como tipo "Cookie". Entonces accede a la variable oculta `Cookie`, no a la `ChocolateChipCookie`.
 
 Esto puede generar mucha confusión y errores sutiles. En general, es mejor evitar ocultar variables por completo. Si necesita anular una variable de superclase, considere usar un método getter/setter, que se puede anular correctamente.
 
@@ -1336,7 +1747,9 @@ Finalmente (nunca mejor dicho), hablemos de la palabra clave "final". Cuando se 
 
 Un error común es pensar que las subclases no pueden acceder a los métodos "finales". Eso no es cierto. Las subclases aún pueden llamar y utilizar métodos "finales"; simplemente no pueden anularlos.
 
-Por ejemplo:```java
+Por ejemplo:
+
+```java
 class Cookie {
     public final void bake(int temp) {
         System.out.println("Baking at " + temp);
@@ -1352,7 +1765,10 @@ class ChocolateChipCookie extends Cookie {
         bake(350);  // Calling the final bake() method is allowed
     }
 }
-```El método `bake()` en `Cookie` es `final`, por lo que `ChocolateChipCookie` no puede anularlo. Pero aún puede llamar a `bake()` cuando sea necesario.
+
+```
+
+El método `bake()` en `Cookie` es `final`, por lo que `ChocolateChipCookie` no puede anularlo. Pero aún puede llamar a `bake()` cuando sea necesario.
 
 Entonces, ¿cuándo debería utilizar métodos "finales"? Solo cuando tenga una razón crítica para evitar la anulación. El uso excesivo de "final" puede hacer que su código sea rígido y difícil de ampliar. En la mayoría de los casos, es mejor dejar los métodos abiertos para su anulación, ya que promueve la flexibilidad y la reutilización.
 
@@ -1372,16 +1788,26 @@ Profundicemos en cada uno de estos con más detalle.
 
 La forma más sencilla de acceder a un objeto es mediante el uso de una variable de referencia que coincida exactamente con el tipo de objeto.
 
-Considere esta clase:```java
+Considere esta clase:
+
+```java
 class Dog {    
     public void bark() {
         System.out.println("Woof!");
     }
 }
-```Y este código:```java
+
+```
+
+Y este código:
+
+```java
 Dog myDog = new Dog();
 myDog.bark(); // Can access all public methods of Dog
-```Aquí, `myDog` es una variable de referencia de tipo `Dog` y se refiere a un objeto `Dog`. Con esta configuración, podemos acceder a cualquier método o variable `pública` definida en la clase `Dog` directamente a través de la referencia `myDog`.
+
+```
+
+Aquí, `myDog` es una variable de referencia de tipo `Dog` y se refiere a un objeto `Dog`. Con esta configuración, podemos acceder a cualquier método o variable `pública` definida en la clase `Dog` directamente a través de la referencia `myDog`.
 
 Si se pregunta si se produce polimorfismo cuando un tipo de referencia y un tipo de objeto son iguales, la respuesta es sí. Incluso con tipos coincidentes, el polimorfismo todavía está en juego bajo el capó. El tipo de referencia determina qué métodos puede llamar, pero el tipo de objeto real determina qué implementación de esos métodos se utiliza en tiempo de ejecución.
 
@@ -1389,7 +1815,9 @@ Si se pregunta si se produce polimorfismo cuando un tipo de referencia y un tipo
 
 Las cosas se vuelven un poco más interesantes cuando incluimos la herencia en escena. En Java, es perfectamente válido tener una variable de referencia con un tipo que sea una superclase del tipo de objeto real.
 
-Considere esta clase y su subclase:```java
+Considere esta clase y su subclase:
+
+```java
 class Animal {
     public void eat() {
         System.out.println("Animal is eating.");
@@ -1405,16 +1833,29 @@ class Dog extends Animal {
         System.out.println("Woof!");
     }
 }
-```Podemos tener algo como esto:```java
+
+```
+
+Podemos tener algo como esto:
+
+```java
 Animal myAnimal = new Dog();
-```Aquí tenemos una referencia de tipo "Animal" que se refiere a un objeto "Perro". Dado que "Perro" extiende "Animal", esto está permitido. Pero ¿qué significa esto para acceder a la funcionalidad del objeto?
+
+```
+
+Aquí tenemos una referencia de tipo "Animal" que se refiere a un objeto "Perro". Dado que "Perro" extiende "Animal", esto está permitido. Pero ¿qué significa esto para acceder a la funcionalidad del objeto?
 
 Cuando tiene una referencia de superclase a un objeto de subclase, puede acceder a cualquier método definido en la superclase, pero no a los métodos que sean exclusivos de la subclase. Entonces, en el ejemplo anterior, podríamos llamar a `myAnimal.eat()` ya que `eat()` está definido en `Animal`, pero no podríamos llamar a `myAnimal.bark()` ya que `bark()` solo está definido en `Dog`. El tipo de referencia lo restringe a los métodos que define el tipo. Sin embargo, Java nos ofrece una solución a esto: la conversión.
 
-Si está seguro de que su referencia de superclase apunta a un objeto de subclase específico, puede convertir la referencia a ese tipo de subclase y luego llamar a los métodos de la subclase:```java
+Si está seguro de que su referencia de superclase apunta a un objeto de subclase específico, puede convertir la referencia a ese tipo de subclase y luego llamar a los métodos de la subclase:
+
+```java
 Dog myDog = (Dog) myAnimal; // Casting from Animal to Dog
 myDog.bark(); // Now we can call Dog-specific methods
-```El casting esencialmente dice: "Sé que esto parece ser un "animal", pero créanme, en realidad es un "perro". Por supuesto, debes tener cuidado, si intentas convertir a la subclase incorrecta, obtendrás una `ClassCastException` en tiempo de ejecución.
+
+```
+
+El casting esencialmente dice: "Sé que esto parece ser un "animal", pero créanme, en realidad es un "perro". Por supuesto, debes tener cuidado, si intentas convertir a la subclase incorrecta, obtendrás una `ClassCastException` en tiempo de ejecución.
 
 Continuaremos analizando la conversión en la siguiente sección, pero en resumen, las referencias de superclase le brindan flexibilidad (puede usar un "Perro" en cualquier lugar donde se espere un "Animal") pero restringen el acceso directo a la funcionalidad específica de la subclase. Este es un aspecto clave del polimorfismo en Java.
 
@@ -1422,7 +1863,9 @@ Continuaremos analizando la conversión en la siguiente sección, pero en resume
 
 La tercera forma de acceder a un objeto en Java es a través de una referencia de interfaz. Si una clase implementa una interfaz, puede hacer referencia a instancias de esa clase utilizando una variable de referencia del tipo de interfaz.
 
-Considere esta interfaz y sus implementaciones:```java
+Considere esta interfaz y sus implementaciones:
+
+```java
 interface Pet {
     void play();
 }
@@ -1446,29 +1889,54 @@ class Cat implements Pet {
         System.out.println("Meow!");
     }
 }
-```De esta manera, podemos tener algo como esto:```java
-Pet myPet = new Dog();
-```En este ejemplo, `Dog` implementa la interfaz `Pet`, por lo que podemos crear una referencia `Pet` y apuntarla a un objeto `Dog`.
 
-Ahora, podría estar pensando: ¿crear una referencia de interfaz a un objeto significa que solo puedo usar los métodos definidos en la interfaz? Y la respuesta es sí. Cuando tiene una referencia de interfaz, solo puede llamar directamente a los métodos que están definidos en esa interfaz, incluso si el objeto real tiene otros métodos disponibles.```java
+```
+
+De esta manera, podemos tener algo como esto:
+
+```java
+Pet myPet = new Dog();
+
+```
+
+En este ejemplo, `Dog` implementa la interfaz `Pet`, por lo que podemos crear una referencia `Pet` y apuntarla a un objeto `Dog`.
+
+Ahora, podría estar pensando: ¿crear una referencia de interfaz a un objeto significa que solo puedo usar los métodos definidos en la interfaz? Y la respuesta es sí. Cuando tiene una referencia de interfaz, solo puede llamar directamente a los métodos que están definidos en esa interfaz, incluso si el objeto real tiene otros métodos disponibles.
+
+```java
 myPet.play(); // Valid, play() is defined in Pet
 myPet.bark(); // Not valid, bark() is not part of Pet
-```Esto puede parecer limitante, pero en realidad es una característica poderosa. Al programar en una interfaz, puede escribir código más flexible y fácil de mantener. Puedes cambiar el tipo de objeto real (por ejemplo, de `Perro` a `Gato`) sin tener que cambiar ningún código que utilice la referencia de la interfaz:```java
+
+```
+
+Esto puede parecer limitante, pero en realidad es una característica poderosa. Al programar en una interfaz, puede escribir código más flexible y fácil de mantener. Puedes cambiar el tipo de objeto real (por ejemplo, de `Perro` a `Gato`) sin tener que cambiar ningún código que utilice la referencia de la interfaz:
+
+```java
 Pet myPet = new Dog();
 myPet.play(); // Output: Dog is playing!
         
 myPet = new Cat();
 myPet.play(); // Output: Cat is playing!
-```El punto clave en este ejemplo es que a la referencia "myPet" no le importa si se trata de un "Perro" o un "Gato". Simplemente sabe que está trabajando con alguna "mascota". Podemos cambiar el tipo de objeto real de `Perro` a `Gato`, y el método `play` seguirá funcionando sin ningún cambio.
 
-Pero, ¿qué sucede si necesita acceder a métodos que son específicos del tipo de objeto real? Al igual que con las referencias de superclase, puedes usar casting:```java
+```
+
+El punto clave en este ejemplo es que a la referencia "myPet" no le importa si se trata de un "Perro" o un "Gato". Simplemente sabe que está trabajando con alguna "mascota". Podemos cambiar el tipo de objeto real de `Perro` a `Gato`, y el método `play` seguirá funcionando sin ningún cambio.
+
+Pero, ¿qué sucede si necesita acceder a métodos que son específicos del tipo de objeto real? Al igual que con las referencias de superclase, puedes usar casting:
+
+```java
 Dog myDog = (Dog) myPet; // Casting from Pet to Dog
 myDog.bark(); // Now we can call Dog-specific methods
-```Nuevamente, debe asegurarse de que la referencia de su interfaz realmente apunte a un objeto "Perro" antes de realizar esta conversión, o obtendrá una excepción de tiempo de ejecución.
+
+```
+
+Nuevamente, debe asegurarse de que la referencia de su interfaz realmente apunte a un objeto "Perro" antes de realizar esta conversión, o obtendrá una excepción de tiempo de ejecución.
 
 Y recuerde, las interfaces no tienen instancias, no puede crear un objeto de un tipo de interfaz directamente. Sin embargo, se puede hacer referencia a cualquier objeto de una clase que implemente la interfaz utilizando el tipo de interfaz. En ese sentido, el objeto *es-una* forma del tipo de interfaz.
 
-También vale la pena recordar que una sola clase puede implementar múltiples interfaces. Si una clase implementa múltiples interfaces, puede usar una referencia de cualquiera de esos tipos de interfaz para hacer referencia a instancias de la clase:```java
+También vale la pena recordar que una sola clase puede implementar múltiples interfaces. Si una clase implementa múltiples interfaces, puede usar una referencia de cualquiera de esos tipos de interfaz para hacer referencia a instancias de la clase:
+
+```java
 interface Trainable {
     void doTrick();
 }
@@ -1479,7 +1947,10 @@ class Dog implements Pet, Trainable {
 
 Pet myPet = new Dog();
 Trainable myStudent = (Trainable) myPet;
-```En este ejemplo, se puede hacer referencia a un único objeto "Perro" como "Mascota" y como "Entrenable", porque "Perro" implementa ambas interfaces.
+
+```
+
+En este ejemplo, se puede hacer referencia a un único objeto "Perro" como "Mascota" y como "Entrenable", porque "Perro" implementa ambas interfaces.
 
 Por tanto, las referencias de interfaz proporcionan una forma de escribir código más abstracto y flexible. Le permiten centrarse en un conjunto específico de comportamientos que un objeto puede realizar, independientemente de su tipo de clase real. Este es un principio fundamental del diseño orientado a objetos.
 
@@ -1506,35 +1977,55 @@ Las reglas para la conversión de tipos en Java son las siguientes:
 
 Analicémoslos uno por uno.
 
-La primera regla dice que convertir una referencia de un subtipo a un supertipo no requiere una conversión explícita. Esto se conoce como upcasting. Si tiene una jerarquía de clases donde la clase "B" extiende la clase "A", puede asignar una referencia de tipo "B" a una variable de tipo "A" sin una conversión explícita:```java
+La primera regla dice que convertir una referencia de un subtipo a un supertipo no requiere una conversión explícita. Esto se conoce como upcasting. Si tiene una jerarquía de clases donde la clase "B" extiende la clase "A", puede asignar una referencia de tipo "B" a una variable de tipo "A" sin una conversión explícita:
+
+```java
 class A {}
 class B extends A {}
 
 B b = new B();
 A a = b; // upcasting, no explicit cast needed
-```La conversión ascendente es segura porque una subclase siempre contiene todas las características de su superclase. Por lo tanto, tratar un objeto de subclase como un objeto de superclase nunca causará un problema.
 
-La segunda regla dice que convertir una referencia de un supertipo a un subtipo requiere una conversión explícita. Esto se conoce como abatimiento. Si tiene una variable del supertipo y desea tratarla como subtipo, debe convertirla explícitamente:```java
+```
+
+La conversión ascendente es segura porque una subclase siempre contiene todas las características de su superclase. Por lo tanto, tratar un objeto de subclase como un objeto de superclase nunca causará un problema.
+
+La segunda regla dice que convertir una referencia de un supertipo a un subtipo requiere una conversión explícita. Esto se conoce como abatimiento. Si tiene una variable del supertipo y desea tratarla como subtipo, debe convertirla explícitamente:
+
+```java
 A a = new B(); // upcasting
 B b = (B) a; // downcasting, explicit cast needed
-```El downcasting es necesario cuando se desea acceder a métodos o variables que son específicos de la subclase y no están disponibles en la superclase.
+
+```
+
+El downcasting es necesario cuando se desea acceder a métodos o variables que son específicos de la subclase y no están disponibles en la superclase.
 
 Sin embargo, abatirse conlleva un riesgo. ¿Qué pasa si el objeto al que se hace referencia no es en realidad una instancia de la subclase a la que estás intentando convertirlo? Esto nos lleva a la tercera regla.
 
-En tiempo de ejecución, una conversión no válida de una referencia a un tipo incompatible da como resultado que se genere una `ClassCastException`:```java
+En tiempo de ejecución, una conversión no válida de una referencia a un tipo incompatible da como resultado que se genere una `ClassCastException`:
+
+```java
 A a = new A();
 B b = (B) a; // Compiles but throws ClassCastException at runtime
-```En este ejemplo, "a" se refiere a una instancia de la clase "A", no a la clase "B". Cuando intentamos convertirlo a `B`, se compila sin errores porque el compilador permite la posibilidad de que `a` pueda estar refiriéndose a un objeto `B`. Pero en tiempo de ejecución, cuando realmente se intenta la conversión, Java se da cuenta de que "a" no es en realidad una "B" y arroja una "ClassCastException".
+
+```
+
+En este ejemplo, "a" se refiere a una instancia de la clase "A", no a la clase "B". Cuando intentamos convertirlo a `B`, se compila sin errores porque el compilador permite la posibilidad de que `a` pueda estar refiriéndose a un objeto `B`. Pero en tiempo de ejecución, cuando realmente se intenta la conversión, Java se da cuenta de que "a" no es en realidad una "B" y arroja una "ClassCastException".
 
 Este es un punto importante: el lanzamiento no transforma mágicamente un objeto en algo que no es. Si intenta convertir un objeto a un tipo incompatible, se producirá una excepción de tiempo de ejecución. El casting explícito básicamente le dice al compilador: "Créame, sé lo que estoy haciendo". Pero si te equivocas, Java te lo hará saber en tiempo de ejecución.
 
-Sin embargo, la cuarta regla establece que el compilador no permite conversiones a tipos no relacionados. Si intenta realizar una conversión entre clases que no están en la misma jerarquía de herencia, el compilador le dará un error:```java
+Sin embargo, la cuarta regla establece que el compilador no permite conversiones a tipos no relacionados. Si intenta realizar una conversión entre clases que no están en la misma jerarquía de herencia, el compilador le dará un error:
+
+```java
 class A {}
 class C {}
 
 A a = new A();
 C c = (C) a; // Compilation error
-```Las clases "A" y "C" no están relacionadas por herencia, por lo que el compilador sabe que es imposible que un objeto "A" sea alguna vez un objeto "C". Ni siquiera permitirá que este código se compile.
+
+```
+
+Las clases "A" y "C" no están relacionadas por herencia, por lo que el compilador sabe que es imposible que un objeto "A" sea alguna vez un objeto "C". Ni siquiera permitirá que este código se compile.
 
 Entonces, si la conversión no funciona, ¿es un problema de tiempo de compilación o de tiempo de ejecución? Puede ser cualquiera, dependiendo de la situación. Si intenta convertir a un tipo no relacionado, se trata de un error en tiempo de compilación. Si intenta convertir a un tipo relacionado pero el objeto no es en realidad una instancia de ese tipo, es una excepción de tiempo de ejecución.
 
@@ -1544,14 +2035,21 @@ Dicho esto, generalmente es una buena idea evitar el uso excesivo de hechizos, e
 
 Entonces, ¿cuándo es realmente útil el casting? El upcasting es muy común y es una parte importante del polimorfismo en Java. Le permite tratar un tipo más específico como un tipo más general, lo cual es seguro y, a menudo, necesario.
 
-Por ejemplo, digamos que tiene un método que toma un parámetro de tipo "Lista". Puede pasar una `ArrayList`, una `LinkedList` o cualquier otra subclase de `List` y funcionará bien gracias a la conversión ascendente.```java
+Por ejemplo, digamos que tiene un método que toma un parámetro de tipo "Lista". Puede pasar una `ArrayList`, una `LinkedList` o cualquier otra subclase de `List` y funcionará bien gracias a la conversión ascendente.
+
+```java
 void processNames(List<String> names) {
     // code here
 }
 
 ArrayList<String> nameList = new ArrayList<>();
 processNames(nameList); // upcasting from ArrayList to List
-```Downcasting es menos común y debe usarse con más moderación. Es necesario cuando tienes una referencia a una superclase pero necesitas acceder a métodos o variables que solo están disponibles en una subclase.```java
+
+```
+
+Downcasting es menos común y debe usarse con más moderación. Es necesario cuando tienes una referencia a una superclase pero necesitas acceder a métodos o variables que solo están disponibles en una subclase.
+
+```java
 class Shape {
     void draw() { /* ... */ }
 }
@@ -1563,7 +2061,10 @@ class Circle extends Shape {
 Shape shape = new Circle();
 shape.draw(); // Fine, draw() is defined in Shape
 ((Circle)shape).drawCircle(); // Downcast to access drawCircle()
-```En este caso, el abatimiento es seguro porque sabemos que "forma" en realidad se refiere a un objeto "Círculo". 
+
+```
+
+En este caso, el abatimiento es seguro porque sabemos que "forma" en realidad se refiere a un objeto "Círculo". 
 
 En resumen, la conversión de tipos en Java le permite tratar temporalmente un objeto como un tipo diferente, ya sea una superclase (upcasting) o una subclase (downcasting), siempre que exista una relación de herencia. Upcasting es seguro y común, mientras que downcasting requiere una conversión explícita y debe usarse con cuidado. El compilador busca conversiones no válidas a tipos no relacionados, mientras que las conversiones no válidas a tipos relacionados dan como resultado una excepción en tiempo de ejecución. Y recuerde siempre que, debajo del yeso, el objeto en sí no cambia, simplemente se ve a través de una lente diferente.
 
@@ -1572,28 +2073,50 @@ Pero para estar más seguro, puedes usar el operador `instanceof` para verificar
 ### El operador `instancia de`
 En Java, el operador `instanceof` se utiliza para probar si un objeto es una instancia de una clase particular o si implementa una interfaz específica. Devuelve un valor "booleano": "verdadero" si el objeto es una instancia de la clase/interfaz, "falso" en caso contrario.
 
-La sintaxis para usar `instanceof` es:```java
-objectReference instanceof ClassName/InterfaceName  
-```Por ejemplo:```java
+La sintaxis para usar `instanceof` es:
+
+```java
+objectReference instanceof ClassName/InterfaceName
+
+```
+
+Por ejemplo:
+
+```java
 Object obj = "Hello";
 if(obj instanceof String) {
     System.out.println("obj is a String");
 }
-```Esto imprimirá `"obj es una cadena"` ya que el objeto al que hace referencia `obj` es una instancia de la clase `String`.
+
+```
+
+Esto imprimirá `"obj es una cadena"` ya que el objeto al que hace referencia `obj` es una instancia de la clase `String`.
 
 Es importante tener en cuenta que el uso de `instanceof` en realidad no cambia el objeto ni su tipo de ninguna manera. Simplemente compara el objeto con la clase o interfaz especificada y devuelve un resultado "booleano". `instanceof` no se puede usar con tipos primitivos como `int` o `double`, solo funciona con referencias a objetos.
 
-Pasar la prueba `instanceof` para una clase indica que el objeto es una instancia de esa clase misma o de una de sus subclases. Todos los objetos en Java heredan de la clase `Object`, por lo que `instanceof Object` siempre devolverá `true`:```java
+Pasar la prueba `instanceof` para una clase indica que el objeto es una instancia de esa clase misma o de una de sus subclases. Todos los objetos en Java heredan de la clase `Object`, por lo que `instanceof Object` siempre devolverá `true`:
+
+```java
 String str = "abc";
 if(str instanceof Object) {
     System.out.println("This will always print");
 }
-```Una excepción a esta regla es cuando la referencia es "nula":```java
+
+```
+
+Una excepción a esta regla es cuando la referencia es "nula":
+
+```java
 String str = null;
 if(str instanceof String) {
     System.out.println("This will never be executed");
 }
-````instanceof` también puede verificar si un objeto implementa una interfaz particular. Si una clase implementa una interfaz directamente o mediante herencia, `instanceof` devolverá `true` para esa interfaz:```java
+
+```
+
+`instanceof` también puede verificar si un objeto implementa una interfaz particular. Si una clase implementa una interfaz directamente o mediante herencia, `instanceof` devolverá `true` para esa interfaz:
+
+```java
 interface Trainable {
     void doTrick();
 }
@@ -1613,34 +2136,54 @@ if(dog instanceof Pet) {
 if(dog instanceof Trainable) {
     System.out.println("A Dog is a Trainable");
 }
-```Ambas declaraciones de impresión se ejecutarán, ya que "Dog" implementa directamente "Pet" y "Pet" extiende "Trainable".
 
-Un caso de uso común para `instanceof` es reducir de forma segura un objeto antes de llamar a un método específico de subclase. Recuerde, un downcast es cuando convierte una referencia de un tipo de superclase a un tipo de subclase:```java
+```
+
+Ambas declaraciones de impresión se ejecutarán, ya que "Dog" implementa directamente "Pet" y "Pet" extiende "Trainable".
+
+Un caso de uso común para `instanceof` es reducir de forma segura un objeto antes de llamar a un método específico de subclase. Recuerde, un downcast es cuando convierte una referencia de un tipo de superclase a un tipo de subclase:
+
+```java
 Object obj = getSomeObject();
 if(obj instanceof String) {
     String str = (String) obj;
     System.out.println(str.toUpperCase());
 }
-```Aquí primero verificamos si `obj` es en realidad una `String` antes de bajar y llamar al método `toUpperCase()` específico de `String`. Se requiere la conversión explícita `(String)` aunque ya hayamos confirmado el tipo con `instanceof`. 
+
+```
+
+Aquí primero verificamos si `obj` es en realidad una `String` antes de bajar y llamar al método `toUpperCase()` específico de `String`. Se requiere la conversión explícita `(String)` aunque ya hayamos confirmado el tipo con `instanceof`. 
 
 Sin embargo, podemos utilizar la coincidencia de patrones para el operador `instanceof` para agilizar el proceso de verificación y conversión de tipos de objetos.
 
-Entonces, en lugar de una conversión explícita, puedes combinar la verificación de tipo y la conversión en una sola operación usando la siguiente sintaxis:```java
+Entonces, en lugar de una conversión explícita, puedes combinar la verificación de tipo y la conversión en una sola operación usando la siguiente sintaxis:
+
+```java
 if (objectReference instanceof ClassName variableName) {
     // Use variableName here, which is automatically cast to ClassName
 }
-```Esta sintaxis comprueba si `objectReference` es una instancia de `ClassName`. Si es así, `objectReference` se convierte en `ClassName` y el objeto de conversión se asigna a `variableName` dentro del alcance de la declaración `if`. Si la verificación falla, no se lanza ninguna excepción. El código dentro del bloque simplemente no se ejecuta y la variable de patrón permanece inaccesible. Esto elimina la necesidad de una conversión explícita y reduce el código repetitivo.
 
-Aquí está el ejemplo abatido anterior reescrito para usar la coincidencia de patrones:```java
+```
+
+Esta sintaxis comprueba si `objectReference` es una instancia de `ClassName`. Si es así, `objectReference` se convierte en `ClassName` y el objeto de conversión se asigna a `variableName` dentro del alcance de la declaración `if`. Si la verificación falla, no se lanza ninguna excepción. El código dentro del bloque simplemente no se ejecuta y la variable de patrón permanece inaccesible. Esto elimina la necesidad de una conversión explícita y reduce el código repetitivo.
+
+Aquí está el ejemplo abatido anterior reescrito para usar la coincidencia de patrones:
+
+```java
 Object obj = getSomeObject();
 if(obj instanceof String str) {
     System.out.println(str.toUpperCase());
 }
-```En este ejemplo, `str` es la variable de patrón que se convierte automáticamente en `String` si `obj` es una instancia de `String`. Las variables de patrón se inicializan implícitamente tras una coincidencia exitosa. No se requiere fundición adicional.
+
+```
+
+En este ejemplo, `str` es la variable de patrón que se convierte automáticamente en `String` si `obj` es una instancia de `String`. Las variables de patrón se inicializan implícitamente tras una coincidencia exitosa. No se requiere fundición adicional.
 
 Las variables de patrón tienen un alcance limitado. Sólo son accesibles cuando se garantiza su coincidencia. `str` en el ejemplo anterior no está disponible fuera del bloque `if`. Esta elección de diseño garantiza que las variables de patrón solo se utilicen en contextos donde sus tipos estén garantizados, eliminando una fuente común de errores.
 
-Sin embargo, esto no siempre significa que el alcance sea el bloque "if" donde están definidos. Cuando se utiliza la coincidencia de patrones con `instanceof`, si la condición es `true`, lo que significa que el objeto es una instancia del tipo especificado, la variable de patrón de hecho tiene alcance y es accesible dentro del bloque que sigue a la condición. Sin embargo, considere este ejemplo, donde la coincidencia de patrones se usa con una negación:```java
+Sin embargo, esto no siempre significa que el alcance sea el bloque "if" donde están definidos. Cuando se utiliza la coincidencia de patrones con `instanceof`, si la condición es `true`, lo que significa que el objeto es una instancia del tipo especificado, la variable de patrón de hecho tiene alcance y es accesible dentro del bloque que sigue a la condición. Sin embargo, considere este ejemplo, donde la coincidencia de patrones se usa con una negación:
+
+```java
 Object obj = getSomeObject();
 if (!(obj instanceof String str)) {
     // The pattern variable str is NOT accessible here
@@ -1649,25 +2192,40 @@ if (!(obj instanceof String str)) {
 // But, because the execution only reaches this point if str IS an instance of String,
 // the pattern variable str is accessible here.
 return str.toUpperCase();
-```En este ejemplo, la declaración `if` comprueba si `obj` no es una instancia de `String`. Si `obj` no es una `String`, el método devuelve `false` inmediatamente, y la variable de patrón `str` no es accesible dentro del bloque `if` porque la condición para su instanciación (`obj` siendo una instancia de `String`) es `false`.
+
+```
+
+En este ejemplo, la declaración `if` comprueba si `obj` no es una instancia de `String`. Si `obj` no es una `String`, el método devuelve `false` inmediatamente, y la variable de patrón `str` no es accesible dentro del bloque `if` porque la condición para su instanciación (`obj` siendo una instancia de `String`) es `false`.
 
 Sin embargo, inmediatamente después de este bloque `if`, la ejecución del código continúa solo si `obj` es de hecho una instancia de `String`, lo que significa que `str` coincidió exitosamente y ahora es accesible y utilizable fuera de, pero directamente después, el bloque if que contiene la coincidencia de patrones. Este es un escenario específico donde el flujo del programa garantiza que se cree una instancia de la variable de patrón "str" ​​y se pueda utilizar de forma segura porque el método habría salido antes si la condición fuera "falsa".
 
-También puedes usar una variable de patrón de esta manera:```java
+También puedes usar una variable de patrón de esta manera:
+
+```java
 Object obj = getSomeObject();
 if(obj instanceof String str && str.length() > 3) {
     System.out.println(str.toUpperCase());
 }
-```Porque, al estar en cortocircuito el operador AND condicional (`&&`), el programa puede alcanzar la expresión `str.length() > 3` solo si la expresión `instanceof` devuelve `true`.
 
-Sin embargo, no puede utilizar un operador OR (`||`):```java
+```
+
+Porque, al estar en cortocircuito el operador AND condicional (`&&`), el programa puede alcanzar la expresión `str.length() > 3` solo si la expresión `instanceof` devuelve `true`.
+
+Sin embargo, no puede utilizar un operador OR (`||`):
+
+```java
 Object obj = getSomeObject();
 if(obj instanceof String str || str.length() > 3) { // Error
     System.out.println(str.toUpperCase());
 }
-```Esto resultará en un error porque la expresión `str.length() > 3` puede ejecutarse cuando `obj` no es una instancia de `String`, lo que lleva a un intento de acceder a `str` cuando es posible que no se haya inicializado.
 
-Además, la coincidencia de patrones con `instanceof` está diseñada para un tipo a la vez. Simplifica el proceso para una verificación y conversión de un solo tipo, pero no se extiende a varios tipos simultáneamente:```java
+```
+
+Esto resultará en un error porque la expresión `str.length() > 3` puede ejecutarse cuando `obj` no es una instancia de `String`, lo que lleva a un intento de acceder a `str` cuando es posible que no se haya inicializado.
+
+Además, la coincidencia de patrones con `instanceof` está diseñada para un tipo a la vez. Simplifica el proceso para una verificación y conversión de un solo tipo, pero no se extiende a varios tipos simultáneamente:
+
+```java
 Object obj = getSomeObject();
 
 if (obj instanceof String str) {
@@ -1680,7 +2238,10 @@ if (obj instanceof String str) {
     // obj is a List, use list here
     System.out.println("List size: " + list.size());
 }
-```En este ejemplo, `obj` se compara con varios tipos: `String`, `Integer` y `List`. Dependiendo del tipo real de "obj", se ejecuta el bloque de código correspondiente. Dentro de cada bloque, el objeto `obj` se convierte automáticamente al tipo que se está verificando y puedes usar el objeto de conversión directamente sin una conversión explícita.
+
+```
+
+En este ejemplo, `obj` se compara con varios tipos: `String`, `Integer` y `List`. Dependiendo del tipo real de "obj", se ejecuta el bloque de código correspondiente. Dentro de cada bloque, el objeto `obj` se convierte automáticamente al tipo que se está verificando y puedes usar el objeto de conversión directamente sin una conversión explícita.
 
 Este enfoque mantiene su código limpio y con seguridad de tipos, lo que permite un código más legible y fácil de mantener cuando se trata de múltiples tipos posibles para una única referencia de objeto.
 
@@ -1709,13 +2270,13 @@ Si bien este enfoque puede parecer más simple a corto plazo, rápidamente condu
 Entonces, ¿cómo implementamos exactamente la encapsulación en Java? El mecanismo principal es mediante el uso de modificadores de acceso en los miembros de la clase. 
 
 Recuerde, existen cuatro modificadores de acceso que determinan la visibilidad y accesibilidad de clases, campos y métodos:
-- `privado`: Sólo accesible dentro de la misma clase.
+- `private`: Sólo accesible dentro de la misma clase.
 
 - `default` (paquete-privado): Accesible dentro de la misma clase y desde cualquier otra clase en el mismo paquete. 
 
 - `protected`: Accesible dentro de la misma clase, desde cualquier otra clase en el mismo paquete y desde subclases (incluso en paquetes diferentes).
 
-- `público`: Accesible desde cualquier lugar.
+- `public`: Accesible desde cualquier lugar.
 
 Puede aplicar estos modificadores a clases, atributos y métodos de acuerdo con la siguiente tabla:
 
@@ -1740,7 +2301,9 @@ Para encapsular una clase, normalmente:
 
 2. Proporcione métodos getter "públicos" para recuperar los valores de los campos y métodos setter para modificarlos, si es necesario. Estos métodos proporcionan acceso controlado a los campos y permiten agregar validación, registro o cualquier otra lógica cuando se accede a los valores de los campos o se modifican.
 
-A continuación se muestra un ejemplo de una clase `BankAccount` bien encapsulada:```java
+A continuación se muestra un ejemplo de una clase `BankAccount` bien encapsulada:
+
+```java
 public class BankAccount {
     private String accountNumber;
     private double balance;
@@ -1771,7 +2334,13 @@ public class BankAccount {
         }
     }
 }
-```Y un diagrama para visualizarlo:```
+
+```
+
+Y un diagrama para visualizarlo:
+
+```
+
 ┌─────────────────────────────────────────┐
 │              BankAccount                │
 ├─────────────────────────────────────────┤
@@ -1783,13 +2352,18 @@ public class BankAccount {
 │ + deposit(amount: double): void         │
 │ + withdraw(amount: double): boolean     │
 └─────────────────────────────────────────┘
-```En este ejemplo, los campos "número de cuenta" y "saldo" se declaran "privados", por lo que no se puede acceder a ellos ni modificarlos directamente desde fuera de la clase "CuentaBanca". Los métodos públicos `getAccountNumber()` y `getBalance()` permiten la recuperación controlada de estos valores de campo, mientras que los métodos `deposit()` y `withdraw()` permiten la modificación controlada del campo `balance` con lógica de validación adicional.
+
+```
+
+En este ejemplo, los campos "número de cuenta" y "saldo" se declaran "privados", por lo que no se puede acceder a ellos ni modificarlos directamente desde fuera de la clase "CuentaBanca". Los métodos públicos `getAccountNumber()` y `getBalance()` permiten la recuperación controlada de estos valores de campo, mientras que los métodos `deposit()` y `withdraw()` permiten la modificación controlada del campo `balance` con lógica de validación adicional.
 
 Ahora bien, quizás se pregunte: "Si uso captadores y definidores para todos mis campos, ¿eso significa automáticamente que mi clase está bien encapsulada?" 
 
 No necesariamente. Si bien el uso de captadores y definidores es una forma común de encapsular campos, el simple hecho de tener estos métodos no garantiza una buena encapsulación. La encapsulación es algo más que ocultar datos. Se trata de garantizar que el estado interno de un objeto sea siempre válido y coherente. Los captadores y definidores son sólo una herramienta para lograrlo.
 
-Por ejemplo, considere esta clase "Rectángulo":```java
+Por ejemplo, considere esta clase "Rectángulo":
+
+```java
 public class Rectangle {
     private double width;
     private double height;
@@ -1814,7 +2388,12 @@ public class Rectangle {
         return width * height;
     }
 }
-```Si bien esta clase utiliza captadores y definidores, en realidad no está bien encapsulada. El "ancho" y el "alto" se pueden establecer en cualquier valor, incluidos los números negativos, lo que no tiene sentido para un rectángulo. Un mejor enfoque sería validar la entrada en los establecedores:```java
+
+```
+
+Si bien esta clase utiliza captadores y definidores, en realidad no está bien encapsulada. El "ancho" y el "alto" se pueden establecer en cualquier valor, incluidos los números negativos, lo que no tiene sentido para un rectángulo. Un mejor enfoque sería validar la entrada en los establecedores:
+
+```java
 public void setWidth(double width) {
     if (width > 0) {
         this.width = width;
@@ -1830,7 +2409,10 @@ public void setHeight(double height) {
         throw new IllegalArgumentException("Height must be positive.");
     }
 }
-```Al agregar esta lógica de validación, nos aseguramos de que el estado interno del objeto `Rectangle` sea siempre válido, logrando así una mejor encapsulación.
+
+```
+
+Al agregar esta lógica de validación, nos aseguramos de que el estado interno del objeto `Rectangle` sea siempre válido, logrando así una mejor encapsulación.
 
 En resumen, la encapsulación consiste en gestionar la complejidad, proteger la integridad de los datos y separar la interfaz de una clase de su implementación. Se logra principalmente mediante el uso de modificadores de acceso, siendo los campos "privados" y los captadores y definidores "públicos" un patrón común. Sin embargo, una buena encapsulación va más allá del uso de captadores y definidores; requiere diseñar cuidadosamente la interfaz "pública" de una clase y garantizar que su estado interno sea siempre válido y consistente.
 
@@ -1853,11 +2435,18 @@ Entonces, ¿qué hace que un objeto sea inmutable en Java? No es tan simple como
 
 Profundicemos en cada uno de estos requisitos.
 
-Marcar la clase como "final" evita que se subclase. Si permitiéramos la subclases, una subclase podría agregar estados mutables o anular métodos para que sean mutables, rompiendo el contrato de inmutabilidad.```java
+Marcar la clase como "final" evita que se subclase. Si permitiéramos la subclases, una subclase podría agregar estados mutables o anular métodos para que sean mutables, rompiendo el contrato de inmutabilidad.
+
+```java
 public final class ImmutableExample {
     // class definition here
 }
-```Alternativamente, podemos hacer que los constructores sean "privados" y controlar la creación de instancias a través de métodos de fábrica:```java
+
+```
+
+Alternativamente, podemos hacer que los constructores sean "privados" y controlar la creación de instancias a través de métodos de fábrica:
+
+```java
 public class ImmutableExample {
     private ImmutableExample() {
         // private constructor
@@ -1867,7 +2456,12 @@ public class ImmutableExample {
         return new ImmutableExample();
     }
 }
-```Pero hacer que una clase sea "final" no la hace automáticamente inmutable. También debemos asegurarnos de que todos sus campos sean "privados" y "finales":```java
+
+```
+
+Pero hacer que una clase sea "final" no la hace automáticamente inmutable. También debemos asegurarnos de que todos sus campos sean "privados" y "finales":
+
+```java
 public final class ImmutableExample {
     private final int value;
     
@@ -1879,9 +2473,14 @@ public final class ImmutableExample {
         return value;
     }
 }
-```Al hacer que los campos sean "privados", evitamos el acceso directo desde fuera de la clase. Y al hacerlos "finales", nos aseguramos de que solo se puedan configurar una vez, en el constructor.
 
-Pero incluso con campos privados "finales", la inmutabilidad aún puede violarse si la clase tiene métodos que cambian de estado:```java
+```
+
+Al hacer que los campos sean "privados", evitamos el acceso directo desde fuera de la clase. Y al hacerlos "finales", nos aseguramos de que solo se puedan configurar una vez, en el constructor.
+
+Pero incluso con campos privados "finales", la inmutabilidad aún puede violarse si la clase tiene métodos que cambian de estado:
+
+```java
 public final class NotActuallyImmutable {
     private final int value;
     
@@ -1893,11 +2492,16 @@ public final class NotActuallyImmutable {
         this.value = value; // Mutates state - not okay!
     }
 }
-```Para ser verdaderamente inmutable, una clase no debe tener ningún método de establecimiento ni ningún otro método que cambie sus campos después de la construcción.
+
+```
+
+Para ser verdaderamente inmutable, una clase no debe tener ningún método de establecimiento ni ningún otro método que cambie sus campos después de la construcción.
 
 Sin embargo, la inmutabilidad va más allá del estado inmediato del objeto. El estado de un objeto inmutable incluye el estado de cualquier otro objeto al que tenga referencias.
 
-Considere esta clase:```java
+Considere esta clase:
+
+```java
 public final class NotImmutable {
     private final Date start;
     
@@ -1909,10 +2513,20 @@ public final class NotImmutable {
         return start;
     }
 }
-```A primera vista, puede parecer inmutable, el campo de inicio es "privado" y "final", y no hay definidores. Pero la clase "Date" es mutable. Alguien podría hacer esto:```java
+
+```
+
+A primera vista, puede parecer inmutable, el campo de inicio es "privado" y "final", y no hay definidores. Pero la clase "Date" es mutable. Alguien podría hacer esto:
+
+```java
 NotImmutable example = new NotImmutable(new Date());
 example.getStart().setTime(0); // Mutates the internal state of example!
-```Para solucionar este problema, necesitamos hacer una copia defensiva de la "Fecha" en el constructor:```java
+
+```
+
+Para solucionar este problema, necesitamos hacer una copia defensiva de la "Fecha" en el constructor:
+
+```java
 public final class ActuallyImmutable {
     private final Date start;
     
@@ -1924,7 +2538,10 @@ public final class ActuallyImmutable {
         return new Date(start.getTime()); // Defensive copy
     }
 }
-```Ahora el estado de la instancia "ActuallyImmutable" no se puede cambiar mediante la referencia que contiene.
+
+```
+
+Ahora el estado de la instancia "ActuallyImmutable" no se puede cambiar mediante la referencia que contiene.
 
 El mismo principio se aplica a las colecciones y matrices: si una clase inmutable contiene una referencia a una colección o matriz mutable, debe copiarla de manera defensiva y no proporcionar ninguna forma de modificar la colección interna.
 
@@ -1932,7 +2549,9 @@ El uso adecuado de los constructores también es clave para la inmutabilidad. El
 
 Esto significa que una clase inmutable no debería tener un constructor sin argumentos, porque entonces su estado no estaría completamente definido al final de la construcción. Todas las propiedades deben establecerse mediante argumentos del constructor.
 
-Aquí hay un ejemplo de una clase inmutable con una colección:```java
+Aquí hay un ejemplo de una clase inmutable con una colección:
+
+```java
 public final class ImmutableCollection {
     private final List<String> strings;
     
@@ -1944,7 +2563,10 @@ public final class ImmutableCollection {
         return strings;
     }
 }
-```Siguiendo estas reglas, haciendo que la clase y los campos sean finales, no proporcionando métodos mutadores, copiando de manera defensiva componentes mutables y configurando todos los estados en el constructor, podemos crear objetos verdaderamente inmutables en Java.
+
+```
+
+Siguiendo estas reglas, haciendo que la clase y los campos sean finales, no proporcionando métodos mutadores, copiando de manera defensiva componentes mutables y configurando todos los estados en el constructor, podemos crear objetos verdaderamente inmutables en Java.
 
 Los objetos inmutables tienen muchas ventajas, especialmente en contextos concurrentes. Debido a que su estado nunca cambia, son inherentemente seguros para subprocesos. Se pueden compartir libremente entre subprocesos sin sincronización.
 
@@ -2012,7 +2634,9 @@ Sin embargo, la inmutabilidad conlleva algunos costos. Los objetos inmutables pu
 
 ## Preguntas de práctica
 
-**1. ¿Cuál es el resultado de compilar y ejecutar el siguiente código?**```java
+**1. ¿Cuál es el resultado de compilar y ejecutar el siguiente código?**
+
+```java
 void myMethod() {
     int x = 1;
     if (x > 0) { 
@@ -2022,7 +2646,10 @@ void myMethod() {
     System.out.println(x);
     System.out.println(y);
 }
-```**A)** El código se compila y genera "3" seguido de "1".  
+
+```
+
+**A)** El código se compila y genera "3" seguido de "1".  
 **B)** El código compila y genera "3" seguido de "1" y un valor indefinido para "y".  
 **C)** El código no se compila porque se accede a `y` fuera de su alcance.  
 **D)** El código se compila pero genera una excepción de tiempo de ejecución al intentar imprimir `y`.
@@ -2053,7 +2680,9 @@ void myMethod() {
 **D)** Una subclase en Java puede acceder directamente a miembros "privados" de su superclase.
 
 
-**5. Considere el siguiente fragmento de código:**```java
+**5. Considere el siguiente fragmento de código:**
+
+```java
 abstract class Animal {
     abstract void eat();
 }
@@ -2076,7 +2705,10 @@ public class Test {
         myAnimal.eat();
     }
 }
-```¿Cuál de las siguientes afirmaciones es cierta con respecto al código anterior? Elija todo lo que corresponda.
+
+```
+
+¿Cuál de las siguientes afirmaciones es cierta con respecto al código anterior? Elija todo lo que corresponda.
 
 **A)** El código compilará e imprimirá `"El perro come"` cuando se ejecute.  
 **B)** Se puede crear una instancia de la clase `Animal`.  
@@ -2084,7 +2716,9 @@ public class Test {
 **D)** La clase `Cat` es necesaria para que el código se compile y ejecute.
 
 
-**6. Considere las siguientes interfaces:**```java
+**6. Considere las siguientes interfaces:**
+
+```java
 interface Walkable {
     int distance = 10;
     void walk();
@@ -2105,7 +2739,10 @@ class Person implements Walkable, Runnable {
         System.out.println("Running...");
     }
 }
-```¿Cuál de las siguientes afirmaciones es verdadera?
+
+```
+
+¿Cuál de las siguientes afirmaciones es verdadera?
 
 **A)** La clase `Persona` debe anular el método `getSpeed`.  
 **B)** La variable `distance` en la interfaz `Walkable` es implícitamente `pública`, `estática` y `final`.  
@@ -2113,7 +2750,9 @@ class Person implements Walkable, Runnable {
 **D)** La interfaz `Runnable` provoca un error de compilación debido a un conflicto de nombres con `java.lang.Runnable`.
 
 
-**7. Considere el siguiente fragmento de código relacionado con clases selladas:**```java
+**7. Considere el siguiente fragmento de código relacionado con clases selladas:**
+
+```java
 sealed abstract class Shape permits Circle, Square {
     abstract double area();
 }
@@ -2148,7 +2787,10 @@ public class TestShapes {
         System.out.println("Area: " + shape.area());
     }
 }
-```¿Cuál de las siguientes afirmaciones es verdadera?
+
+```
+
+¿Cuál de las siguientes afirmaciones es verdadera?
 
 **A)** La clase `Shape` está definida correctamente como una clase sellada, lo que permite que solo clases específicas la extiendan.  
 **B)** La clase `Cuadrado` no extiende correctamente la clase `Forma` porque no está marcada como `final`.  
@@ -2156,7 +2798,9 @@ public class TestShapes {
 **D)** El método `area` en la clase `Shape` debe proporcionar una implementación predeterminada.
 
 
-**8. Considere la siguiente clase:**```java
+**8. Considere la siguiente clase:**
+
+```java
 public class Widget {
     private int size;
 
@@ -2184,7 +2828,10 @@ public class Widget {
         widget.resize(15);
     }
 }
-```En la línea 114, ¿qué representa la palabra clave "this" en el contexto de la clase "Widget"?
+
+```
+
+En la línea 114, ¿qué representa la palabra clave "this" en el contexto de la clase "Widget"?
 
 **A)** Una referencia al contexto "estático" de la clase, que permite el acceso a métodos y campos estáticos.  
 **B)** Una variable especial que almacena el valor de retorno de un método.  
@@ -2192,7 +2839,9 @@ public class Widget {
 **D)** Una referencia al objeto actual, cuya variable de instancia se está llamando.
 
 
-**9. Considere las siguientes clases:**```java
+**9. Considere las siguientes clases:**
+
+```java
 class Animal {
     String name;
 
@@ -2223,7 +2872,10 @@ public class TestAnimal {
         myDog.eat();
     }
 }
-```¿Cuáles de las siguientes afirmaciones son verdaderas con respecto al uso de "super" en el código anterior? (Elija todas las que correspondan).
+
+```
+
+¿Cuáles de las siguientes afirmaciones son verdaderas con respecto al uso de "super" en el código anterior? (Elija todas las que correspondan).
 
 **A)** La palabra clave `super` se usa en el constructor `Dog` para llamar al constructor de superclase.  
 **B)** El método `eat` en la clase `Dog` usa `super` para invocar el método `eat` de la superclase.  
@@ -2232,7 +2884,9 @@ public class TestAnimal {
 
 
 
-**10. Considere las siguientes clases:**```java
+**10. Considere las siguientes clases:**
+
+```java
 class Vehicle {
     public void drive(int speed) {
         System.out.println("Vehicle driving at speed: " + speed);
@@ -2252,7 +2906,10 @@ public class TestDrive {
         myCar.drive(60);
     }
 }
-```¿Cuál es el resultado de compilar y ejecutar el código anterior?
+
+```
+
+¿Cuál es el resultado de compilar y ejecutar el código anterior?
 
 **A)** Compila e imprime `"Coche conduciendo a velocidad: 60"`.  
 **B)** No se compila porque el método `drive` no se puede llamar usando una referencia `Vehicle`.  
@@ -2260,7 +2917,9 @@ public class TestDrive {
 **D)** Compila e imprime `"Vehículo conduciendo a velocidad: 60"` porque el método `drive` en la clase `Car` es una sobrecarga, no una anulación.
 
 
-**11. Considere el siguiente fragmento de código:**```java
+**11. Considere el siguiente fragmento de código:**
+
+```java
 class Fruit {
     public void flavor() {
         System.out.println("Fruit flavor");
@@ -2285,7 +2944,10 @@ public class TestFruit {
         // myFruit.color();
     }
 }
-```Si la línea comentada `// myFruit.color();` no está comentada, ¿cuál será el resultado de compilar y ejecutar el código anterior?
+
+```
+
+Si la línea comentada `// myFruit.color();` no está comentada, ¿cuál será el resultado de compilar y ejecutar el código anterior?
 
 **A)** Compila e imprime `"Sabor Apple"` seguido de `"Rojo"`.  
 **B)** Compila e imprime `"Sabor a fruta"`.  
@@ -2294,7 +2956,9 @@ public class TestFruit {
 **E)** No compila porque el método `color` no está definido en la clase `Fruit`.
 
 
-**12. Considere el siguiente fragmento de código:**```java
+**12. Considere el siguiente fragmento de código:**
+
+```java
 class Animal {}
 
 class Dog extends Animal {
@@ -2318,7 +2982,10 @@ public class TestCasting {
         // Line 1
     }
 }
-```¿Cuál de las siguientes líneas de código, si se inserta de forma independiente en la Línea 1, se compilará sin causar una excepción en tiempo de ejecución? (Elija todas las que correspondan).
+
+```
+
+¿Cuál de las siguientes líneas de código, si se inserta de forma independiente en la Línea 1, se compilará sin causar una excepción en tiempo de ejecución? (Elija todas las que correspondan).
 
 **A)** `((Perro)otroAnimal).ladrar();`  
 **B)** `si (otra instancia de Animal de Perro) ((Perro)otro Animal).bark();`  
@@ -2326,7 +2993,9 @@ public class TestCasting {
 **D)** `if (otra instancia Animal de Gato) ((Gato)otro Animal).meow();`
 
 
-**13. Considere el siguiente fragmento de código:**```java
+**13. Considere el siguiente fragmento de código:**
+
+```java
 public class AdvancedPatternMatching {
     public static void process(Object input) {
         if (input instanceof String s && s.contains("Java")) {
@@ -2343,7 +3012,10 @@ public class AdvancedPatternMatching {
         process(5);
     }
 }
-```Dado el código anterior, ¿qué declaración describe con precisión el resultado de su ejecución?
+
+```
+
+Dado el código anterior, ¿qué declaración describe con precisión el resultado de su ejecución?
 
 **A)** Compila e imprime `"Cadena con Java: ¡Hola Java!"` seguido de `"Entero mayor que 10: 15"`.  
 **B)** Compila pero solo imprime `"Cadena con Java: ¡Hola Java!"` porque los números enteros no son compatibles con la coincidencia de patrones.  
@@ -2351,7 +3023,9 @@ public class AdvancedPatternMatching {
 **D)** Compila pero imprime las cuatro líneas debido al uso incorrecto de la coincidencia de patrones que siempre se evalúa como "verdadero".
 
 
-**14. Considere las prácticas de encapsulación en la siguiente estructura de clases:**```java
+**14. Considere las prácticas de encapsulación en la siguiente estructura de clases:**
+
+```java
 package store;
 
 public class Product {
@@ -2393,7 +3067,10 @@ public class Product {
         }
     }
 }
-```¿Qué afirmación es cierta con respecto a la encapsulación de la clase "Producto"?
+
+```
+
+¿Qué afirmación es cierta con respecto a la encapsulación de la clase "Producto"?
 
 **A)** Hacer que los métodos `setName`, `setPrice` y `setStock` sean `públicos` mejoraría la encapsulación de la clase.  
 **B)** La clase no está encapsulada porque los campos de la clase `Product` son `privados`.  
@@ -2402,7 +3079,9 @@ public class Product {
 **E)** La clase está encapsulada adecuadamente al proporcionar captadores "públicos" para todos los campos y configuradores "privados" con validación, lo que garantiza el control sobre el estado de sus objetos.
 
 
-**15. Considere las siguientes clases definidas en el mismo paquete:**```java
+**15. Considere las siguientes clases definidas en el mismo paquete:**
+
+```java
 class Account {
     private double balance;
     
@@ -2436,16 +3115,21 @@ public class SavingsAccount extends Account {
         deposit(interest);
     }
 }
-```¿Qué afirmación(es) sobre los principios de encapsulación y el uso de modificadores de acceso describen con precisión el código anterior? Elija todo lo que corresponda.
 
-**A)** La clase `CuentaDeAhorros` no puede acceder al campo `saldo` directamente debido a su modificador de acceso `privado` en la clase `Cuenta`.  
-**B)** El método `getBalance` debe ser `público` para permitir que `SavingsAccount` acceda al saldo de la cuenta.  
+```
+
+¿Qué afirmación(es) sobre los principios de encapsulación y el uso de modificadores de acceso describen con precisión el código anterior? Elija todo lo que corresponda.
+
+**A)** La clase `CuentaDeAhorros` no puede acceder al campo `saldo` directamente debido a su modificador de acceso `private` en la clase `Cuenta`.  
+**B)** El método `getBalance` debe ser `public` para permitir que `SavingsAccount` acceda al saldo de la cuenta.  
 **C)** El método `depósito` en la clase `Cuenta` debe marcarse como `final` para evitar su anulación.  
 **D)** El campo `interestRate` en la clase `SavingsAccount` viola los principios de encapsulación al ser "privado".  
 **E)** La clase `Cuenta` encapsula correctamente el campo `saldo`, y `SavingsAccount` se adhiere a la encapsulación accediendo a `saldo` a través de `getBalance` y `deposit`.
 
 
-**16. Considere la siguiente clase:**```java
+**16. Considere la siguiente clase:**
+
+```java
 public final class Contact {
     private final String name;
     private final String email;
@@ -2487,7 +3171,10 @@ public final class Contact {
         }
     }
 }
-```Dada la implementación anterior, ¿qué declaración describe con precisión el objeto "Contacto"?
+
+```
+
+Dada la implementación anterior, ¿qué declaración describe con precisión el objeto "Contacto"?
 
 **A)** El objeto `Contacto` es mutable porque la clase `Dirección` no es `final`.  
 **B)** El objeto `Contacto` es inmutable, pero sólo porque no proporciona configuradores.  

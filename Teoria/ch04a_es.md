@@ -13,14 +13,14 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)** Un `doble` puede asignarse directamente a un `flotante` sin realizar casting. 
+- **A)** Un `double` puede asignarse directamente a un `float` sin realizar casting. 
   - Esta opción es incorrecta. Un "doble" no se puede asignar directamente a un "flotador" sin lanzarlo porque "doble" tiene un alcance y precisión mayores que un "flotador".
 
-- **B)** Un `booleano` se puede convertir en un `int`.
+- **B)** Un `boolean` se puede convertir en un `int`.
   - Esta opción es incorrecta. Los valores "booleanos" no se pueden convertir a "int" en Java. No son tipos compatibles.
 
-- **C)** Se puede asignar una `Cadena` a una variable de referencia `Objeto`.
-  - Esta opción es correcta. Una `Cadena` es una instancia de la clase `Objeto` y, por lo tanto, se puede asignar a una variable de referencia `Objeto`.
+- **C)** Se puede asignar una `String` a una variable de referencia `Object`.
+  - Esta opción es correcta. Una `String` es una instancia de la clase `Object` y, por lo tanto, se puede asignar a una variable de referencia `Object`.
 
 - **D)** Un `char` es un tipo de datos de referencia. 
   - Esta opción es incorrecta. `char` es un tipo de datos primitivo, no un tipo de datos de referencia.
@@ -105,11 +105,11 @@ Entonces, el valor de "resultado" es "25" y el programa imprime "25".
 
 **Explicación:**
 
-- **A)** El método `Math.round()` devuelve un `doble`.
+- **A)** El método `Math.round()` devuelve un `double`.
   - Esta opción es incorrecta. El método `Math.round()` devuelve un `long` cuando se le da un argumento `double` y un `int` cuando se le da un argumento `float`.
 
 - **B)** El método `Math.random()` devuelve un número entero aleatorio.
-  - Esta opción es incorrecta. El método `Math.random()` devuelve un valor `doble` entre 0,0 (inclusive) y 1,0 (exclusivo).
+  - Esta opción es incorrecta. El método `Math.random()` devuelve un valor `double` entre 0,0 (inclusive) y 1,0 (exclusivo).
 
 - **C)** El método `Math.max()` solo se puede utilizar con números enteros.
   - Esta opción es incorrecta. El método `Math.max()` se puede utilizar con varios tipos numéricos, incluidos `int`, `long`, `float` y `double`.

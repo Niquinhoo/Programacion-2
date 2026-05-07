@@ -75,7 +75,9 @@ Los objetos son instancias distintas en el código que contienen datos y comport
 
 Para comprender mejor estos conceptos, piense en las galletas hechas con un cortador de galletas. El cortador de cookies define la forma y el tamaño de las cookies, del mismo modo que las clases definen qué atributos y métodos tendrán las instancias de objetos. Cada galleta puede ser única, con diferentes ubicaciones de chispas de chocolate, del mismo modo que los objetos contienen valores de datos distintos.
 
-Por ejemplo, podemos definir una clase `Cookie` que especifique los atributos de las cookies, como sabor, forma, cobertura, etc. También puede definir métodos, que son funciones que operan con los datos. Los métodos permiten que los objetos realicen acciones. Nuestros objetos `Cookie` podrían tener un método `eat()`:```java
+Por ejemplo, podemos definir una clase `Cookie` que especifique los atributos de las cookies, como sabor, forma, cobertura, etc. También puede definir métodos, que son funciones que operan con los datos. Los métodos permiten que los objetos realicen acciones. Nuestros objetos `Cookie` podrían tener un método `eat()`:
+
+```java
 public class Cookie {
     // Attributes
     String flavor; 
@@ -86,7 +88,10 @@ public class Cookie {
         System.out.println("That was yummy!");
     }
 }
-```- `Cookie de clase pública` define una nueva clase `Cookie`.
+
+```
+
+- `Cookie de clase pública` define una nueva clase `Cookie`.
 - `public` hace que esta clase sea accesible desde otras clases.
 - `Sabor de cadena;` declara un nuevo atributo de cadena llamado `sabor`.
 - `int size;` declara un atributo `size` entero.
@@ -94,7 +99,9 @@ public class Cookie {
 - Los cuerpos de la clase y del método están entre corchetes `{ }`.
 - `System.out.println();` imprime texto en la salida estándar (generalmente la consola o ventana de terminal).
 
-Y podemos crear instancias de objetos cookie desde la clase `Cookie`:```java 
+Y podemos crear instancias de objetos cookie desde la clase `Cookie`:
+
+```java 
 Cookie chocoChip = new Cookie();
 chocoChip.flavor = "Chocolate Chip";
 chocoChip.size = 2;
@@ -102,7 +109,10 @@ chocoChip.size = 2;
 Cookie oatmealRaisin = new Cookie(); 
 oatmealRaisin.flavor = "Oatmeal Raisin";
 oatmealRaisin.size = 1;
-```- `Cookie chocoChip = new Cookie();` crea una instancia de un nuevo objeto `Cookie` llamado `chocoChip`.
+
+```
+
+- `Cookie chocoChip = new Cookie();` crea una instancia de un nuevo objeto `Cookie` llamado `chocoChip`.
 - Usamos el nombre de clase `Cookie` y el constructor predeterminado `new Cookie()`.
 - `chocoChip.flavor = "Chocolate Chip";` establece el atributo de sabor de `chocoChip`.
 - `chocoChip.size = 2;` establece el atributo de tamaño en `2`.
@@ -140,7 +150,10 @@ Juntos, estos conceptos básicos de programación orientada a objetos permiten u
 
 Comprender las diferentes etapas del ciclo de vida de un objeto es esencial en la programación orientada a objetos de Java. Esto incluye la creación de objetos, cómo acceden a ellos las variables de referencia y cómo el recolector de basura de Java gestiona los objetos no utilizados.
 
-A continuación se muestra un diagrama que ilustra el ciclo de vida típico de un objeto Java, desde la creación hasta la recolección de basura:```
+A continuación se muestra un diagrama que ilustra el ciclo de vida típico de un objeto Java, desde la creación hasta la recolección de basura:
+
+```
+
 ┌────────────────────┐
 │   Object Creation  │
 │    (new keyword)   │
@@ -169,49 +182,105 @@ A continuación se muestra un diagrama que ilustra el ciclo de vida típico de u
 │   Garbage Collect  │
 │     (finalize)     │
 └────────────────────┘
-```Pero para ilustrar las etapas de vida de un objeto Java, usemos la analogía de un libro de biblioteca. Cuando llega un libro nuevo a la biblioteca, es similar a construir un objeto nuevo usando la palabra clave "nuevo". Por ejemplo:```java
+
+```
+
+Pero para ilustrar las etapas de vida de un objeto Java, usemos la analogía de un libro de biblioteca. Cuando llega un libro nuevo a la biblioteca, es similar a construir un objeto nuevo usando la palabra clave "nuevo". Por ejemplo:
+
+```java
 Book javaBook = new Book("The Java Book");
-```Analicemos paso a paso lo que sucede en esa única línea:
 
-1. **Declaración de la variable de referencia:**```java
+```
+
+Analicemos paso a paso lo que sucede en esa única línea:
+
+1. **Declaración de la variable de referencia:**
+
+```java
     Book javaBook;
-    ```Esto declara una variable llamada `javaBook` de tipo `Book`. En este punto, todavía no existe ningún objeto "Libro"; Acabamos de crear una variable de referencia que puede apuntar a un objeto "Libro".
 
-2. **Creación de instancias del objeto:**```java
+```
+
+Esto declara una variable llamada `javaBook` de tipo `Book`. En este punto, todavía no existe ningún objeto "Libro"; Acabamos de crear una variable de referencia que puede apuntar a un objeto "Libro".
+
+2. **Creación de instancias del objeto:**
+
+```java
     = new Book("The Java Book");
-    ```La palabra clave `new` crea una instancia o construye un nuevo objeto `Book`. Esto asigna memoria en el montón para el objeto, pasa el argumento de cadena al constructor `Book` para inicializar su estado y devuelve una referencia al objeto recién creado.
+
+```
+
+La palabra clave `new` crea una instancia o construye un nuevo objeto `Book`. Esto asigna memoria en el montón para el objeto, pasa el argumento de cadena al constructor `Book` para inicializar su estado y devuelve una referencia al objeto recién creado.
 
 3. **Asignación de la referencia:**
     El operador `=` asigna la referencia del nuevo objeto `Book` a la variable `javaBook`. 
 
-Entonces, `javaBook` ahora contiene una referencia que apunta a la nueva instancia de `Book` en la memoria:```
+Entonces, `javaBook` ahora contiene una referencia que apunta a la nueva instancia de `Book` en la memoria:
+
+```
+
 javaBook --> [New Book object]
-```Aquí, `javaBook` es la variable de referencia que apunta a la instancia `Book` recién creada en el montón de Java.
+
+```
+
+Aquí, `javaBook` es la variable de referencia que apunta a la instancia `Book` recién creada en el montón de Java.
 
 ### Reasignación de referencia
 
-Al igual que los libros de la biblioteca que diferentes personas sacan en préstamo, las referencias a objetos en Java se pueden reasignar. Por ejemplo:```java
+Al igual que los libros de la biblioteca que diferentes personas sacan en préstamo, las referencias a objetos en Java se pueden reasignar. Por ejemplo:
+
+```java
 Book refBook = javaBook; // Assign second reference
 javaBook = null; // Remove original reference
-```Repasemos esto paso a paso:
 
-1. **Crear una segunda referencia:**```java
+```
+
+Repasemos esto paso a paso:
+
+1. **Crear una segunda referencia:**
+
+```java
     Book refBook = javaBook;
-    ```Esto crea una nueva variable de referencia `refBook` y le asigna el valor de `javaBook`. Tanto `javaBook` como `refBook` ahora apuntan al mismo objeto `Book`.```
-    javaBook --> [Book object]
+
+```
+
+Esto crea una nueva variable de referencia `refBook` y le asigna el valor de `javaBook`. Tanto `javaBook` como `refBook` ahora apuntan al mismo objeto `Book`.
+
+```
+
+javaBook --> [Book object]
     refBook --> [Book object]
-    ```2. **Anulación de la referencia original:**```java
+
+```
+
+2. **Anulación de la referencia original:**
+
+```java
     javaBook = null;
-    ```Esto establece "javaBook" en "nulo", lo que significa que ya no hace referencia a ningún objeto.```
-    javaBook --> null
+
+```
+
+Esto establece "javaBook" en "nulo", lo que significa que ya no hace referencia a ningún objeto.
+
+```
+
+javaBook --> null
     refBook --> [Book object]
-    ```Sólo "refBook" ahora apunta al objeto "Libro". El objeto no califica para la recolección de basura porque `refBook` todavía hace referencia a él.
+
+```
+
+Sólo "refBook" ahora apunta al objeto "Libro". El objeto no califica para la recolección de basura porque `refBook` todavía hace referencia a él.
 
 ### Recolección de basura
 
-Los libros que ya no se toman prestados eventualmente se eliminan del catálogo de una biblioteca. De manera similar, en Java, el recolector de basura limpia los objetos sin referencias:```java
+Los libros que ya no se toman prestados eventualmente se eliminan del catálogo de una biblioteca. De manera similar, en Java, el recolector de basura limpia los objetos sin referencias:
+
+```java
 refBook = null; // Unreferenced object eligible for garbage collection
-```Cuando desaparecen todas las referencias a un objeto, éste pasa a ser elegible para la recolección de basura. 
+
+```
+
+Cuando desaparecen todas las referencias a un objeto, éste pasa a ser elegible para la recolección de basura. 
 
 El proceso de recolección de basura se puede resumir de la siguiente manera:
 
@@ -235,9 +304,9 @@ En Java, una palabra clave es una palabra reservada que tiene un significado pre
 
 Java incluye un conjunto de palabras clave fundamentales para el lenguaje. Algunas palabras clave comúnmente utilizadas incluyen:
 
-- `clase`: Se utiliza para declarar una clase.
-- `público`, `privado`, `protegido`: modificadores de acceso que determinan la visibilidad y accesibilidad de clases, métodos y variables.
-- `estático`: Indica que un miembro pertenece a la clase misma en lugar de a instancias de la clase.
+- `class`: Se utiliza para declarar una clase.
+- `public`, `private`, `protected`: modificadores de acceso que determinan la visibilidad y accesibilidad de clases, métodos y variables.
+- `static`: Indica que un miembro pertenece a la clase misma en lugar de a instancias de la clase.
 - `void`: Especifica que un método no devuelve un valor.
 - `if`, `else`, `switch`, `case`: Se utiliza para declaraciones condicionales.
 - `for`, ` while`, `do`: se utiliza para bucles e iteraciones.
@@ -250,7 +319,9 @@ Tenga siempre en cuenta que cada palabra clave tiene un propósito específico y
 
 Además, es importante tener en cuenta que las palabras clave distinguen entre mayúsculas y minúsculas en Java. Por ejemplo, "clase" es una palabra clave, pero "Clase" no lo es. Además, no puede utilizar palabras clave como identificadores, como nombres de variables o métodos, porque están reservados por el idioma.
 
-A continuación se muestra un ejemplo que demuestra el uso de algunas palabras clave:```java
+A continuación se muestra un ejemplo que demuestra el uso de algunas palabras clave:
+
+```java
 public class MyClass {
     private static int myVariable;
     
@@ -262,7 +333,10 @@ public class MyClass {
         }
     }
 }
-```En este ejemplo, "público", "clase", "privado", "estático", "int", "void", "if" y "else" son palabras clave utilizadas para definir la estructura y el comportamiento de la clase "MyClass".
+
+```
+
+En este ejemplo, "público", "clase", "privado", "estático", "int", "void", "if" y "else" son palabras clave utilizadas para definir la estructura y el comportamiento de la clase "MyClass".
 
 Revisaremos estas y otras palabras clave en las próximas secciones y capítulos.
 
@@ -279,14 +353,26 @@ Java admite tres tipos de comentarios:
 2. Comentarios de varias líneas
 3. Comentarios de documentación (javadoc)
 
-Los comentarios de una sola línea comienzan con dos barras diagonales (`//`). El compilador de Java ignora todo lo que sigue a `//` en la misma línea:```java
+Los comentarios de una sola línea comienzan con dos barras diagonales (`//`). El compilador de Java ignora todo lo que sigue a `//` en la misma línea:
+
+```java
 // This is a single-line comment
 int variable = 1; // This is another single-line comment
-```Los comentarios de varias líneas, también conocidos como comentarios de bloque, comienzan con `/*` y terminan con `*/`. Todo lo que esté entre `/*` y `*/` se considera un comentario, independientemente de cuántas líneas abarque:```java
+
+```
+
+Los comentarios de varias líneas, también conocidos como comentarios de bloque, comienzan con `/*` y terminan con `*/`. Todo lo que esté entre `/*` y `*/` se considera un comentario, independientemente de cuántas líneas abarque:
+
+```java
 /* This is a multi-line comment
    and it can span multiple lines. */
 int variable = 1;
-```Los comentarios de documentación, o comentarios javadoc, están diseñados para documentar el código Java. Comienzan con `/**` y terminan con `*/`. Estos comentarios se pueden extraer a un documento HTML utilizando la herramienta Javadoc. Los comentarios de la documentación se utilizan principalmente antes de las definiciones de clases, interfaces, métodos y campos:```java
+
+```
+
+Los comentarios de documentación, o comentarios javadoc, están diseñados para documentar el código Java. Comienzan con `/**` y terminan con `*/`. Estos comentarios se pueden extraer a un documento HTML utilizando la herramienta Javadoc. Los comentarios de la documentación se utilizan principalmente antes de las definiciones de clases, interfaces, métodos y campos:
+
+```java
 /**
  * This is a documentation comment.
  * It can be used to describe classes, interfaces, methods, and fields.
@@ -303,7 +389,10 @@ public class MyClass {
         return a + b;
     }
 }
-```## Organizar clases en paquetes
+
+```
+
+## Organizar clases en paquetes
 Un paquete organiza clases, interfaces y subpaquetes relacionados en una sola unidad.
 
 Por ejemplo, imagina que eres dueño de una tienda de comestibles que vende muchos tipos de productos. Para mantener todo organizado y fácil de encontrar, decide agrupar productos similares en diferentes secciones o pasillos de la tienda.
@@ -325,7 +414,10 @@ De manera similar, en su proyecto Java, puede tener:
 - Un paquete `com.example.orders` para clases relacionadas con el procesamiento de pedidos, como `Order`, `ShoppingCart` y `Payment`.
 - Un paquete `com.example.auth` para clases relacionadas con la autenticación de usuarios, como `Usuario`, `Inicio de sesión` y `Permiso`.
 
-Aquí hay una representación visual de estos paquetes y clases:```
+Aquí hay una representación visual de estos paquetes y clases:
+
+```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                      com.example                            │
 │  ┌─────────────────────────┐  ┌─────────────────────────┐   │
@@ -354,17 +446,27 @@ Aquí hay una representación visual de estos paquetes y clases:```
 │  │  └─────────────────┘    │                                │
 │  └─────────────────────────┘                                │
 └─────────────────────────────────────────────────────────────┘
-```Al organizar sus clases en paquetes, crea una estructura lógica que facilita la localización y administración de elementos de código relacionados, de la misma manera que la organización de productos en secciones facilita que los clientes encuentren lo que necesitan en el supermercado.
+
+```
+
+Al organizar sus clases en paquetes, crea una estructura lógica que facilita la localización y administración de elementos de código relacionados, de la misma manera que la organización de productos en secciones facilita que los clientes encuentren lo que necesitan en el supermercado.
 
 ### Creando un paquete
 
-Para crear un paquete, use la palabra clave `paquete` seguida del nombre del paquete en la parte superior de su archivo fuente de Java. Por ejemplo:```java
+Para crear un paquete, use la palabra clave `paquete` seguida del nombre del paquete en la parte superior de su archivo fuente de Java. Por ejemplo:
+
+```java
 package com.example.mypackage;
-```El nombre del paquete debe estar en minúsculas y seguir la convención de nombre de dominio inversa para garantizar la unicidad.
+
+```
+
+El nombre del paquete debe estar en minúsculas y seguir la convención de nombre de dominio inversa para garantizar la unicidad.
 
 El nombre del paquete no debe tener ninguna de las palabras reservadas de Java (como `int`, `if`, `for`, etc.)
 
-La declaración del paquete debe ser la primera declaración en el archivo fuente, antes de cualquier declaración de importación o declaración de clase. Lo siguiente no se compilará:```java
+La declaración del paquete debe ser la primera declaración en el archivo fuente, antes de cualquier declaración de importación o declaración de clase. Lo siguiente no se compilará:
+
+```java
 import java.util.ArrayList; // Import statement before the package declaration
 
 package mypackage; // Package declaration not at the beginning
@@ -374,19 +476,32 @@ public class MyClass {
         System.out.println("This will not compile.");
     }
 }
-```### Uso de declaraciones de importación
 
-Las declaraciones `import` se utilizan para traer clases o interfaces de otros paquetes al espacio de nombres actual. En lugar de usar el nombre completo cada vez que hace referencia a una clase de otro paquete, puede usar una declaración `import` para hacer referencia a la clase por su nombre. Por ejemplo:```java
+```
+
+### Uso de declaraciones de importación
+
+Las declaraciones `import` se utilizan para traer clases o interfaces de otros paquetes al espacio de nombres actual. En lugar de usar el nombre completo cada vez que hace referencia a una clase de otro paquete, puede usar una declaración `import` para hacer referencia a la clase por su nombre. Por ejemplo:
+
+```java
 import java.util.ArrayList;
 // ...
 ArrayList list = new ArrayList();
-```Si elige no usar una declaración `import` para una clase de otro paquete, deberá usar el nombre completo de la clase cada vez que haga referencia a ella en su código. Recuerde, el nombre completo incluye tanto el nombre del paquete como el nombre de la clase.
 
-Por ejemplo, si no importa la clase `ArrayList` del paquete `java.util`, tendrá que usar `java.util.ArrayList` cada vez que quiera crear o usar un objeto `ArrayList` en su código:```java
+```
+
+Si elige no usar una declaración `import` para una clase de otro paquete, deberá usar el nombre completo de la clase cada vez que haga referencia a ella en su código. Recuerde, el nombre completo incluye tanto el nombre del paquete como el nombre de la clase.
+
+Por ejemplo, si no importa la clase `ArrayList` del paquete `java.util`, tendrá que usar `java.util.ArrayList` cada vez que quiera crear o usar un objeto `ArrayList` en su código:
+
+```java
 // No import statement for java.util.ArrayList
 // ...
 java.util.ArrayList list = new java.util.ArrayList();
-```### Casos especiales y mejores prácticas
+
+```
+
+### Casos especiales y mejores prácticas
 
 Hay un par de excepciones o casos especiales a la regla con respecto al uso de nombres completos y declaraciones de importación:
 
@@ -396,7 +511,9 @@ Hay un par de excepciones o casos especiales a la regla con respecto al uso de n
 
 3. **Colisión de nombres totalmente calificados**: cuando dos clases tienen el mismo nombre pero están en paquetes diferentes y necesita usar ambas en el mismo archivo, no puede importar ambas directamente debido a la colisión de nombres. En tales casos, se debe hacer referencia a al menos uno (y posiblemente a ambos) por sus nombres completos para evitar ambigüedades.
 
-Aquí hay un ejemplo para ilustrar este último punto:```java
+Aquí hay un ejemplo para ilustrar este último punto:
+
+```java
 import java.sql.Date;
 
 public class Example {
@@ -405,17 +522,27 @@ public class Example {
         java.util.Date utilDate = new java.util.Date();
     }
 }
-```En este ejemplo, se importa "Fecha" de "java.sql", por lo que se puede hacer referencia a ella por su nombre simple. Sin embargo, dado que también queremos utilizar `Date` de `java.util`, debemos referirnos a él por su nombre completo para distinguirlo de `java.sql.Date`.
 
-También puede utilizar un comodín (`*``) para importar todas las clases de un paquete. Por ejemplo:```java
+```
+
+En este ejemplo, se importa "Fecha" de "java.sql", por lo que se puede hacer referencia a ella por su nombre simple. Sin embargo, dado que también queremos utilizar `Date` de `java.util`, debemos referirnos a él por su nombre completo para distinguirlo de `java.sql.Date`.
+
+También puede utilizar un comodín (`*``) para importar todas las clases de un paquete. Por ejemplo:
+
+```java
 import java.util.*;
-```Sin embargo, generalmente se recomienda importar clases específicas en lugar de usar comodines porque pueden hacer que el código sea menos legible, generar conflictos de nombres si varios paquetes tienen clases con el mismo nombre y agregar redundancia, como incluir una clase dos veces.
+
+```
+
+Sin embargo, generalmente se recomienda importar clases específicas en lugar de usar comodines porque pueden hacer que el código sea menos legible, generar conflictos de nombres si varios paquetes tienen clases con el mismo nombre y agregar redundancia, como incluir una clase dos veces.
 
 ### Importaciones redundantes
 
 Aunque el compilador permite importaciones redundantes, pueden saturar el código y reducir la legibilidad.
 
-Por ejemplo, suponiendo que tenemos dos clases, `MyClass` y `HelperClass`, en el mismo paquete, `mypackage`:```java
+Por ejemplo, suponiendo que tenemos dos clases, `MyClass` y `HelperClass`, en el mismo paquete, `mypackage`:
+
+```java
 // File: HelperClass.java
 package mypackage;
 
@@ -424,7 +551,12 @@ public class HelperClass {
         System.out.println("Doing something...");
     }
 }
-```La siguiente clase ilustra importaciones redundantes:```java
+
+```
+
+La siguiente clase ilustra importaciones redundantes:
+
+```java
 package mypackage;
 
 import mypackage.HelperClass; // Redundant import because HelperClass is in the same package
@@ -435,7 +567,10 @@ public class MyClass {
         HelperClass.doSomething();
     }
 }
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - La declaración de importación `import mypackage.HelperClass;` es redundante porque `HelperClass` ya está en el mismo paquete que `MyClass`. Recuerde, las clases del mismo paquete están automáticamente disponibles entre sí sin necesidad de declaraciones de importación.
 - La declaración de importación `import java.util.List;` también es redundante porque la interfaz `List` no se usa en ninguna parte de `MyClass`.
 
@@ -443,16 +578,23 @@ Eliminar estas importaciones redundantes haría que el código fuera más limpio
 
 ### Control de acceso
 
-Los paquetes proporcionan un nivel de control de acceso, similar a cómo ciertas secciones de la tienda podrían estar restringidas únicamente al personal autorizado. Puede utilizar modificadores de acceso (`público`, `protegido`, predeterminado, `privado`) para controlar la visibilidad y accesibilidad de clases y miembros dentro y entre paquetes.
+Los paquetes proporcionan un nivel de control de acceso, similar a cómo ciertas secciones de la tienda podrían estar restringidas únicamente al personal autorizado. Puede utilizar modificadores de acceso (`public`, `protected`, predeterminado, `private`) para controlar la visibilidad y accesibilidad de clases y miembros dentro y entre paquetes.
 
-Por ejemplo, digamos que tienes un paquete llamado `com.example.internals` que contiene clases y métodos destinados para uso interno solo dentro de ese paquete:```java
+Por ejemplo, digamos que tienes un paquete llamado `com.example.internals` que contiene clases y métodos destinados para uso interno solo dentro de ese paquete:
+
+```java
 package com.example.internals;
 class InternalClass {
     void internalMethod() {
         // Internal implementation
     }
 }
-```Ahora, considere otro paquete `com.example.api`:```java
+
+```
+
+Ahora, considere otro paquete `com.example.api`:
+
+```java
 package com.example.api;
 import com.example.internals.InternalClass;
 public class APIClass {
@@ -461,7 +603,10 @@ public class APIClass {
         obj.internalMethod(); // Not accessible
     }
 }
-```En este ejemplo, `InternalClass` y sus métodos tienen acceso predeterminado (paquete privado). Se puede acceder a ellos dentro del paquete `com.example.internals` pero no desde otros paquetes. La `APIClass` en el paquete `com.example.api` no puede acceder a la `InternalClass` ni a sus métodos directamente.
+
+```
+
+En este ejemplo, `InternalClass` y sus métodos tienen acceso predeterminado (paquete privado). Se puede acceder a ellos dentro del paquete `com.example.internals` pero no desde otros paquetes. La `APIClass` en el paquete `com.example.api` no puede acceder a la `InternalClass` ni a sus métodos directamente.
 
 Repasemos con más detalle los modificadores de acceso disponibles.
 
@@ -475,11 +620,14 @@ Los modificadores de acceso son palabras clave utilizadas en clases, métodos o 
 
 3. **`default`** (también conocido como **paquete privado**): si no se especifica ningún modificador de acceso, el miembro tiene acceso privado al paquete de forma predeterminada. Esto significa que solo se puede acceder al miembro dentro de su propio paquete y no es visible para clases fuera del paquete. Es importante tener en cuenta que no existe una palabra clave "predeterminada" explícita en Java; simplemente omite el modificador de acceso.
 
-4. **`privado`**: El modificador de acceso `privado` especifica que se puede acceder al miembro solo dentro de la clase en la que está declarado. Es el nivel de acceso más restrictivo y se utiliza para garantizar que no se pueda acceder al miembro desde fuera de su propia clase, ni siquiera mediante subclases.
+4. **`private`**: El modificador de acceso `private` especifica que se puede acceder al miembro solo dentro de la clase en la que está declarado. Es el nivel de acceso más restrictivo y se utiliza para garantizar que no se pueda acceder al miembro desde fuera de su propia clase, ni siquiera mediante subclases.
 
 Cada uno de estos modificadores de acceso tiene un propósito específico en el contexto del diseño y encapsulación orientado a objetos. Le permiten estructurar su código de una manera que proteja los datos confidenciales y los detalles de implementación al tiempo que expone la funcionalidad necesaria a otras partes de su aplicación.
 
-Aquí hay un diagrama para comprender el alcance de cada modificador de acceso más fácilmente:```
+Aquí hay un diagrama para comprender el alcance de cada modificador de acceso más fácilmente:
+
+```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                         public                              │
 │  ┌─────────────────────────────────────────────────┐        │
@@ -498,17 +646,27 @@ private   : Same class only
 default   : Same package
 protected : Same package + subclasses in other packages
 public    : Accessible from anywhere
-```En las siguientes secciones, explicaremos los modificadores de acceso en el contexto de clases, campos y métodos. Pero primero, revisemos cómo declarar una clase correctamente.
+
+```
+
+En las siguientes secciones, explicaremos los modificadores de acceso en el contexto de clases, campos y métodos. Pero primero, revisemos cómo declarar una clase correctamente.
 
 ## Declarando clases
 
 Una clase en Java actúa como modelo para objetos, encapsulando tanto datos como comportamiento.
 
-La sintaxis para declarar una clase sigue este formato:```java
+La sintaxis para declarar una clase sigue este formato:
+
+```java
 [accessModifier] class ClassName [extends Superclass] [implements Interface1, Interface2, ...] {
     // class body
 }
-```Por ejemplo, una declaración de clase podría verse así:```java
+
+```
+
+Por ejemplo, una declaración de clase podría verse así:
+
+```java
 public class MyClass extends MySuperClass implements MyInterface {
     private int myField;
 
@@ -520,7 +678,10 @@ public class MyClass extends MySuperClass implements MyInterface {
         // Method body
     }
 }
-```En primer lugar, opcionalmente puede especificar un modificador de acceso para determinar la visibilidad y accesibilidad de la clase a otras partes de una aplicación Java:
+
+```
+
+En primer lugar, opcionalmente puede especificar un modificador de acceso para determinar la visibilidad y accesibilidad de la clase a otras partes de una aplicación Java:
 
 - **`public`**: Se puede acceder a la clase desde cualquier otra clase a través de diferentes paquetes.
 - **Predeterminado (Paquete-Privado)**: Si no se especifica ningún modificador de acceso, solo otras clases dentro del mismo paquete pueden acceder a la clase. Esto es útil para agrupar clases relacionadas sin exponerlas a toda la aplicación.
@@ -547,13 +708,20 @@ Estas reglas garantizan que los nombres de las clases sean sintácticamente corr
 
 Después del nombre de la clase, opcionalmente puedes extender una superclase usando la palabra clave `extends`, seguida del nombre de la superclase. Java admite herencia única, lo que significa que una clase sólo puede extender una superclase.
 
-Sin embargo, puede implementar una o más interfaces usando la palabra clave `implements`, seguida de una lista de nombres de interfaces separados por comas:```java
+Sin embargo, puede implementar una o más interfaces usando la palabra clave `implements`, seguida de una lista de nombres de interfaces separados por comas:
+
+```java
 public class MyClass implements MyInterface1, MyInterface2, MyInterface3 {
     // ...
 }
-```Finalmente, define el cuerpo de la clase dentro de un par de llaves `{}`. El cuerpo de la clase contiene los miembros de la clase, incluidos campos, métodos, constructores y clases anidadas.
 
-De esta manera, en el siguiente ejemplo:```java
+```
+
+Finalmente, define el cuerpo de la clase dentro de un par de llaves `{}`. El cuerpo de la clase contiene los miembros de la clase, incluidos campos, métodos, constructores y clases anidadas.
+
+De esta manera, en el siguiente ejemplo:
+
+```java
 public class MyClass extends MySuperClass implements MyInterface {
     /* Class body begins */
     // Fields
@@ -570,8 +738,11 @@ public class MyClass extends MySuperClass implements MyInterface {
     }
     /* Class body ends */
 }
-```- `public` es el modificador de acceso, que indica que se puede acceder a la clase desde cualquier lugar.
-- `clase` es la palabra clave utilizada para declarar una clase.
+
+```
+
+- `public` es el modificador de acceso, que indica que se puede acceder a la clase desde cualquier lugar.
+- `class` es la palabra clave utilizada para declarar una clase.
 - `MyClass` es el nombre de la clase.
 - `extiende MySuperClass` especifica que `MyClass` hereda de la superclase `MySuperClass`.
 - `implementa MyInterface` indica que `MyClass` implementa la interfaz `MyInterface`.
@@ -594,7 +765,9 @@ Los miembros estáticos, como las variables estáticas y los métodos estáticos
 - Los métodos estáticos, como `getManufacturerInfo()` o `getModelNumber()`, son acciones que pertenecen al modelo de TV y se puede acceder a ellas sin crear una instancia de la clase `Television`.
 - Se accede a los miembros estáticos utilizando el nombre de la clase en sí, sin necesidad de crear una instancia.
 
-Aquí está la clase "Televisión":```java
+Aquí está la clase "Televisión":
+
+```java
 public class Television {
     // Instance fields
     private int currentChannel;
@@ -615,22 +788,40 @@ public class Television {
         System.out.println("All TVs by: " + manufacturerLogo);
     }
 }
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - Los campos `currentChannel`, `volume` e `isOn` son variables de instancia. Cada televisor (objeto) tiene su propio conjunto de estas variables.
 - El campo `manufacturerLogo` es una variable `estática`. Pertenece a la propia clase y se comparte entre todos los televisores.
 - El método `changeChannel()` es un método de instancia. Cada televisor puede invocar este método de forma independiente.
 - El método `getManufacturerInfo()` es un método estático. Pertenece a la clase y se puede invocar sin crear una instancia de la clase "Televisión".
 
-Para acceder a los miembros de la instancia, necesita crear una instancia de la clase:```java
+Para acceder a los miembros de la instancia, necesita crear una instancia de la clase:
+
+```java
 Television tv1 = new Television();
 tv1.changeChannel(5); // Changes channel of tv1
-```Pero para acceder a miembros estáticos, puedes usar el nombre de la clase directamente:```java
-Television.getManufacturerInfo();
-```Los miembros estáticos son útiles para representar datos y comportamientos a nivel de clase que se comparten entre todas las instancias de la clase. Se puede acceder a ellos sin crear una instancia de la clase, lo que los hace eficientes en memoria. Sin embargo, los miembros estáticos no pueden acceder a los miembros de la instancia directamente, ya que no están asociados con ninguna instancia específica.
 
-Es importante tener en cuenta que Java permite acceder a miembros estáticos (campos y métodos) a través de instancias de una clase. Por ejemplo, el método estático `getManufacturerInfo()` también se puede utilizar de esta manera:```java
+```
+
+Pero para acceder a miembros estáticos, puedes usar el nombre de la clase directamente:
+
+```java
+Television.getManufacturerInfo();
+
+```
+
+Los miembros estáticos son útiles para representar datos y comportamientos a nivel de clase que se comparten entre todas las instancias de la clase. Se puede acceder a ellos sin crear una instancia de la clase, lo que los hace eficientes en memoria. Sin embargo, los miembros estáticos no pueden acceder a los miembros de la instancia directamente, ya que no están asociados con ninguna instancia específica.
+
+Es importante tener en cuenta que Java permite acceder a miembros estáticos (campos y métodos) a través de instancias de una clase. Por ejemplo, el método estático `getManufacturerInfo()` también se puede utilizar de esta manera:
+
+```java
 tv1.getManufacturerInfo();
-```Sin embargo, esta no es una práctica recomendada, ya que no transmite claramente que el miembro es estático y pertenece a la clase y no a la instancia.
+
+```
+
+Sin embargo, esta no es una práctica recomendada, ya que no transmite claramente que el miembro es estático y pertenece a la clase y no a la instancia.
 
 Los miembros de instancia, por otro lado, están asociados con cada instancia individual de la clase. Contienen datos específicos de cada objeto y pueden acceder tanto a miembros estáticos como a miembros de instancia.
 
@@ -642,7 +833,10 @@ Los métodos estáticos se pueden utilizar para implementar funciones de utilida
 
 Además, los miembros estáticos permiten el acceso global. Por supuesto, existe cierta controversia sobre esto debido al potencial de un mayor acoplamiento y un código más difícil de probar; sin embargo, puede ser apropiado para constantes globales a las que se debe acceder desde varios puntos de una aplicación.
 
-Este diagrama ilustra varios puntos clave sobre los miembros estáticos y de instancia en Java:```
+Este diagrama ilustra varios puntos clave sobre los miembros estáticos y de instancia en Java:
+
+```
+
 ┌─────────────────────────────────────────────────────────────┐
 │                         Class                               │
 │  ┌─────────────────────────┐ ┌─────────────────────────┐    │
@@ -668,14 +862,25 @@ Este diagrama ilustra varios puntos clave sobre los miembros estáticos y de ins
 - Instance members (fields and methods) are associated with objects of the class.
 - Multiple objects of the class each have their own instance members.
 - All objects share the same static members.
-```Ahora, revisemos con más detalle cómo declarar campos.
+
+```
+
+Ahora, revisemos con más detalle cómo declarar campos.
 
 ## Declaración de campos
 Un campo es una variable que se declara a nivel de clase. Los campos, también denominados atributos o variables de instancia, se utilizan para mantener el estado de un objeto.
 
-Para declarar un campo, utiliza la siguiente sintaxis:```
+Para declarar un campo, utiliza la siguiente sintaxis:
+
+```
+
 [accessModifier] [specifiers] type fieldName [= initialValue];
-```A continuación se muestran algunos ejemplos:```java
+
+```
+
+A continuación se muestran algunos ejemplos:
+
+```java
 public class MyClass {
     public static final int MAX_VALUE = 100;
     private String name;
@@ -684,7 +889,10 @@ public class MyClass {
     
     // ...
 }
-```El modificador de acceso es opcional y puede ser acceso "público", "privado", "protegido" o predeterminado (paquete-privado) si no se especifica ninguno. Tenga en cuenta que, a diferencia de las clases, los campos pueden utilizar los cuatro tipos de modificadores de acceso. Dependiendo de los modificadores de acceso utilizados, se puede acceder a los campos desde dentro de la clase, subclases, clases en el mismo paquete o cualquier otra clase. Más sobre esto más adelante.
+
+```
+
+El modificador de acceso es opcional y puede ser acceso "público", "privado", "protegido" o predeterminado (paquete-privado) si no se especifica ninguno. Tenga en cuenta que, a diferencia de las clases, los campos pueden utilizar los cuatro tipos de modificadores de acceso. Dependiendo de los modificadores de acceso utilizados, se puede acceder a los campos desde dentro de la clase, subclases, clases en el mismo paquete o cualquier otra clase. Más sobre esto más adelante.
 
 La parte de especificadores también es opcional y puede incluir palabras clave como "estática", "final", "transitoria" y "volatil". Puede especificar cero o más especificadores (como en la declaración del primer campo), pero la palabra clave "final" solo se puede aplicar una vez:
 
@@ -713,37 +921,79 @@ Finalmente, proporcionar un valor inicial es opcional. Si no se proporciona ning
 Una vez declarado un campo, puedes acceder a él para leer su valor o modificarlo asignándole un nuevo valor. La forma de acceder a un campo depende de si es un campo de instancia o un campo estático y qué modificador de acceso utiliza.
 
 ### Acceso y modificación de campos
-Para acceder a un campo de instancia, primero necesita una instancia de la clase. Luego puede leer el valor del campo usando el operador de punto (`.`) de esta manera:```java
+Para acceder a un campo de instancia, primero necesita una instancia de la clase. Luego puede leer el valor del campo usando el operador de punto (`.`) de esta manera:
+
+```java
 instanceVariable.fieldName
-```Por ejemplo:```java
+
+```
+
+Por ejemplo:
+
+```java
 String name = person.firstName;
-int age = employee.age;  
-```Para modificar un campo de instancia, utiliza el operador de asignación (`=`) de esta manera:```java
+int age = employee.age;
+
+```
+
+Para modificar un campo de instancia, utiliza el operador de asignación (`=`) de esta manera:
+
+```java
 person.firstName = "John";
 employee.age = 45;
-```Acceder a campos "estáticos" es un poco diferente. Como pertenecen a la clase misma, no necesitas una instancia. Puede acceder a un campo estático utilizando el nombre de la clase y el operador de punto:```java
+
+```
+
+Acceder a campos "estáticos" es un poco diferente. Como pertenecen a la clase misma, no necesitas una instancia. Puede acceder a un campo estático utilizando el nombre de la clase y el operador de punto:
+
+```java
 ClassName.fieldName
-```Por ejemplo:```java
+
+```
+
+Por ejemplo:
+
+```java
 double pi = Math.PI;
 int max = Integer.MAX_VALUE;
-```Dentro de la misma clase que declara un campo, puedes acceder a él directamente por su nombre, sin ningún prefijo, independientemente del modificador de acceso utilizado. La única excepción es acceder a un campo estático; se recomienda utilizar el nombre de la clase incluso dentro de la misma clase para facilitar la lectura.
+
+```
+
+Dentro de la misma clase que declara un campo, puedes acceder a él directamente por su nombre, sin ningún prefijo, independientemente del modificador de acceso utilizado. La única excepción es acceder a un campo estático; se recomienda utilizar el nombre de la clase incluso dentro de la misma clase para facilitar la lectura.
 
 Los modificadores de acceso "público", "privado", "protegido" y predeterminado (paquete) controlan la visibilidad de un campo y determinan si se puede acceder a él directamente desde fuera de la clase.
 
-Veamos algunos ejemplos para ilustrar los diferentes niveles de acceso.```java
+Veamos algunos ejemplos para ilustrar los diferentes niveles de acceso.
+
+```java
 public class Person {
     public String name;
     private int age;
     protected String email;
     double height;
 }
-```El campo `nombre` es `público`, por lo que se puede acceder a él desde cualquier otra clase:```java
+
+```
+
+El campo `nombre` es `public`, por lo que se puede acceder a él desde cualquier otra clase:
+
+```java
 Person p = new Person();
 p.name = "Alice";
-```El campo "edad" es "privado". Solo se puede acceder a él dentro de la clase "Persona". Intentar acceder a él directamente desde fuera de la clase dará como resultado un error de compilación:```java
+
+```
+
+El campo "edad" es "privado". Solo se puede acceder a él dentro de la clase "Persona". Intentar acceder a él directamente desde fuera de la clase dará como resultado un error de compilación:
+
+```java
 // This will not compile
-p.age = 30; 
-```El campo "correo electrónico" está "protegido". Se puede acceder a él dentro de la misma clase, cualquier subclase y otras clases en el mismo paquete:```java
+p.age = 30;
+
+```
+
+El campo "correo electrónico" está "protegido". Se puede acceder a él dentro de la misma clase, cualquier subclase y otras clases en el mismo paquete:
+
+```java
 // This is okay
 String email = p.email;
 
@@ -753,24 +1003,39 @@ class Employee extends Person {
          email = e;
     }
 }
-```El campo `altura` tiene acceso predeterminado (paquete) ya que no se especifica ningún modificador. Pueden acceder a él otras clases dentro del mismo paquete:```java
+
+```
+
+El campo `altura` tiene acceso predeterminado (paquete) ya que no se especifica ningún modificador. Pueden acceder a él otras clases dentro del mismo paquete:
+
+```java
 // This is okay if Person and Student are in same package 
 class Student {
     public void printHeight(Person p) {
         System.out.println(p.height);
     }
 }
-```Es común declarar campos como "privados" y acceder a ellos mediante métodos getter y setter. Los campos "público" y "protegido" se utilizan con menos frecuencia. El acceso predeterminado (paquete privado) es útil para clases relacionadas dentro del mismo paquete.
+
+```
+
+Es común declarar campos como "privados" y acceder a ellos mediante métodos getter y setter. Los campos "público" y "protegido" se utilizan con menos frecuencia. El acceso predeterminado (paquete privado) es útil para clases relacionadas dentro del mismo paquete.
 
 
 ## Métodos de declaración
 Un método es un bloque de código que realiza una tarea específica y, opcionalmente, devuelve un valor. Los métodos se utilizan para definir el comportamiento de un objeto. Proporcionan una manera de encapsular lógica compleja, dividir un programa en partes manejables y permitir la reutilización de código.
 
-Para declarar un método, utilice la siguiente sintaxis:```java
+Para declarar un método, utilice la siguiente sintaxis:
+
+```java
 [accessModifier] [specifiers] returnType methodName([parameters]) [throws ExceptionType1, ExceptionType2, ...] {
     // method body
 }
-```Por ejemplo:```java
+
+```
+
+Por ejemplo:
+
+```java
 public static String addParenthesis(String s) {
     return "(" + s + ")";
 }
@@ -785,7 +1050,10 @@ protected void setName(String name) throws IllegalArgumentException {
     }
     this.name = name;
 }
-```El modificador de acceso es opcional y controla la visibilidad del método. Puede ser acceso "público", "privado", "protegido" o predeterminado (paquete) si no se especifica ninguno. Se aplican las mismas reglas que para los campos, que comentamos anteriormente.
+
+```
+
+El modificador de acceso es opcional y controla la visibilidad del método. Puede ser acceso "público", "privado", "protegido" o predeterminado (paquete) si no se especifica ninguno. Se aplican las mismas reglas que para los campos, que comentamos anteriormente.
 
 Los especificadores también son opcionales y pueden incluir palabras clave como "estático", "final", "abstracto" y "sincronizado". Estas palabras clave modifican el comportamiento del método:
 
@@ -798,18 +1066,30 @@ El tipo de retorno especifica el tipo de valor que devuelve el método. Puede se
 
 El nombre del método sigue las mismas convenciones de nomenclatura que las clases y los campos, normalmente utilizando "camelCase". Elija nombres significativos que describan el propósito del método.
 
-Los parámetros se especifican entre paréntesis después del nombre del método. Puede haber cero o más parámetros. Varios parámetros están separados por comas. Los parámetros son variables que reciben los valores pasados ​​al método cuando se llama. Cada parámetro consta de dos partes, opcionalmente tres:```java
+Los parámetros se especifican entre paréntesis después del nombre del método. Puede haber cero o más parámetros. Varios parámetros están separados por comas. Los parámetros son variables que reciben los valores pasados ​​al método cuando se llama. Cada parámetro consta de dos partes, opcionalmente tres:
+
+```java
 [parameterModifier] parameterType parameterName
-```El modificador de parámetros es opcional y puede ser "final". Si un parámetro se declara como "final", significa que el valor del parámetro no se puede cambiar dentro del cuerpo del método. He aquí un ejemplo:```java
+
+```
+
+El modificador de parámetros es opcional y puede ser "final". Si un parámetro se declara como "final", significa que el valor del parámetro no se puede cambiar dentro del cuerpo del método. He aquí un ejemplo:
+
+```java
 public void printMessage(final String message) {
     // message = "Hello"; // This would cause a compile error
     System.out.println(message);
 }
-```El tipo de parámetro es obligatorio y especifica el tipo de datos del parámetro. Puede ser un tipo primitivo (como `int`, `double`, `boolean`) o un tipo de referencia (como `String`, `ArrayList` o clases personalizadas).
+
+```
+
+El tipo de parámetro es obligatorio y especifica el tipo de datos del parámetro. Puede ser un tipo primitivo (como `int`, `double`, `boolean`) o un tipo de referencia (como `String`, `ArrayList` o clases personalizadas).
 
 El nombre del parámetro también es obligatorio y sigue las mismas convenciones de nomenclatura que los identificadores de clases, campos y métodos, normalmente utilizando "camelCase". El nombre del parámetro se utiliza para hacer referencia al valor pasado dentro del cuerpo del método.
 
-A continuación se muestran algunos ejemplos de definiciones de parámetros:```java
+A continuación se muestran algunos ejemplos de definiciones de parámetros:
+
+```java
 // A single parameter of type int
 public void printNumber(int number) {
     System.out.println("The number is: " + number);
@@ -828,19 +1108,34 @@ public void calculateDiscount(final double price, double discountPercentage) {
     double finalPrice = price - discountAmount;
     System.out.println("Discounted price: " + finalPrice);
 }
-```Volviendo a las partes de la declaración de un método, la cláusula `throws` es opcional y especifica cualquier excepción marcada que el método pueda generar. Varias excepciones están separadas por comas.
+
+```
+
+Volviendo a las partes de la declaración de un método, la cláusula `throws` es opcional y especifica cualquier excepción marcada que el método pueda generar. Varias excepciones están separadas por comas.
 
 El cuerpo del método está entre llaves `{}` y contiene el código que implementa la funcionalidad del método. Puede incluir declaraciones de variables, bucles, condicionales, llamadas a métodos y otras declaraciones.
 
-Si el método tiene un tipo de retorno distinto de nulo, debe incluir una declaración "return" que especifique el valor que se devolverá. El valor de retorno debe ser compatible con el tipo de retorno declarado:```java
+Si el método tiene un tipo de retorno distinto de nulo, debe incluir una declaración "return" que especifique el valor que se devolverá. El valor de retorno debe ser compatible con el tipo de retorno declarado:
+
+```java
 // A simple method that returns a string
 public String getName() {
     return "Mark";
 }
-```### Firmas de métodos
-Una firma de método identifica de forma única un método dentro de una clase. Consiste en el nombre del método y la lista ordenada de tipos de parámetros. Los modificadores de acceso (como "público" o "privado"), los tipos de retorno (como "void" o "int") y los nombres de los parámetros no forman parte de la firma del método:```java
+
+```
+
+### Firmas de métodos
+Una firma de método identifica de forma única un método dentro de una clase. Consiste en el nombre del método y la lista ordenada de tipos de parámetros. Los modificadores de acceso (como "público" o "privado"), los tipos de retorno (como "void" o "int") y los nombres de los parámetros no forman parte de la firma del método:
+
+```java
 methodName(parameterType1, parameterType2, ...)
-```Por ejemplo, considere las siguientes declaraciones de métodos:```java
+
+```
+
+Por ejemplo, considere las siguientes declaraciones de métodos:
+
+```java
 public void printMessage(String message) {
     System.out.println(message);
 }
@@ -852,7 +1147,10 @@ public int calculateSum(int a, int b) {
 private void updateUser(String username, int age, boolean isActive) {
     // method body
 }
-```Las firmas de métodos para estos métodos son:
+
+```
+
+Las firmas de métodos para estos métodos son:
 
 - `imprimirMensaje(Cadena)`
 - `calcularSuma(int, int)`
@@ -861,13 +1159,20 @@ private void updateUser(String username, int age, boolean isActive) {
 ### Llamar a un método
 Al llamar a un método, se pasan argumentos que coinciden con los tipos y el orden de los parámetros declarados en la firma del método. Los argumentos son los valores reales que se pasan al método.
 
-De esta manera, para llamar a un método, debe utilizar el nombre del método seguido de paréntesis y proporcionar los argumentos necesarios. La sintaxis es:```java
+De esta manera, para llamar a un método, debe utilizar el nombre del método seguido de paréntesis y proporcionar los argumentos necesarios. La sintaxis es:
+
+```java
 [ObjectReference.]methodName([arguments]);
-```Si el método es un método de instancia (no estático), necesita tener un objeto de la clase que contiene el método. Luego puede llamar al método usando la referencia del objeto seguida del operador de punto y el nombre del método.
+
+```
+
+Si el método es un método de instancia (no estático), necesita tener un objeto de la clase que contiene el método. Luego puede llamar al método usando la referencia del objeto seguida del operador de punto y el nombre del método.
 
 Si el método es un método "estático", puede llamarlo directamente usando el nombre de la clase seguido del operador de punto y el nombre del método. No necesita una instancia de objeto para llamar a un método estático.
 
-A continuación se muestran algunos ejemplos de métodos de llamada:```java
+A continuación se muestran algunos ejemplos de métodos de llamada:
+
+```java
 // Calling an instance method
 Person person = new Person();
 person.setName("John");
@@ -881,12 +1186,17 @@ double random = Math.random();
 Calculator calculator = new Calculator();
 int sum = calculator.add(5, 3);
 double result = calculator.multiply(2.5, 4.0);
-```Asegúrese de proporcionar el número y tipo correcto de argumentos según lo definido en la firma del método. Si hay una discrepancia, el compilador arrojará un error.
+
+```
+
+Asegúrese de proporcionar el número y tipo correcto de argumentos según lo definido en la firma del método. Si hay una discrepancia, el compilador arrojará un error.
 
 ### Uso de modificadores de acceso con métodos
 Al igual que con los campos, los modificadores de acceso controlan la visibilidad y accesibilidad de los métodos. Se pueden utilizar los mismos cuatro modificadores de acceso: "público", "privado", "protegido" y predeterminado (paquete-privado).
 
-Considere esta clase:```java
+Considere esta clase:
+
+```java
 package com.my.package;
 
 public class MathUtils {
@@ -906,12 +1216,27 @@ public class MathUtils {
         return a / b;
     }
 }
-```El método `add` está declarado como `public`, por lo que se puede llamar desde cualquier otra clase:```java
+
+```
+
+El método `add` está declarado como `public`, por lo que se puede llamar desde cualquier otra clase:
+
+```java
 int sum = MathUtils.add(1, 2);
-```El método "restar" se declara como "privado". Sólo se puede llamar desde la propia clase `MathUtils`. Intentar llamarlo desde otra clase resultará en un error de compilación:```java
+
+```
+
+El método "restar" se declara como "privado". Sólo se puede llamar desde la propia clase `MathUtils`. Intentar llamarlo desde otra clase resultará en un error de compilación:
+
+```java
 // This will not compile
 int difference = MathUtils.subtract(10, 7);
-```El método "multiplicar" se declara como "protegido". Se puede llamar desde dentro de la misma clase, cualquier subclase (incluso en un paquete diferente) y otras clases en el mismo paquete:```java
+
+```
+
+El método "multiplicar" se declara como "protegido". Se puede llamar desde dentro de la misma clase, cualquier subclase (incluso en un paquete diferente) y otras clases en el mismo paquete:
+
+```java
 package com.my.other.package;
 
 // Calling from a subclass in a different package
@@ -920,7 +1245,12 @@ public class AdvancedMathUtils extends MathUtils {
         return multiply(a, a);
     }
 }
-```El método `divide` tiene acceso predeterminado (paquete privado) ya que no se especifica ningún modificador explícito. Recuerde, esto significa que solo las clases dentro del mismo paquete pueden acceder al método:```java
+
+```
+
+El método `divide` tiene acceso predeterminado (paquete privado) ya que no se especifica ningún modificador explícito. Recuerde, esto significa que solo las clases dentro del mismo paquete pueden acceder al método:
+
+```java
 package com.my.package;
 
 // Calling from another class in the same package
@@ -929,12 +1259,17 @@ public class ArithmeticOperations {
         return MathUtils.divide(a, b);
     }
 }
-```### Pasar argumentos entre métodos
+
+```
+
+### Pasar argumentos entre métodos
 En Java, cuando pasas argumentos a un método, siempre se pasan por valor. Esto significa que se pasa una copia del valor al método, en lugar de una referencia a la variable original. Sin embargo, el comportamiento del paso por valor difiere dependiendo de si estás pasando un tipo primitivo (como un `int`) o un tipo de referencia (como un objeto como `String`).
 
 Cuando pasa un tipo primitivo a un método, el método recibe una copia del valor. Cualquier cambio realizado en el parámetro dentro del método no afecta la variable original fuera del método.
 
-He aquí un ejemplo:```java
+He aquí un ejemplo:
+
+```java
 public void testPrimitive() {
     int num = 10;
     modifyPrimitive(num);
@@ -944,11 +1279,16 @@ public void testPrimitive() {
 public void modifyPrimitive(int value) {
     value = 20;
 }
-```En este ejemplo, el método `modifyPrimitive` recibe una copia del valor de `num`. Modificar el parámetro `value` dentro del método no cambia la variable `num` original en el método `testPrimitive`.
+
+```
+
+En este ejemplo, el método `modifyPrimitive` recibe una copia del valor de `num`. Modificar el parámetro `value` dentro del método no cambia la variable `num` original en el método `testPrimitive`.
 
 Cuando pasa un tipo de referencia a un método, el método recibe una copia de la referencia al objeto. Si bien la referencia en sí se pasa por valor, el método aún puede modificar el estado del objeto al que apunta la referencia.
 
-He aquí un ejemplo:```java
+He aquí un ejemplo:
+
+```java
 public void test() {
     Person person = new Person("John", 25);
     modifyPerson(person);
@@ -960,11 +1300,16 @@ public void modifyPerson(Person p) {
     p.setName("Alice"); // Sets a new name
     p = new Person("Bob", 30); // Reassigns p to a new person
 }
-```En este ejemplo, el método `modifyPerson` recibe una copia de la referencia al objeto `Persona`. Dentro del método, se llama al método `setName()` en el objeto al que hace referencia `p`, lo que modifica el nombre del objeto original. Sin embargo, cuando "p" se reasigna a un nuevo objeto "Persona", no afecta la referencia de persona original en el método "principal".
+
+```
+
+En este ejemplo, el método `modifyPerson` recibe una copia de la referencia al objeto `Persona`. Dentro del método, se llama al método `setName()` en el objeto al que hace referencia `p`, lo que modifica el nombre del objeto original. Sin embargo, cuando "p" se reasigna a un nuevo objeto "Persona", no afecta la referencia de persona original en el método "principal".
 
 Exploremos algunos ejemplos más para aclarar la diferencia entre reasignar una referencia y modificar el objeto en sí. 
 
-Primero, considere esto sobre reasignar una referencia:```java
+Primero, considere esto sobre reasignar una referencia:
+
+```java
 public void test() {
     StringBuilder sb = new StringBuilder("Hello");
     modifyStringBuilder(sb);
@@ -974,9 +1319,14 @@ public void test() {
 public void modifyStringBuilder(StringBuilder builder) {
     builder = new StringBuilder("World");
 }
-```En este ejemplo, el método `modifyStringBuilder` recibe una copia de la referencia al objeto `StringBuilder`. Dentro del método, la referencia del constructor se reasigna a un nuevo objeto `StringBuilder`, pero esto no afecta la referencia `sb` original en el método `main`.
 
-Compare el ejemplo anterior con el siguiente, que demuestra en qué se diferencia modificar el estado de un objeto de simplemente reasignar una referencia:```java
+```
+
+En este ejemplo, el método `modifyStringBuilder` recibe una copia de la referencia al objeto `StringBuilder`. Dentro del método, la referencia del constructor se reasigna a un nuevo objeto `StringBuilder`, pero esto no afecta la referencia `sb` original en el método `main`.
+
+Compare el ejemplo anterior con el siguiente, que demuestra en qué se diferencia modificar el estado de un objeto de simplemente reasignar una referencia:
+
+```java
 public void test() {
     StringBuilder sb = new StringBuilder("Hello");
     appendToStringBuilder(sb);
@@ -986,14 +1336,19 @@ public void test() {
 public void appendToStringBuilder(StringBuilder builder) {
     builder.append(", World!");
 }
-```En este ejemplo, el método `appendToStringBuilder` recibe una copia de la referencia al objeto `StringBuilder`. Dentro del método, se llama al método `append()` en el objeto al que hace referencia el constructor, lo que modifica el estado del objeto original. Los cambios realizados en el objeto son visibles fuera del método.
+
+```
+
+En este ejemplo, el método `appendToStringBuilder` recibe una copia de la referencia al objeto `StringBuilder`. Dentro del método, se llama al método `append()` en el objeto al que hace referencia el constructor, lo que modifica el estado del objeto original. Los cambios realizados en el objeto son visibles fuera del método.
 
 Comprender el comportamiento del paso por valor y la diferencia entre reasignar una referencia y modificar el objeto en sí es importante para escribir código correcto y predecible. Considere siempre si tiene la intención de modificar el objeto o simplemente reasignar la referencia al pasar tipos de referencia a métodos.
 
 
 
 ### Sobrecarga de métodos
-En Java, es posible definir dos o más métodos dentro de la misma clase que comparten el mismo nombre, siempre que sus declaraciones de parámetros sean diferentes. Esto se llama sobrecarga de métodos. Considere los métodos de la siguiente clase:```java
+En Java, es posible definir dos o más métodos dentro de la misma clase que comparten el mismo nombre, siempre que sus declaraciones de parámetros sean diferentes. Esto se llama sobrecarga de métodos. Considere los métodos de la siguiente clase:
+
+```java
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -1003,11 +1358,16 @@ public class Calculator {
         return a + b;
     }
 }
-```Cuando se llama al método `add`, el compilador de Java determina qué versión del método sobrecargado llamar en función del tipo de argumentos que se le pasan. 
+
+```
+
+Cuando se llama al método `add`, el compilador de Java determina qué versión del método sobrecargado llamar en función del tipo de argumentos que se le pasan. 
 
 Esto es similar a pedir café en una cafetería. El barista puede preparar diferentes variaciones de café según sus especificaciones, café negro, café con leche o café con leche y azúcar. Cada variación se ordena usando la misma palabra (café), pero los ingredientes que especifiques determinan el tipo exacto de café que recibirás. De la misma manera, cuando llamas a un método sobrecargado en Java, los argumentos que pasas determinan qué versión del método se ejecutará.
 
-Por ejemplo, si llamamos al método `add` con diferentes argumentos:```java
+Por ejemplo, si llamamos al método `add` con diferentes argumentos:
+
+```java
 Calculator calc = new Calculator();
 
 int result1 = calc.add(5, 10);
@@ -1018,11 +1378,14 @@ System.out.println(result2);  // Output: 15.7
 
 double result3 = calc.add(5, 10.2);
 System.out.println(result3);  // Output: 15.2
-```Esto es lo que sucede: 
+
+```
+
+Esto es lo que sucede: 
 
 1. Cuando se llama a `calc.add(5, 10)`, ambos argumentos son de tipo `int`. El compilador de Java hace coincidir esta llamada con el método `add` que toma dos parámetros `int` y el resultado es un valor `int` de 15.
 
-2. Cuando se llama a `calc.add(5.5, 10.2)`, ambos argumentos son de tipo `doble`. El compilador de Java compara esta llamada con el método `add` que toma dos parámetros `double` y el resultado es un valor `double` de 15,7.
+2. Cuando se llama a `calc.add(5.5, 10.2)`, ambos argumentos son de tipo `double`. El compilador de Java compara esta llamada con el método `add` que toma dos parámetros `double` y el resultado es un valor `double` de 15,7.
 
 3. Cuando se llama a `calc.add(5, 10.2)`, un argumento es un `int` y el otro es un `double`. En este caso, el compilador de Java realiza una conversión del argumento "int" a un "doble" para que coincida con el método "add" que toma dos parámetros "dobles". El resultado es un valor "doble" de 15,2.
 
@@ -1040,7 +1403,9 @@ Así que tenga siempre esto en cuenta: cambiar solo el tipo de retorno no es suf
 
 Además, un error común es pensar que Java siempre elige el método sobrecargado con la mayor cantidad de parámetros. No es así. Java selecciona el método basándose en la coincidencia más específica con los tipos de argumentos, no necesariamente el método con la mayor cantidad de parámetros.
 
-Considere esta clase que tiene múltiples métodos sobrecargados llamados "display":```java
+Considere esta clase que tiene múltiples métodos sobrecargados llamados "display":
+
+```java
 public class DisplayOverload {
     
     // Method with a single String argument
@@ -1066,41 +1431,61 @@ DisplayOverload obj = new DisplayOverload();
 obj.display("Hello, World!"); // Calls the method with a String argument
 obj.display(5); // Calls the method with a single int argument
 obj.display(10, 20); // Calls the method with two int arguments
-```En este ejemplo:
+
+```
+
+En este ejemplo:
 - Cuando se llama a `display("Hello, World!");`, Java selecciona el método `display(String str)` porque el argumento es una cadena, que coincide con el tipo de parámetro de este método específico.
 - Cuando se llama a `display(5);`, Java selecciona el método `display(int num)` porque el argumento es un número entero, lo que lo convierte en la coincidencia más específica entre los métodos sobrecargados.
 - Cuando se llama a `display(10, 20);`, aunque existen otros métodos de `display` que teóricamente podrían aceptar números enteros, Java elige `display(int num1, int num2)` porque coincide más específicamente con los dos argumentos enteros proporcionados.
 
-Una última cosa a tener en cuenta es que no se pueden sobrecargar métodos que difieren sólo por un parámetro varargs. Por ejemplo, esto no compilará:```java
+Una última cosa a tener en cuenta es que no se pueden sobrecargar métodos que difieren sólo por un parámetro varargs. Por ejemplo, esto no compilará:
+
+```java
 public void sum(int[] numbers) { }
 public void sum(int... numbers) { } // Compile-time error
-```La razón es que tanto `int[] números` como `int... números` son esencialmente iguales desde la perspectiva de Java porque `int...` es simplemente azúcar sintáctico para una matriz de números enteros (`int[]`). Cuando intentas sobrecargar un método con estos dos tipos de parámetros, Java los ve como firmas idénticas. Pero hablemos más de varargs.
+
+```
+
+La razón es que tanto `int[] números` como `int... números` son esencialmente iguales desde la perspectiva de Java porque `int...` es simplemente azúcar sintáctico para una matriz de números enteros (`int[]`). Cuando intentas sobrecargar un método con estos dos tipos de parámetros, Java los ve como firmas idénticas. Pero hablemos más de varargs.
 
 
 
 ### Varargs
 Varargs, abreviatura de argumentos de longitud variable, es una característica que permite a los métodos aceptar una cantidad no especificada de argumentos de un tipo específico. Piense en los varargs como un buffet libre. En un buffet, no estás limitado a una cantidad fija de platos; puedes elegir tantos platos diferentes como quieras, e incluso puedes volver por más. De manera similar, con varargs, se puede llamar a un método con un número variable de argumentos; no estás fijado a un número específico. Esto hace que sus métodos sean más flexibles y fáciles de usar cuando el número exacto de entradas puede variar.
 
-Para definir un método con varargs, se utilizan puntos suspensivos (`...`) después del tipo de datos del último parámetro. Así es como funciona:```java
+Para definir un método con varargs, se utilizan puntos suspensivos (`...`) después del tipo de datos del último parámetro. Así es como funciona:
+
+```java
 public void display(String... words) {
     for (String word : words) {
         System.out.println(word);
     }
 }
-```En este ejemplo, se puede llamar a `display` con cualquier número de argumentos `String`, incluido ninguno. Es como si le estuvieras diciendo al método: "Esto es lo que tengo, tómalo todo". Esta flexibilidad hace que varargs sea extremadamente útil para crear métodos que necesitan manejar una cantidad desconocida de objetos, como una lista de nombres, números o incluso objetos complejos.
+
+```
+
+En este ejemplo, se puede llamar a `display` con cualquier número de argumentos `String`, incluido ninguno. Es como si le estuvieras diciendo al método: "Esto es lo que tengo, tómalo todo". Esta flexibilidad hace que varargs sea extremadamente útil para crear métodos que necesitan manejar una cantidad desconocida de objetos, como una lista de nombres, números o incluso objetos complejos.
 
 Ahora bien, existen reglas específicas que debes seguir para usar varargs de manera efectiva y correcta.
 
-Primero, un parámetro varargs debe ser el último parámetro en la lista de parámetros de un método. Esta regla garantiza que el método pueda aceptar un número variable de argumentos sin ambigüedad con respecto a qué argumentos pertenecen al parámetro varargs y cuáles no. Por ejemplo, considere el siguiente método:```java
+Primero, un parámetro varargs debe ser el último parámetro en la lista de parámetros de un método. Esta regla garantiza que el método pueda aceptar un número variable de argumentos sin ambigüedad con respecto a qué argumentos pertenecen al parámetro varargs y cuáles no. Por ejemplo, considere el siguiente método:
+
+```java
 void printStrings(String title, String... strings) {
     System.out.println(title + ":");
     for (String str : strings) {
         System.out.println(str);
     }
 }
-```En este ejemplo, `String... strings` es un parámetro varargs que puede aceptar cualquier número de argumentos `String`. Ser el último parámetro le permite llamar a `printStrings` con cualquier número de cadenas, o incluso sin ninguna cadena.
 
-En segundo lugar, sólo se permite un parámetro varargs en la lista de parámetros de un método. Esta restricción evita confusión sobre qué argumentos pertenecen a qué parámetro varargs si se permitiera más de uno. Por ejemplo, si desea crear un método que sume números, puede hacer lo siguiente:```java
+```
+
+En este ejemplo, `String... strings` es un parámetro varargs que puede aceptar cualquier número de argumentos `String`. Ser el último parámetro le permite llamar a `printStrings` con cualquier número de cadenas, o incluso sin ninguna cadena.
+
+En segundo lugar, sólo se permite un parámetro varargs en la lista de parámetros de un método. Esta restricción evita confusión sobre qué argumentos pertenecen a qué parámetro varargs si se permitiera más de uno. Por ejemplo, si desea crear un método que sume números, puede hacer lo siguiente:
+
+```java
 double multiplyAndSum(double multiplier, int... numbers) {
     double sum = 0;
     for (int num : numbers) {
@@ -1108,9 +1493,14 @@ double multiplyAndSum(double multiplier, int... numbers) {
     }
     return sum * multiplier;
 }
-```Este método incluye correctamente solo un parámetro varargs (`int... números`), lo que garantiza claridad sobre cómo debe llamarse y cómo opera con los argumentos pasados.
 
-En tercer lugar, un método con un parámetro varargs puede sobrecargarse, pero hay que asegurarse de evitar la ambigüedad. Esto requiere garantizar que la firma de cada método sea lo suficientemente distinta para evitar errores en tiempo de compilación. Por ejemplo, podría tener:```java
+```
+
+Este método incluye correctamente solo un parámetro varargs (`int... números`), lo que garantiza claridad sobre cómo debe llamarse y cómo opera con los argumentos pasados.
+
+En tercer lugar, un método con un parámetro varargs puede sobrecargarse, pero hay que asegurarse de evitar la ambigüedad. Esto requiere garantizar que la firma de cada método sea lo suficientemente distinta para evitar errores en tiempo de compilación. Por ejemplo, podría tener:
+
+```java
 void display(String s, int... numbers) {
     System.out.println(s);
     for (int num : numbers) {
@@ -1122,11 +1512,16 @@ void display(String s, int... numbers) {
 void display(String first, String second) {
     System.out.println(first + ", " + second);
 }
-```Aquí, `display` está sobrecargado con una versión que acepta una cadena y un parámetro entero varargs, y otra que acepta dos cadenas. Esta sobrecarga es válida porque las firmas de los métodos son distintas, lo que garantiza que el compilador pueda determinar qué método llamar en función de los argumentos proporcionados.
+
+```
+
+Aquí, `display` está sobrecargado con una versión que acepta una cadena y un parámetro entero varargs, y otra que acepta dos cadenas. Esta sobrecarga es válida porque las firmas de los métodos son distintas, lo que garantiza que el compilador pueda determinar qué método llamar en función de los argumentos proporcionados.
 
 Dentro del método, se puede acceder a los elementos de un parámetro varargs de varias maneras, cada una adecuada para diferentes escenarios.
 
-La forma más sencilla de acceder a elementos en un parámetro varargs es tratándolo como una matriz y accediendo a sus elementos directamente mediante un índice. Este método es útil cuando conoce el número exacto de argumentos o necesita acceder a elementos específicos. Por ejemplo, considere un método que imprime el primer, segundo y último elemento de un parámetro varargs:```java
+La forma más sencilla de acceder a elementos en un parámetro varargs es tratándolo como una matriz y accediendo a sus elementos directamente mediante un índice. Este método es útil cuando conoce el número exacto de argumentos o necesita acceder a elementos específicos. Por ejemplo, considere un método que imprime el primer, segundo y último elemento de un parámetro varargs:
+
+```java
 void printSelectedNumbers(int... numbers) {
     if (numbers.length >= 3) {
         System.out.println("First: " + numbers[0]);
@@ -1136,9 +1531,14 @@ void printSelectedNumbers(int... numbers) {
         System.out.println("Insufficient arguments.");
     }
 }
-```Este método accede directamente a los elementos por sus índices, similar al acceso a una matriz, lo que facilita la recuperación de valores específicos.
 
-Para iterar sobre cada elemento en un parámetro varargs, el bucle for mejorado proporciona una forma limpia y concisa de procesar cada argumento. Este enfoque es más beneficioso cuando necesita realizar operaciones en cada elemento o cuando el número de argumentos es variable. Aquí hay un ejemplo que suma todos los números pasados ​​al método:```java
+```
+
+Este método accede directamente a los elementos por sus índices, similar al acceso a una matriz, lo que facilita la recuperación de valores específicos.
+
+Para iterar sobre cada elemento en un parámetro varargs, el bucle for mejorado proporciona una forma limpia y concisa de procesar cada argumento. Este enfoque es más beneficioso cuando necesita realizar operaciones en cada elemento o cuando el número de argumentos es variable. Aquí hay un ejemplo que suma todos los números pasados ​​al método:
+
+```java
 int sumAll(int... numbers) {
     int sum = 0;
     for (int num : numbers) {
@@ -1146,25 +1546,40 @@ int sumAll(int... numbers) {
     }
     return sum;
 }
-```El bucle "for" mejorado itera automáticamente sobre cada elemento en "números", lo que permite una fácil agregación o procesamiento.
 
-Aunque es similar al uso de un bucle "for" mejorado, es posible que a veces necesites iterar manualmente sobre un parámetro varargs usando su propiedad "length" para una lógica más compleja, como cuando necesitas acceder al índice actual. Así es como puedes imprimir cada elemento con su índice:```java
+```
+
+El bucle "for" mejorado itera automáticamente sobre cada elemento en "números", lo que permite una fácil agregación o procesamiento.
+
+Aunque es similar al uso de un bucle "for" mejorado, es posible que a veces necesites iterar manualmente sobre un parámetro varargs usando su propiedad "length" para una lógica más compleja, como cuando necesitas acceder al índice actual. Así es como puedes imprimir cada elemento con su índice:
+
+```java
 void printWithIndices(String... strings) {
     for (int i = 0; i < strings.length; i++) {
         System.out.println("Element " + i + ": " + strings[i]);
     }
 }
-```Este método aprovecha la propiedad "longitud" del parámetro varargs para controlar manualmente la iteración, ofreciendo flexibilidad para operaciones basadas en índices.
 
-Para operaciones más complejas, incluido el filtrado, el mapeo o la agregación de elementos, la API Stream de Java puede funcionar directamente con varargs. Este método es particularmente poderoso para procesar elementos en un estilo de programación funcional. Cubriremos las transmisiones en un capítulo posterior, pero, por ejemplo, puedes filtrar y sumar solo los números pares de la siguiente manera:```java
+```
+
+Este método aprovecha la propiedad "longitud" del parámetro varargs para controlar manualmente la iteración, ofreciendo flexibilidad para operaciones basadas en índices.
+
+Para operaciones más complejas, incluido el filtrado, el mapeo o la agregación de elementos, la API Stream de Java puede funcionar directamente con varargs. Este método es particularmente poderoso para procesar elementos en un estilo de programación funcional. Cubriremos las transmisiones en un capítulo posterior, pero, por ejemplo, puedes filtrar y sumar solo los números pares de la siguiente manera:
+
+```java
 int sumEvenNumbers(int... numbers) {
     return Arrays.stream(numbers) // Convert varargs to a stream
                  .filter(n -> n % 2 == 0) // Filter even numbers
                  .sum(); // Sum them
 }
-```Una vez que haya definido un método que toma un parámetro vararg, puede llamarlo pasando argumentos individuales, pasando una matriz o llamándolo sin ningún argumento.
 
-La forma más sencilla de llamar a un método con varargs es pasándole argumentos individuales. Este enfoque es idéntico a llamar a un método con un número fijo de parámetros, pero con la flexibilidad adicional de especificar cualquier número de argumentos. A continuación se muestra un ejemplo que utiliza un método que imprime cada argumento:```java
+```
+
+Una vez que haya definido un método que toma un parámetro vararg, puede llamarlo pasando argumentos individuales, pasando una matriz o llamándolo sin ningún argumento.
+
+La forma más sencilla de llamar a un método con varargs es pasándole argumentos individuales. Este enfoque es idéntico a llamar a un método con un número fijo de parámetros, pero con la flexibilidad adicional de especificar cualquier número de argumentos. A continuación se muestra un ejemplo que utiliza un método que imprime cada argumento:
+
+```java
 void printArgs(String... args) {
     for (String arg : args) {
         System.out.println(arg);
@@ -1173,9 +1588,14 @@ void printArgs(String... args) {
 
 // Calling the method
 printArgs("Hello", "World", "Varargs", "are", "flexible");
-```En este ejemplo, el método `printArgs` se llama con cinco argumentos de cadena, lo que demuestra la facilidad con la que se puede pasar cualquier número de argumentos.
 
-Alternativamente, puedes llamar a un método varargs pasando una matriz del tipo especificado. Este enfoque es útil cuando los argumentos ya están almacenados en una matriz o cuando desea construir dinámicamente la lista de argumentos. Considere un método que suma un número arbitrario de números enteros:```java
+```
+
+En este ejemplo, el método `printArgs` se llama con cinco argumentos de cadena, lo que demuestra la facilidad con la que se puede pasar cualquier número de argumentos.
+
+Alternativamente, puedes llamar a un método varargs pasando una matriz del tipo especificado. Este enfoque es útil cuando los argumentos ya están almacenados en una matriz o cuando desea construir dinámicamente la lista de argumentos. Considere un método que suma un número arbitrario de números enteros:
+
+```java
 int sumNumbers(int... numbers) {
     return Arrays.stream(numbers).sum();
 }
@@ -1184,9 +1604,14 @@ int sumNumbers(int... numbers) {
 int[] numberArray = {1, 2, 3, 4, 5};
 int sum = sumNumbers(numberArray);
 System.out.println("Sum is: " + sum);
-```Aquí, se llama a `sumNumbers` con una matriz de números enteros, lo que muestra cómo una matriz coincide con la firma varargs, lo que proporciona una forma compacta de pasar múltiples argumentos.
 
-Finalmente, también se puede llamar a un método varargs sin pasar ningún argumento. Esta característica es particularmente útil cuando una operación es opcional o cuando existe un comportamiento predeterminado válido en ausencia de entradas. Aquí hay un método que concatena cualquier número de cadenas, con una demostración de cómo llamarlo sin argumentos:```java
+```
+
+Aquí, se llama a `sumNumbers` con una matriz de números enteros, lo que muestra cómo una matriz coincide con la firma varargs, lo que proporciona una forma compacta de pasar múltiples argumentos.
+
+Finalmente, también se puede llamar a un método varargs sin pasar ningún argumento. Esta característica es particularmente útil cuando una operación es opcional o cuando existe un comportamiento predeterminado válido en ausencia de entradas. Aquí hay un método que concatena cualquier número de cadenas, con una demostración de cómo llamarlo sin argumentos:
+
+```java
 String concatenateStrings(String... strings) {
     return Stream.of(strings).collect(Collectors.joining(", "));
 }
@@ -1194,33 +1619,48 @@ String concatenateStrings(String... strings) {
 // Calling the method without arguments
 String result = concatenateStrings();
 System.out.println("Result: " + result);
-```El ejemplo anterior ilustra que llamar a `concatenateStrings` sin ningún argumento es perfectamente válido y que varargs proporciona una firma de método flexible que se adapta a una amplia gama de casos de uso.
+
+```
+
+El ejemplo anterior ilustra que llamar a `concatenateStrings` sin ningún argumento es perfectamente válido y que varargs proporciona una firma de método flexible que se adapta a una amplia gama de casos de uso.
 
 
 ### El método `principal`
 El método `main` es un método especial en Java que sirve como punto de entrada de una aplicación Java. Cuando ejecuta un programa Java, la JVM busca este método y comienza a ejecutar el código que contiene. Cada aplicación Java debe tener un método "principal" en al menos una de sus clases.
 
-Aquí está la sintaxis para declarar un método "principal":```java
+Aquí está la sintaxis para declarar un método "principal":
+
+```java
 public static void main(String[] args) {
     // ...
 }
-```Analicemos cada parte:
 
-- `público`: El método `main` debe declararse como `público` para permitir que la JVM lo llame desde fuera de la clase.
+```
+
+Analicemos cada parte:
+
+- `public`: El método `main` debe declararse como `public` para permitir que la JVM lo llame desde fuera de la clase.
 - `static`: El método `main` debe declararse como `static` para que pueda llamarse sin crear una instancia de la clase.
 - `void`: El método `main` no devuelve ningún valor, por lo que su tipo de retorno es `void`.
 - `main`: El nombre del método debe ser "main" (todo en minúsculas) para que la JVM lo reconozca como el punto de entrada.
 - `String[] args`: El método `main` acepta un único parámetro, de tipo `String` array, convencionalmente llamado `args`. Este parámetro le permite pasar argumentos de línea de comandos al programa.
 
-A continuación se muestra un ejemplo de un método "principal" simple:```java
+A continuación se muestra un ejemplo de un método "principal" simple:
+
+```java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
 }
-```En este ejemplo, el método "main" simplemente imprime "¡Hola, mundo!" en la consola.
 
-Los argumentos del programa se pasan como una matriz `String`, donde cada elemento representa un argumento separado:```java
+```
+
+En este ejemplo, el método "main" simplemente imprime "¡Hola, mundo!" en la consola.
+
+Los argumentos del programa se pasan como una matriz `String`, donde cada elemento representa un argumento separado:
+
+```java
 public class CommandLineArguments {
     public static void main(String[] args) {
         if (args.length > 0) {
@@ -1233,20 +1673,45 @@ public class CommandLineArguments {
         }
     }
 }
-```En este ejemplo, el método `main` comprueba si se pasó algún argumento utilizando `args.length`. Si hay argumentos, itera sobre la matriz `args` e imprime cada argumento. Si no se proporcionaron argumentos, imprime un mensaje indicándolo.
 
-Puede ejecutar este programa desde la línea de comando y pasar argumentos como este:```
-java CommandLineArguments arg1 arg2 arg3
-```Esta será la salida:```
+```
+
+En este ejemplo, el método `main` comprueba si se pasó algún argumento utilizando `args.length`. Si hay argumentos, itera sobre la matriz `args` e imprime cada argumento. Si no se proporcionaron argumentos, imprime un mensaje indicándolo.
+
+Puede ejecutar este programa desde la línea de comando y pasar argumentos como este:
+
+```java CommandLineArguments arg1 arg2 arg3
+
+```
+
+Esta será la salida:
+
+```
+
 Arguments:
 arg1
 arg2
 arg3
-```Si ejecuta el programa sin ningún argumento:```
-java CommandLineArguments
-```Esta será la salida:```
+
+```
+
+Si ejecuta el programa sin ningún argumento:
+
+```java CommandLineArguments
+
+```
+
+Esta será la salida:
+
+```
+
 No arguments provided.
-```Es posible tener varios métodos llamados "principal" en una clase, siempre que tengan diferentes listas de parámetros. Sin embargo, solo el método definido como `public static void main(String[] args)` será reconocido como punto de entrada de la aplicación:```java
+
+```
+
+Es posible tener varios métodos llamados "principal" en una clase, siempre que tengan diferentes listas de parámetros. Sin embargo, solo el método definido como `public static void main(String[] args)` será reconocido como punto de entrada de la aplicación:
+
+```java
 public class MainOverloading {
     public static void main(String[] args) {
         System.out.println("Main method with String[] args");
@@ -1257,12 +1722,21 @@ public class MainOverloading {
         System.out.println("Main method with int parameter: " + num);
     }
 }
-```En este ejemplo, la clase tiene dos métodos `main`: uno con la firma estándar y otro con un parámetro int; sin embargo, el método `main(String[] args)` es el punto de entrada y llama al método `main(int num)`.
 
-Esta es la salida:```
+```
+
+En este ejemplo, la clase tiene dos métodos `main`: uno con la firma estándar y otro con un parámetro int; sin embargo, el método `main(String[] args)` es el punto de entrada y llama al método `main(int num)`.
+
+Esta es la salida:
+
+```
+
 Main method with String[] args
 Main method with int parameter: 42
-```## Constructores e inicializadores
+
+```
+
+## Constructores e inicializadores
 
 ### Constructores
 En Java, un constructor es un método especial que se utiliza para inicializar objetos. Se llama cuando se crea una instancia de una clase.
@@ -1271,7 +1745,9 @@ Imagine un constructor como una receta para hornear un pastel específico. Así 
 
 La sintaxis para definir un constructor es sencilla. Tiene el mismo nombre que la clase y no tiene tipo de retorno, ni siquiera nulo.
 
-He aquí un ejemplo:```java
+He aquí un ejemplo:
+
+```java
 class Cake {
     String flavor;
     double price;
@@ -1280,28 +1756,48 @@ class Cake {
         price = 9.99;
     }
 }
-```Para crear un objeto, usamos la palabra clave `new` seguida de una llamada al constructor:```java
+
+```
+
+Para crear un objeto, usamos la palabra clave `new` seguida de una llamada al constructor:
+
+```java
 Cake myCake = new Cake();
-```La línea anterior creará un nuevo objeto "Cake" con el sabor "Vainilla" predeterminado y un precio de "9,99".
+
+```
+
+La línea anterior creará un nuevo objeto "Cake" con el sabor "Vainilla" predeterminado y un precio de "9,99".
 
 Pero, ¿qué pasa si quieres el sabor predeterminado pero con un precio diferente? ¿O personalizar ambos en determinados casos?
 
 Bueno, así como puedes hornear diferentes variedades de pasteles modificando la receta, puedes crear objetos con diferentes estados iniciales proporcionando múltiples constructores.
 
-Por ejemplo, agreguemos otro constructor a nuestra clase `Cake`:```java
+Por ejemplo, agreguemos otro constructor a nuestra clase `Cake`:
+
+```java
 Cake(String flavor, double price) {
     this.flavor = flavor; 
     this.price = price;
 }
-```Con este constructor podremos crear una tarta del sabor y precio que queramos:```java
+
+```
+
+Con este constructor podremos crear una tarta del sabor y precio que queramos:
+
+```java
 Cake specialCake = new Cake("Chocolate", 12.99);
-```Tener varios constructores brinda flexibilidad en la creación de objetos. Podemos proporcionar diferentes formas de inicializar un objeto según los datos disponibles en el momento de la creación.
+
+```
+
+Tener varios constructores brinda flexibilidad en la creación de objetos. Podemos proporcionar diferentes formas de inicializar un objeto según los datos disponibles en el momento de la creación.
 
 El constructor sin parámetros se denomina constructor predeterminado. Si no define ningún constructor en su clase, el compilador proporcionará automáticamente un constructor predeterminado con un cuerpo vacío.
 
 Sin embargo, si define cualquier constructor (como el nuestro parametrizado), el compilador no proporcionará un constructor predeterminado. En este caso, si aún desea tener la opción de crear un objeto sin especificar parámetros, debe definir explícitamente el constructor predeterminado.
 
-Entonces, en nuestra clase `Cake`, podríamos tener ambos constructores:```java
+Entonces, en nuestra clase `Cake`, podríamos tener ambos constructores:
+
+```java
 class Cake {
     String flavor;
     double price;
@@ -1316,7 +1812,10 @@ class Cake {
         this.price = price;
     }
 }
-```Ahora podemos crear un pastel de vainilla predeterminado con `new Cake()` o un pastel personalizado con `new Cake("Chocolate", 10.99)`.
+
+```
+
+Ahora podemos crear un pastel de vainilla predeterminado con `new Cake()` o un pastel personalizado con `new Cake("Chocolate", 10.99)`.
 
 ### Inicializadores de instancia
 Los inicializadores de instancias son bloques de código que se ejecutan cuando se crea un objeto, al igual que los constructores. Sin embargo, mientras que los constructores son métodos con un nombre específico y potencialmente parámetros, los inicializadores de instancia son solo bloques de código dentro de una clase.
@@ -1325,7 +1824,9 @@ Usemos una analogía para comprender los inicializadores de instancias.
 
 Imagínese mudarse a una casa nueva. Todos tenemos nuestros rituales únicos para hacer que una casa se sienta como un hogar. Algunos colgarán fotos familiares, otros pintarán las paredes de su color favorito. Estos rituales son específicos de cada persona, al igual que los inicializadores de instancias son específicos de cada objeto.
 
-Aquí está la sintaxis de un inicializador de instancia:```java
+Aquí está la sintaxis de un inicializador de instancia:
+
+```java
 class House {
     String color;
     // instance initializer
@@ -1334,11 +1835,16 @@ class House {
         System.out.println("Performing move-in ritual");
     }
 }
-```Siempre que se crea un nuevo objeto `House`, se ejecutará el código dentro del bloque inicializador de instancia. Establecerá el color en `Blanco` e imprimirá `"Realizando ritual de mudanza"`.
+
+```
+
+Siempre que se crea un nuevo objeto `House`, se ejecutará el código dentro del bloque inicializador de instancia. Establecerá el color en `Blanco` e imprimirá `"Realizando ritual de mudanza"`.
 
 Entonces, ¿cómo se comparan los inicializadores de instancia con los constructores y cuándo se pueden utilizar?
 
-Bueno, imagina que tienes una clase con múltiples constructores. Cada constructor necesita realizar algunas tareas de inicialización comunes. En lugar de duplicar el código en cada constructor, puedes ponerlo en un inicializador de instancia. El código inicializador se ejecutará independientemente del constructor que se utilice.```java
+Bueno, imagina que tienes una clase con múltiples constructores. Cada constructor necesita realizar algunas tareas de inicialización comunes. En lugar de duplicar el código en cada constructor, puedes ponerlo en un inicializador de instancia. El código inicializador se ejecutará independientemente del constructor que se utilice.
+
+```java
 class House {
     String color;
     int numberOfRooms;
@@ -1358,7 +1864,10 @@ class House {
         this.numberOfRooms = numberOfRooms;
     }
 }
-```En este caso, independientemente del constructor que se utilice para crear un objeto "Casa", el inicializador de instancia se ejecutará, estableciendo el color predeterminado en "Blanco" e imprimiendo el mensaje de entrada.
+
+```
+
+En este caso, independientemente del constructor que se utilice para crear un objeto "Casa", el inicializador de instancia se ejecutará, estableciendo el color predeterminado en "Blanco" e imprimiendo el mensaje de entrada.
 
 Sin embargo, es importante tener en cuenta que, en la mayoría de los casos, puede lograr el mismo resultado simplemente moviendo el código de inicialización común a un método separado y llamando a ese método desde cada constructor.
 
@@ -1371,7 +1880,9 @@ Los inicializadores estáticos son bloques de código que se ejecutan cuando una
 
 Imagine una reunión en el ayuntamiento que se lleva a cabo una vez que se establece una ciudad. En esta reunión, los líderes del pueblo establecen reglas y pautas que se aplican a todos en el pueblo. Esta configuración única es similar a lo que hace un inicializador "estático" para una clase.
 
-Aquí está la sintaxis de un inicializador "estático":```java
+Aquí está la sintaxis de un inicializador "estático":
+
+```java
 class TownHall {
     static String townName;
     static int population;
@@ -1383,19 +1894,29 @@ class TownHall {
         System.out.println("Town established: " + townName);
     }
 }
-```La palabra clave "estática" antes de la llave de apertura indica que se trata de un bloque inicializador estático. Se ejecutará una vez cuando se cargue la clase `TownHall`, estableciendo el `townName` en `JavaVille`, la `población` inicial en `1000` e imprimiendo `Ciudad establecida: JavaVille`.
 
-Ahora, podrías pensar que los inicializadores estáticos son simplemente otra forma de inicializar variables estáticas, y podrías lograr el mismo resultado inicializando directamente las variables en su declaración, así:```java
+```
+
+La palabra clave "estática" antes de la llave de apertura indica que se trata de un bloque inicializador estático. Se ejecutará una vez cuando se cargue la clase `TownHall`, estableciendo el `townName` en `JavaVille`, la `población` inicial en `1000` e imprimiendo `Ciudad establecida: JavaVille`.
+
+Ahora, podrías pensar que los inicializadores estáticos son simplemente otra forma de inicializar variables estáticas, y podrías lograr el mismo resultado inicializando directamente las variables en su declaración, así:
+
+```java
 static String townName = "JavaVille";
 static int population = 1000;
-```Y estarías parcialmente en lo cierto. Para inicializaciones simples, la asignación directa suele ser más clara y concisa.
+
+```
+
+Y estarías parcialmente en lo cierto. Para inicializaciones simples, la asignación directa suele ser más clara y concisa.
 
 Sin embargo, los inicializadores estáticos proporcionan más flexibilidad. Le permiten escribir una lógica de inicialización más compleja, como por ejemplo:
 - Métodos de llamada
 - Uso de estructuras de control como bucles y condicionales.
 - Manejo de excepciones
 
-Aquí hay un ejemplo que demuestra esto:```java
+Aquí hay un ejemplo que demuestra esto:
+
+```java
 static List<String> residents = new ArrayList<>();
 
 static {
@@ -1406,7 +1927,10 @@ static {
         System.out.println("Residents file not found.");
     }
 }
-```En este caso, estamos usando el inicializador estático para leer una lista de residentes de un archivo y completar la lista de "residentes". Este tipo de inicialización compleja no sería posible con una simple asignación directa.
+
+```
+
+En este caso, estamos usando el inicializador estático para leer una lista de residentes de un archivo y completar la lista de "residentes". Este tipo de inicialización compleja no sería posible con una simple asignación directa.
 
 Otra diferencia clave es que una clase puede tener múltiples inicializadores estáticos y se ejecutarán en el orden en que aparecen en la clase. Esto puede resultar útil para organizar una lógica de inicialización compleja en fragmentos legibles.
 
@@ -1427,7 +1951,9 @@ El orden es el siguiente:
 2. Los inicializadores de instancias se ejecutan en el orden en que aparecen en la clase.
 3. Se ejecuta el constructor.
 
-Aquí hay un ejemplo que demuestra este orden:```java
+Aquí hay un ejemplo que demuestra este orden:
+
+```java
 class InitializationOrder {
     static int staticVar = 1;
     int instanceVar = 1;
@@ -1453,13 +1979,22 @@ class InitializationOrder {
         System.out.println("Created instance: instanceVar = " + obj.instanceVar);
     }
 }
-```Si ejecuta este código, el resultado será:```
+
+```
+
+Si ejecuta este código, el resultado será:
+
+```
+
 Static Initializer: staticVar = 1
 Creating new instance
 Instance Initializer: instanceVar = 1
 Constructor: instanceVar = 2
 Created instance: instanceVar = 3
-```Analicemos esto:
+
+```
+
+Analicemos esto:
 1. Cuando se carga la clase `InitializationOrder`, la variable estática `staticVar` se inicializa en `1`, y luego se ejecuta el inicializador estático, que imprime el valor actual de `staticVar` (`1`) y luego lo establece en `2`.
 2. En el método `main`, imprimimos `Creando nueva instancia` para marcar el inicio de la creación de la instancia.
 3. Se crea un nuevo objeto `InitializationOrder`. Primero, la variable de instancia `instanceVar` se inicializa a su valor predeterminado de `1`.
@@ -1471,7 +2006,9 @@ Es importante tener en cuenta este orden, especialmente si los inicializadores y
 
 Además, tenga en cuenta que si una clase tiene varios inicializadores estáticos, se ejecutarán en el orden en que aparecen en la clase. Lo mismo ocurre, por ejemplo, con los inicializadores.
 
-Ampliemos nuestro ejemplo anterior para demostrar esto:```java
+Ampliemos nuestro ejemplo anterior para demostrar esto:
+
+```java
 class MultipleInitializers {
     static int staticVar1;
     static int staticVar2;
@@ -1521,7 +2058,13 @@ class MultipleInitializers {
         );
     }
 }
-```Cuando ejecutamos este código, el resultado será:```
+
+```
+
+Cuando ejecutamos este código, el resultado será:
+
+```
+
 Static Initializer 1: staticVar1 = 0
 Static Initializer 2: staticVar2 = 0
 Creating new instance
@@ -1529,7 +2072,10 @@ Instance Initializer 1: instanceVar1 = 0
 Instance Initializer 2: instanceVar2 = 0
 Constructor
 Created instance: instanceVar1 = 1, instanceVar2 = 2
-```Esto es lo que está pasando:
+
+```
+
+Esto es lo que está pasando:
 1. Cuando se carga la clase `MultipleInitializers`, las variables estáticas `staticVar1` y `staticVar2` se inicializan a su valor predeterminado de `0`.
 
 2. Se ejecuta el primer inicializador estático, que imprime el valor actual de `staticVar1` (`0`) y luego lo establece en `1`.
@@ -1566,7 +2112,9 @@ La clase `Object` proporciona un conjunto de métodos fundamentales que son comu
 
 5. `clone()`: Crea y devuelve una copia del objeto. De forma predeterminada, realiza una copia superficial del objeto. Para utilizar este método, su clase debe implementar la interfaz `Cloneable`.
 
-A continuación se muestra un ejemplo que demuestra algunos de los métodos heredados de `Object`:```java
+A continuación se muestra un ejemplo que demuestra algunos de los métodos heredados de `Object`:
+
+```java
 class MyClass {
     private int value;
     
@@ -1594,7 +2142,10 @@ class MyClass {
         return Objects.hash(value);
     }
 }
-```En este ejemplo, `MyClass` anula los métodos `toString()`, `equals()` y `hashCode()` heredados de `Object`. El método `toString()` proporciona una representación de cadena personalizada del objeto, el método `equals()` define la igualdad en función del campo de valor y el método `hashCode()` genera un código hash basado en el campo de valor.
+
+```
+
+En este ejemplo, `MyClass` anula los métodos `toString()`, `equals()` y `hashCode()` heredados de `Object`. El método `toString()` proporciona una representación de cadena personalizada del objeto, el método `equals()` define la igualdad en función del campo de valor y el método `hashCode()` genera un código hash basado en el campo de valor.
 
 Al aprovechar estos métodos, puede proporcionar representaciones de cadenas significativas, definir comparaciones de igualdad y garantizar un comportamiento adecuado en estructuras de datos basadas en hash.
 
@@ -1649,7 +2200,7 @@ Y dado que las clases anónimas se utilizan dentro de una expresión, no permite
 
 Aquí hay una tabla resumen de los modificadores de acceso permitidos para cada tipo de clase anidada:
 
-| Tipo de clase anidada | `público` | `protegido` | `predeterminado` | `privado` |
+| Tipo de clase anidada | `public` | `protected` | `predeterminado` | `private` |
 |-------------------|----------|-------------|-----------|-----------|
 | Clase anidada estática | Sí | Sí | Sí | Sí |
 | Clase interna | Sí | Sí | Sí | Sí |
@@ -1663,13 +2214,20 @@ Aquí hay una tabla resumen de los modificadores de acceso permitidos para cada 
 Ahora repasemos cada tipo con más detalle.
 
 ### Clases anidadas estáticas
-Una clase anidada estática es una clase definida dentro de otra clase y marcada con la palabra clave "estática":```java
+Una clase anidada estática es una clase definida dentro de otra clase y marcada con la palabra clave "estática":
+
+```java
 class OuterClass {
     static class StaticNestedClass {
         // members of the static nested class
     }
 }
-```Las clases anidadas estáticas se pueden declarar con cualquiera de los cuatro modificadores de acceso: "público", "protegido", paquete privado (predeterminado) o "privado". La accesibilidad de la clase anidada estática depende del modificador de acceso utilizado y de la accesibilidad de la clase adjunta. He aquí un ejemplo:```java
+
+```
+
+Las clases anidadas estáticas se pueden declarar con cualquiera de los cuatro modificadores de acceso: "público", "protegido", paquete privado (predeterminado) o "privado". La accesibilidad de la clase anidada estática depende del modificador de acceso utilizado y de la accesibilidad de la clase adjunta. He aquí un ejemplo:
+
+```java
 public class OuterClass {
     private static class PrivateNestedClass {
         // ...
@@ -1687,9 +2245,14 @@ public class OuterClass {
         // ...
     }
 }
-```En este ejemplo, solo se puede acceder a `PrivateNestedClass` dentro de `OuterClass`, a `ProtectedNestedClass` se puede acceder dentro de `OuterClass` y sus subclases, a `PackagePrivateNestedClass` se puede acceder dentro del mismo paquete que `OuterClass` y a `PublicNestedClass` se puede acceder desde cualquier lugar.
 
-Las clases anidadas estáticas pueden extender otra clase e implementar interfaces, como cualquier otra clase de nivel superior:```java
+```
+
+En este ejemplo, solo se puede acceder a `PrivateNestedClass` dentro de `OuterClass`, a `ProtectedNestedClass` se puede acceder dentro de `OuterClass` y sus subclases, a `PackagePrivateNestedClass` se puede acceder dentro del mismo paquete que `OuterClass` y a `PublicNestedClass` se puede acceder desde cualquier lugar.
+
+Las clases anidadas estáticas pueden extender otra clase e implementar interfaces, como cualquier otra clase de nivel superior:
+
+```java
 class BaseClass {
     // ...
 }
@@ -1703,11 +2266,16 @@ class OuterClass {
         // ...
     }
 }
-```Aquí, `NestedClass` extiende `BaseClass` e implementa `MyInterface`, lo que demuestra que una clase anidada estática puede extender otra clase e implementar interfaces.
+
+```
+
+Aquí, `NestedClass` extiende `BaseClass` e implementa `MyInterface`, lo que demuestra que una clase anidada estática puede extender otra clase e implementar interfaces.
 
 Pueden acceder a los miembros estáticos de la clase adjunta directamente, utilizando el nombre de la clase adjunta seguido de la notación de puntos. Sin embargo, para acceder a miembros no estáticos de la clase adjunta, una clase anidada estática requiere una instancia de la clase adjunta. Esto se debe a que las clases anidadas estáticas no tienen inherentemente acceso a las variables de instancia de la clase adjunta.
 
-A continuación se muestra un ejemplo de una clase estática anidada:```java
+A continuación se muestra un ejemplo de una clase estática anidada:
+
+```java
 class OuterClass {
     private static int staticField = 10;
     private int instanceField = 20;
@@ -1720,16 +2288,31 @@ class OuterClass {
         }
     }
 }
-```En este ejemplo, `NestedClass` puede acceder directamente al `staticField` de `OuterClass`, pero no puede acceder directamente al `instanceField`. Para acceder a "instanceField", se necesita una instancia de "OuterClass".
 
-Para crear una instancia de una clase anidada estática, no necesita una instancia de la clase adjunta. Puede crear una instancia utilizando el nombre de la clase adjunta seguido de la notación de puntos y el nombre de la clase anidada estática.```java
+```
+
+En este ejemplo, `NestedClass` puede acceder directamente al `staticField` de `OuterClass`, pero no puede acceder directamente al `instanceField`. Para acceder a "instanceField", se necesita una instancia de "OuterClass".
+
+Para crear una instancia de una clase anidada estática, no necesita una instancia de la clase adjunta. Puede crear una instancia utilizando el nombre de la clase adjunta seguido de la notación de puntos y el nombre de la clase anidada estática.
+
+```java
 OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
-```Al hacer referencia a miembros estáticos de una clase anidada estática desde fuera de la clase adjunta, use el nombre de la clase adjunta, seguido de un punto, el nombre de la clase anidada estática, otro punto y luego el nombre del miembro. Esta sintaxis resalta la estructura anidada al tiempo que proporciona rutas claras para acceder a los miembros estáticos:```java
+
+```
+
+Al hacer referencia a miembros estáticos de una clase anidada estática desde fuera de la clase adjunta, use el nombre de la clase adjunta, seguido de un punto, el nombre de la clase anidada estática, otro punto y luego el nombre del miembro. Esta sintaxis resalta la estructura anidada al tiempo que proporciona rutas claras para acceder a los miembros estáticos:
+
+```java
 OuterClass.StaticNestedClass.staticField;
 OuterClass.StaticNestedClass.staticMethod();
 OuterClass.StaticNestedClass.StaticNestedNestedClass nestedNestedObject 
                   = new OuterClass.StaticNestedClass.StaticNestedNestedClass();
-```Desde dentro de la clase adjunta, puede acceder directamente a los miembros de la clase anidada estática sin el nombre de la clase adjunta.```java
+
+```
+
+Desde dentro de la clase adjunta, puede acceder directamente a los miembros de la clase anidada estática sin el nombre de la clase adjunta.
+
+```java
 class OuterClass {
     static class StaticNestedClass {
         static void staticMethod() {
@@ -1741,9 +2324,12 @@ class OuterClass {
         StaticNestedClass.staticMethod();
     }
 }
-```Como puede ver, las clases anidadas estáticas son similares a las clases normales de nivel superior en muchos aspectos:
 
-1. Pueden tener todo tipo de modificadores de acceso (`público`, `privado`, `protegido` y paquete).
+```
+
+Como puede ver, las clases anidadas estáticas son similares a las clases normales de nivel superior en muchos aspectos:
+
+1. Pueden tener todo tipo de modificadores de acceso (`public`, `private`, `protected` y paquete).
 
 2. Pueden ampliar otras clases e implementar interfaces.
 
@@ -1762,13 +2348,20 @@ Sin embargo, existen algunas diferencias clave:
 En resumen, las clases anidadas estáticas son esencialmente como clases normales de nivel superior que se han anidado dentro de otra clase con fines organizativos. No tienen una referencia implícita a una instancia de la clase adjunta y se pueden crear instancias de forma independiente. Esto los hace útiles para agrupar clases relacionadas y proporcionar un nivel de encapsulación.
 
 ### Clases anidadas no estáticas
-Las clases anidadas no estáticas, también conocidas como clases internas, son clases que se definen dentro de otra clase sin la palabra clave "estática":```java
+Las clases anidadas no estáticas, también conocidas como clases internas, son clases que se definen dentro de otra clase sin la palabra clave "estática":
+
+```java
 class OuterClass {
     class InnerClass {
         // members of the inner class
     }
 }
-```Se puede declarar una clase interna con cualquiera de los cuatro modificadores de acceso: "público", "protegido", "privado" o el nivel de acceso predeterminado. La accesibilidad de la clase interna depende del modificador de acceso utilizado y de la accesibilidad de la clase adjunta. Si la clase externa es "pública" y la clase interna es "privada", solo se puede acceder a la clase interna desde la clase externa. He aquí un ejemplo:```java
+
+```
+
+Se puede declarar una clase interna con cualquiera de los cuatro modificadores de acceso: "público", "protegido", "privado" o el nivel de acceso predeterminado. La accesibilidad de la clase interna depende del modificador de acceso utilizado y de la accesibilidad de la clase adjunta. Si la clase externa es "pública" y la clase interna es "privada", solo se puede acceder a la clase interna desde la clase externa. He aquí un ejemplo:
+
+```java
 public class OuterClass {
     private class PrivateInnerClass {
         // ...
@@ -1786,9 +2379,14 @@ public class OuterClass {
         // ...
     }
 }
-```En este ejemplo, solo se puede acceder a `PrivateInnerClass` dentro de `OuterClass`, a `ProtectedInnerClass` se puede acceder dentro de `OuterClass` y sus subclases, a `PackagePrivateInnerClass` se puede acceder dentro del mismo paquete que `OuterClass` y a `PublicInnerClass` se puede acceder desde cualquier lugar, siempre que se pueda acceder a `OuterClass`.
 
-Una clase interna puede extender otra clase e implementar interfaces, como cualquier otra clase. Esto permite que las clases internas hereden el comportamiento y se ajusten a los contratos definidos por otras clases e interfaces:```java
+```
+
+En este ejemplo, solo se puede acceder a `PrivateInnerClass` dentro de `OuterClass`, a `ProtectedInnerClass` se puede acceder dentro de `OuterClass` y sus subclases, a `PackagePrivateInnerClass` se puede acceder dentro del mismo paquete que `OuterClass` y a `PublicInnerClass` se puede acceder desde cualquier lugar, siempre que se pueda acceder a `OuterClass`.
+
+Una clase interna puede extender otra clase e implementar interfaces, como cualquier otra clase. Esto permite que las clases internas hereden el comportamiento y se ajusten a los contratos definidos por otras clases e interfaces:
+
+```java
 class BaseClass {
     // ...
 }
@@ -1802,9 +2400,14 @@ class OuterClass {
         // ...
     }
 }
-```Aquí, `InnerClass` extiende `BaseClass` e implementa `MyInterface`, lo que demuestra que una clase interna puede heredar de otra clase y ajustarse a una interfaz.
 
-Una clase interna tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Esto se debe a que una clase interna está asociada con una instancia de la clase externa y comparte una relación especial con ella. La clase interna puede acceder y manipular directamente el estado de la instancia de la clase externa:```java
+```
+
+Aquí, `InnerClass` extiende `BaseClass` e implementa `MyInterface`, lo que demuestra que una clase interna puede heredar de otra clase y ajustarse a una interfaz.
+
+Una clase interna tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Esto se debe a que una clase interna está asociada con una instancia de la clase externa y comparte una relación especial con ella. La clase interna puede acceder y manipular directamente el estado de la instancia de la clase externa:
+
+```java
 class OuterClass {
     private int privateField = 10;
     protected int protectedField = 20;
@@ -1820,9 +2423,14 @@ class OuterClass {
         }
     }
 }
-```En este ejemplo, "InnerClass" tiene acceso directo a todos los miembros de "OuterClass", incluido el campo privado "privateField". La clase interna puede acceder y manipular libremente el estado de la instancia de la clase externa.
 
-Para crear una instancia de una clase interna, normalmente necesita una instancia de la clase externa. La forma más común de crear una instancia de una clase interna es desde un método no estático de la clase externa:```java
+```
+
+En este ejemplo, "InnerClass" tiene acceso directo a todos los miembros de "OuterClass", incluido el campo privado "privateField". La clase interna puede acceder y manipular libremente el estado de la instancia de la clase externa.
+
+Para crear una instancia de una clase interna, normalmente necesita una instancia de la clase externa. La forma más común de crear una instancia de una clase interna es desde un método no estático de la clase externa:
+
+```java
 class OuterClass {
     class InnerClass {
         // ...
@@ -1832,15 +2440,30 @@ class OuterClass {
         InnerClass innerObject = new InnerClass();
     }
 }
-```Desde fuera de la clase externa, puede crear una instancia de una clase interna usando la siguiente sintaxis:```java
+
+```
+
+Desde fuera de la clase externa, puede crear una instancia de una clase interna usando la siguiente sintaxis:
+
+```java
 OuterClass outerObject = new OuterClass();
 OuterClass.InnerClass innerObject = outerObject.new InnerClass();
-```Para hacer referencia a miembros (campos, métodos, clases anidadas) de una clase interna desde fuera de la clase externa, primero necesita una instancia de la clase externa, luego use la notación de puntos para acceder a la clase interna, seguida de otro punto y el nombre del miembro:```java
+
+```
+
+Para hacer referencia a miembros (campos, métodos, clases anidadas) de una clase interna desde fuera de la clase externa, primero necesita una instancia de la clase externa, luego use la notación de puntos para acceder a la clase interna, seguida de otro punto y el nombre del miembro:
+
+```java
 OuterClass outerObject = new OuterClass();
 OuterClass.InnerClass innerObject = outerObject.new InnerClass();
 innerObject.innerField;
 innerObject.innerMethod();
-```Desde dentro de la clase externa, puede acceder directamente a los miembros de la clase interna usando una instancia de la clase interna:```java
+
+```
+
+Desde dentro de la clase externa, puede acceder directamente a los miembros de la clase interna usando una instancia de la clase interna:
+
+```java
 class OuterClass {
     class InnerClass {
         void innerMethod() {
@@ -1853,7 +2476,10 @@ class OuterClass {
         innerObject.innerMethod();
     }
 }
-```Las clases internas se diferencian de las clases regulares de alto nivel en varios aspectos:
+
+```
+
+Las clases internas se diferencian de las clases regulares de alto nivel en varios aspectos:
 
 1. Las clases internas se definen dentro de otra clase, mientras que las clases de nivel superior se definen fuera de otras clases.
 
@@ -1866,23 +2492,35 @@ class OuterClass {
 Las clases internas son útiles cuando una clase está estrechamente vinculada a otra clase y necesita acceso a sus componentes internos. Proporcionan una forma de organizar clases relacionadas y mantener un estrecho vínculo entre ellas. Las clases internas se usan comúnmente para implementar detectores de eventos, iteradores u otras funciones específicas de la clase adjunta.
 
 ### Clases locales
-Las clases locales se definen dentro de un bloque de código, normalmente dentro de un método o constructor. Tienen alcance limitado y sólo son accesibles dentro del bloque donde están definidos:```java
+Las clases locales se definen dentro de un bloque de código, normalmente dentro de un método o constructor. Tienen alcance limitado y sólo son accesibles dentro del bloque donde están definidos:
+
+```java
 void someMethod() {
     class LocalClass {
         // members of the local class
     }
 }
-```Una clase local no puede tener modificadores de acceso. No se puede acceder a ellos desde fuera del bloque o método en el que están definidos. Esto se debe a que las clases locales no son miembros de la clase adjunta, sino que están definidas dentro de un método o bloque.
+
+```
+
+Una clase local no puede tener modificadores de acceso. No se puede acceder a ellos desde fuera del bloque o método en el que están definidos. Esto se debe a que las clases locales no son miembros de la clase adjunta, sino que están definidas dentro de un método o bloque.
 
 Sin embargo, pueden ampliar otra clase e implementar interfaces, como cualquier otra clase.
 
-Ejemplo:```java
+Ejemplo:
+
+```java
 void someMethod() {
     class LocalClass extends BaseClass implements MyInterface {
         // ...
     }
 }
-```Además, una clase local tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Además, una clase local puede acceder a variables y parámetros locales "finales" o efectivamente finales del método adjunto:```java
+
+```
+
+Además, una clase local tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Además, una clase local puede acceder a variables y parámetros locales "finales" o efectivamente finales del método adjunto:
+
+```java
 class OuterClass {
     private int privateField = 10;
 
@@ -1901,9 +2539,14 @@ class OuterClass {
         localObject.accessOuterMembers();
     }
 }
-```En este ejemplo, `LocalClass` tiene acceso al campo `privado` `privateField` de `OuterClass`, así como al parámetro `final` `parameter` y a la variable local final `localVariable` de `someMethod()`.
 
-Para crear una instancia de una clase local, puede crear una instancia dentro del método o bloque donde está definida, usando la palabra clave `new`:```java
+```
+
+En este ejemplo, `LocalClass` tiene acceso al campo `private` `privateField` de `OuterClass`, así como al parámetro `final` `parameter` y a la variable local final `localVariable` de `someMethod()`.
+
+Para crear una instancia de una clase local, puede crear una instancia dentro del método o bloque donde está definida, usando la palabra clave `new`:
+
+```java
 void someMethod() {
     class LocalClass {
         // ...
@@ -1911,7 +2554,12 @@ void someMethod() {
 
     LocalClass localObject = new LocalClass();
 }
-```Para hacer referencia a miembros (campos, métodos, clases anidadas) de una clase local, puedes acceder a ellos directamente usando una instancia de la clase local dentro del método o bloque donde está definida:```java
+
+```
+
+Para hacer referencia a miembros (campos, métodos, clases anidadas) de una clase local, puedes acceder a ellos directamente usando una instancia de la clase local dentro del método o bloque donde está definida:
+
+```java
 void someMethod() {
     class LocalClass {
         int localField = 10;
@@ -1925,7 +2573,10 @@ void someMethod() {
     System.out.println(localObject.localField);
     localObject.localMethod();
 }
-```Las clases locales se diferencian de las clases regulares de alto nivel en varios aspectos:
+
+```
+
+Las clases locales se diferencian de las clases regulares de alto nivel en varios aspectos:
 
 1. Las clases locales se definen dentro de un método o bloque, mientras que las clases de nivel superior se definen de forma independiente.
 
@@ -1940,7 +2591,9 @@ Las clases locales son útiles cuando necesita definir una clase que solo se usa
 ### Clases anónimas
 Las clases anónimas son una forma de definir y crear instancias de una clase al mismo tiempo, sin darle un nombre. Se utilizan para crear implementaciones únicas de interfaces o clases abstractas.
 
-Para declarar una clase anónima, se utiliza la palabra clave `new` seguida del nombre de una interfaz o una clase abstracta, y luego se proporciona el cuerpo de la clase entre llaves.```java
+Para declarar una clase anónima, se utiliza la palabra clave `new` seguida del nombre de una interfaz o una clase abstracta, y luego se proporciona el cuerpo de la clase entre llaves.
+
+```java
 interface MyInterface {
     void myMethod();
 }
@@ -1951,9 +2604,14 @@ MyInterface myObject = new MyInterface() {
         // Implementation of myMethod()
     }
 };
-```Dado que las clases anónimas no reciben un nombre explícito y se definen en el momento de su uso, no pueden tener ningún modificador de acceso explícito. Su accesibilidad está determinada por el contexto en el que se utilizan. Específicamente, el ámbito en el que se define una clase anónima determina su accesibilidad. Por ejemplo, si una clase anónima se define dentro de un método, solo se puede acceder a ella dentro de ese método. Si se define dentro de una clase, sigue las reglas de accesibilidad de esa clase.
 
-Una clase anónima puede extender una clase o implementar una interfaz, sin embargo, no puede hacer ambas cosas al mismo tiempo:```java
+```
+
+Dado que las clases anónimas no reciben un nombre explícito y se definen en el momento de su uso, no pueden tener ningún modificador de acceso explícito. Su accesibilidad está determinada por el contexto en el que se utilizan. Específicamente, el ámbito en el que se define una clase anónima determina su accesibilidad. Por ejemplo, si una clase anónima se define dentro de un método, solo se puede acceder a ella dentro de ese método. Si se define dentro de una clase, sigue las reglas de accesibilidad de esa clase.
+
+Una clase anónima puede extender una clase o implementar una interfaz, sin embargo, no puede hacer ambas cosas al mismo tiempo:
+
+```java
 class BaseClass {
     void baseMethod() {
         System.out.println("Base method");
@@ -1977,7 +2635,12 @@ MyInterface anonymousObject2 = new MyInterface() {
         System.out.println("Implementation of myMethod()");
     }
 };
-```Una clase anónima tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Además, una clase anónima puede acceder a variables y parámetros locales "finales" o efectivamente "finales" del método adjunto:```java
+
+```
+
+Una clase anónima tiene acceso a todos los miembros (campos, métodos y clases anidadas) de la clase adjunta, incluidos los miembros "privados". Además, una clase anónima puede acceder a variables y parámetros locales "finales" o efectivamente "finales" del método adjunto:
+
+```java
 class OuterClass {
     private int privateField = 10;
 
@@ -1996,7 +2659,12 @@ class OuterClass {
         anonymousObject.myMethod();
     }
 }
-```Una clase anónima no tiene nombre, por lo que no se puede hacer referencia directamente a sus miembros desde fuera del cuerpo de la clase. Sin embargo, puede hacer referencia a los miembros de la interfaz o clase abstracta que la clase anónima implementa o extiende:```java
+
+```
+
+Una clase anónima no tiene nombre, por lo que no se puede hacer referencia directamente a sus miembros desde fuera del cuerpo de la clase. Sin embargo, puede hacer referencia a los miembros de la interfaz o clase abstracta que la clase anónima implementa o extiende:
+
+```java
 interface MyInterface {
     void myMethod();
     int myField = 10;
@@ -2011,7 +2679,10 @@ MyInterface anonymousObject = new MyInterface() {
 
 anonymousObject.myMethod();
 System.out.println(MyInterface.myField);
-```Las clases anónimas se diferencian de las clases regulares de alto nivel en varios aspectos:
+
+```
+
+Las clases anónimas se diferencian de las clases regulares de alto nivel en varios aspectos:
 
 1. Las clases anónimas se definen y se crean instancias al mismo tiempo, sin un nombre explícito, mientras que las clases de nivel superior se definen por separado y se crean instancias utilizando la palabra clave "nueva".
 
@@ -2039,13 +2710,20 @@ Finalmente, para concluir esta sección, aquí hay una tabla que resume muchas p
 Es importante tener en cuenta que puede tener una o más definiciones de clase en un archivo fuente de Java. Sin embargo, debes seguir estas reglas:
 
 #### Regla de clase pública
-Si una clase Java se declara como "pública", el nombre del archivo debe coincidir exactamente con el nombre de la clase pública, incluida la distinción entre mayúsculas y minúsculas, con la adición de la extensión ".java". Por ejemplo, si tiene una clase "pública" llamada "MiClase", entonces el archivo fuente debe llamarse "MiClase.java":```java
+Si una clase Java se declara como "pública", el nombre del archivo debe coincidir exactamente con el nombre de la clase pública, incluida la distinción entre mayúsculas y minúsculas, con la adición de la extensión ".java". Por ejemplo, si tiene una clase "pública" llamada "MiClase", entonces el archivo fuente debe llamarse "MiClase.java":
+
+```java
 // File name: MyClass.java
 public class MyClass {
     // class body
 }
-```#### Clase pública única por archivo
-Un archivo fuente Java puede contener varias clases, pero solo puede tener una clase "pública". Si hay varias clases en un archivo y una de ellas se declara "pública", el nombre del archivo debe coincidir con el nombre de la clase "pública". Por ejemplo, si `PublicClass` es la clase `pública`, el archivo debe llamarse `PublicClass.java` y también puede contener `AnotherClass` que no es `pública`:```java
+
+```
+
+#### Clase pública única por archivo
+Un archivo fuente Java puede contener varias clases, pero solo puede tener una clase "pública". Si hay varias clases en un archivo y una de ellas se declara "pública", el nombre del archivo debe coincidir con el nombre de la clase "pública". Por ejemplo, si `PublicClass` es la clase `pública`, el archivo debe llamarse `PublicClass.java` y también puede contener `AnotherClass` que no es `pública`:
+
+```java
 // File name: PublicClass.java
 public class PublicClass {
     // class body
@@ -2054,8 +2732,13 @@ public class PublicClass {
 class AnotherClass {
     // class body
 }
-```#### Sin clase pública
-Si no hay una clase "pública" en el archivo, se puede utilizar cualquier nombre. Por ejemplo, el siguiente archivo, `ManyClasses.java` contiene varias clases, ninguna de las cuales es `pública`:```java
+
+```
+
+#### Sin clase pública
+Si no hay una clase "pública" en el archivo, se puede utilizar cualquier nombre. Por ejemplo, el siguiente archivo, `ManyClasses.java` contiene varias clases, ninguna de las cuales es `pública`:
+
+```java
 // File name: ManyClasses.java
 class FirstClass {
     // class body
@@ -2064,8 +2747,13 @@ class FirstClass {
 class SecondClass {
     // class body
 }
-```#### Clases no públicas
-Si existen varias clases no públicas en un solo archivo, no es necesario que el nombre del archivo coincida con el nombre de ninguna de las clases. Por ejemplo, puedes tener un archivo llamado `UtilityClasses.java` que contenga varias clases no públicas que no coincidan con este nombre:```java
+
+```
+
+#### Clases no públicas
+Si existen varias clases no públicas en un solo archivo, no es necesario que el nombre del archivo coincida con el nombre de ninguna de las clases. Por ejemplo, puedes tener un archivo llamado `UtilityClasses.java` que contenga varias clases no públicas que no coincidan con este nombre:
+
+```java
 // File name: UtilityClasses.java
 class HelperClass {
     // class body
@@ -2074,13 +2762,21 @@ class HelperClass {
 class AnotherHelperClass {
     // class body
 }
-```#### Sensibilidad entre mayúsculas y minúsculas
-Java distingue entre mayúsculas y minúsculas. Si su clase se llama `CaseSensitiveClass`, el nombre del archivo debe coincidir exactamente (`CaseSensitiveClass.java`):```java
+
+```
+
+#### Sensibilidad entre mayúsculas y minúsculas
+Java distingue entre mayúsculas y minúsculas. Si su clase se llama `CaseSensitiveClass`, el nombre del archivo debe coincidir exactamente (`CaseSensitiveClass.java`):
+
+```java
 // File name: CaseSensitiveClass.java
 public class CaseSensitiveClass {
     // class body
 }
-```Entonces, la principal restricción en Java es que un archivo fuente no puede contener más de una clase "pública". Esto ayuda a organizar el código y hacerlo más fácil de administrar. Cada clase pública debe estar en su propio archivo fuente y el nombre del archivo debe coincidir con el nombre de la clase (incluida la distinción entre mayúsculas y minúsculas) con la extensión `.java`.
+
+```
+
+Entonces, la principal restricción en Java es que un archivo fuente no puede contener más de una clase "pública". Esto ayuda a organizar el código y hacerlo más fácil de administrar. Cada clase pública debe estar en su propio archivo fuente y el nombre del archivo debe coincidir con el nombre de la clase (incluida la distinción entre mayúsculas y minúsculas) con la extensión `.java`.
 
 Sin embargo, un único archivo fuente Java puede contener cualquier número de clases no públicas. Por defecto, estas clases son privadas de paquete y el archivo también puede contener clases anidadas "protegidas" o "privadas" dentro de clases "públicas" o de paquete privado. Esta flexibilidad permite que las clases lógicamente relacionadas se agrupen dentro del mismo archivo si no están destinadas al uso "público", lo que ayuda en la encapsulación y el diseño modular.
 
@@ -2097,7 +2793,7 @@ Sin embargo, un único archivo fuente Java puede contener cualquier número de c
 
 - Los paquetes organizan clases, interfaces y subpaquetes relacionados en una sola unidad, proporcionando un nivel de control de acceso. La palabra clave `paquete` se utiliza para crear un paquete.
 
-- Los modificadores de acceso (`público`, `protegido`, `default`, `privado`) controlan la visibilidad y accesibilidad de clases, métodos y variables de otras partes de una aplicación Java.
+- Los modificadores de acceso (`public`, `protected`, `default`, `private`) controlan la visibilidad y accesibilidad de clases, métodos y variables de otras partes de una aplicación Java.
 
 - Una clase se declara utilizando la palabra clave `class` seguida del nombre de la clase. Opcionalmente, puede extender una superclase usando "extiende" e implementar interfaces usando "implementos".
 
@@ -2142,7 +2838,9 @@ Sin embargo, un único archivo fuente Java puede contener cualquier número de c
 
 ## Preguntas de práctica
 
-**1. Considere el siguiente fragmento de código:**```java
+**1. Considere el siguiente fragmento de código:**
+
+```java
 public class Main {
     public static void main(String[] args) {
         StringBuilder sb1 = new StringBuilder("Java");
@@ -2151,7 +2849,10 @@ public class Main {
         // More code here
     }
 }
-```Después de la ejecución del código anterior, ¿cuál de las siguientes afirmaciones es verdadera con respecto a la recolección de basura?
+
+```
+
+Después de la ejecución del código anterior, ¿cuál de las siguientes afirmaciones es verdadera con respecto a la recolección de basura?
 
 **A)** Tanto `sb1` como `sb2` son elegibles para la recolección de basura.  
 **B)** Sólo el objeto `StringBuilder` al que inicialmente hace referencia `sb1` es elegible para la recolección de basura.  
@@ -2165,11 +2866,13 @@ public class Main {
 **A)** `implementar`  
 **B)** `matriz`  
 **C)** `volátil`  
-**D)** `extiende`
+**D)** `extends`
 
 
 
-**3. Considere el siguiente fragmento de código:**```java
+**3. Considere el siguiente fragmento de código:**
+
+```java
 1. // calculates the sum of numbers
 2. public class Calculator {
 3.     /* Adds two numbers
@@ -2183,7 +2886,10 @@ public class Main {
 11.    }
 12.    //TODO: Implement subtract method
 13.}
-```¿Cuáles de las siguientes afirmaciones son verdaderas sobre los comentarios en el código anterior? (Elija todas las que correspondan).
+
+```
+
+¿Cuáles de las siguientes afirmaciones son verdaderas sobre los comentarios en el código anterior? (Elija todas las que correspondan).
 
 **A)** La línea 1 es un ejemplo de un comentario de una sola línea.  
 **B)** Las líneas 3-7 demuestran el uso de un comentario javadoc.  
@@ -2192,7 +2898,9 @@ public class Main {
 **E)** Las líneas 3-7 son un comentario de bloque que se utiliza como si fuera un comentario javadoc.  
 
 
-**4. Considere que tiene los siguientes dos archivos Java ubicados en el mismo directorio:**```java
+**4. Considere que tiene los siguientes dos archivos Java ubicados en el mismo directorio:**
+
+```java
 // File 1: Calculator.java
 package math;
 
@@ -2213,7 +2921,10 @@ public class Application {
         System.out.println(calc.add(5, 3));
     }
 }
-```¿Cuál de las siguientes afirmaciones es verdadera con respecto a las declaraciones "paquete" e "importación" en Java?
+
+```
+
+¿Cuál de las siguientes afirmaciones es verdadera con respecto a las declaraciones "paquete" e "importación" en Java?
 
 **A)** La declaración `import` en `Application.java` es innecesaria porque ambas clases están en el mismo directorio.  
 **B)** La declaración `import` en `Application.java` es necesaria para usar la clase `Calculator` porque pertenecen a paquetes diferentes.  
@@ -2242,7 +2953,9 @@ public class Application {
 
 
 
-**7. Considere el siguiente fragmento de código:**```java
+**7. Considere el siguiente fragmento de código:**
+
+```java
 public class Counter {
     public static int COUNT = 0;
     
@@ -2258,7 +2971,10 @@ public class Counter {
         return COUNT;
     }
 }
-```¿Cuáles de las siguientes afirmaciones son verdaderas sobre los miembros "estáticos" y de instancia dentro de la clase "Contador"? (Elija todas las que correspondan).
+
+```
+
+¿Cuáles de las siguientes afirmaciones son verdaderas sobre los miembros "estáticos" y de instancia dentro de la clase "Contador"? (Elija todas las que correspondan).
 
 **A)** Se puede acceder a la variable `COUNT` directamente usando el nombre de la clase sin crear una instancia de `Counter`.  
 **B)** El método `getCount()` es un ejemplo de método estático porque devuelve el valor de una variable estática.  
@@ -2280,7 +2996,7 @@ public class Counter {
 **9. Considere la sintaxis utilizada para declarar métodos en una clase. ¿Cuál de las siguientes declaraciones de métodos es correcta según las reglas de sintaxis de Java?**
 
 **A)** `int public static final computeSum(int num1, int num2) { return num1 + num2 }`  
-**B)** `private void updateRecord(int id) lanza IOException {}`  
+**B)** `private void updateRecord(int id) throws IOException {}`  
 **C)** `checkStatus booleano sincronizado [estado int] { estado de retorno == 1; }`  
 **D)** `flotar calcularArea() {}`
 
@@ -2288,15 +3004,17 @@ public class Counter {
 
 **10. Dadas las declaraciones de métodos siguientes, ¿cuáles de ellos tienen la misma firma de método?**
 
-**A)** `actualización pública nula (int id, valor de cadena)`  
-**B)** `actualización nula privada (identificador int, datos de cadena)`  
-**C)** `actualización booleana pública (valor de cadena, int id)`  
-**D)** `actualización nula (valor de cadena, int id)`  
-**E)** `la actualización nula protegida (int id, int valor) arroja IOException`
+**A)** `public void update (int id, String value)`  
+**B)** `private void update (int identifier, String data)`  
+**C)** `public boolean update (String value, int id)`  
+**D)** `void update (String value, int id)`  
+**E)** `la void update protegida (int id, int valor) arroja IOException`
 
 
 
-**11. Dada esta clase:**```java
+**11. Dada esta clase:**
+
+```java
 public class AccountManager {
     private void resetAccountPassword(String accountId) {
         // Implementation code here
@@ -2314,7 +3032,10 @@ public class AccountManager {
         // Implementation code here
     }
 }
-```¿Cuál de las siguientes afirmaciones describe correctamente la accesibilidad de los métodos dentro de la clase `AccountManager` desde una clase en el mismo paquete y desde una clase en un paquete diferente?
+
+```
+
+¿Cuál de las siguientes afirmaciones describe correctamente la accesibilidad de los métodos dentro de la clase `AccountManager` desde una clase en el mismo paquete y desde una clase en un paquete diferente?
 
 **A)** Se puede acceder al método `resetAccountPassword` desde cualquier clase dentro del mismo paquete, pero no desde una clase en un paquete diferente.  
 **B)** Se puede acceder al método `auditTrail` desde cualquier clase dentro del mismo paquete y desde subclases en diferentes paquetes.  
@@ -2323,7 +3044,9 @@ public class AccountManager {
 
 
 
-**12. ¿Cuál será el resultado de este programa?**```java
+**12. ¿Cuál será el resultado de este programa?**
+
+```java
 public class TestPassByValue {
     public static void main(String[] args) {
         int originalValue = 10;
@@ -2337,19 +3060,48 @@ public class TestPassByValue {
         value = 20;
     }
 }
-```**A)**```
+
+```
+
+**A)**
+
+```
+
 Before calling changeValue: 10  
-After calling changeValue: 20  
- ```**B)**```
+After calling changeValue: 20
+
+```
+
+**B)**
+
+```
+
 Before calling changeValue: 10  
-After calling changeValue: 10  
-```**DO)**```
+After calling changeValue: 10
+
+```
+
+**DO)**
+
+```
+
 Before calling changeValue: 20  
-After calling changeValue: 20  
-```**D)**```
+After calling changeValue: 20
+
+```
+
+**D)**
+
+```
+
 Before calling changeValue: 20  
-After calling changeValue: 10  
-```**13. ¿Cuál será el resultado del siguiente programa?**```java
+After calling changeValue: 10
+
+```
+
+**13. ¿Cuál será el resultado del siguiente programa?**
+
+```java
 public class Test {
     public static void main(String[] args) {
         print(null);
@@ -2363,8 +3115,11 @@ public class Test {
         System.out.println("String");
     }
 }
-```**A)** `Objeto`  
-**B)** `Cadena`  
+
+```
+
+**A)** `Object`  
+**B)** `String`  
 **C)** La compilación falla  
 **D)** Se lanza una excepción de tiempo de ejecución  
 
@@ -2372,16 +3127,18 @@ public class Test {
 
 **14. ¿Cuál de las siguientes declaraciones de métodos utiliza correctamente varargs? Elija todo lo que corresponda.**
 
-**A)** `impresión pública vacía (cadena... mensajes, recuento int)`  
-**B)** `impresión pública vacía (int count, String... mensajes)`  
-**C)** `impresión pública vacía (mensajes de cadena...)`  
-**D)** `impresión pública vacía (Cadena[]... mensajes)`  
-**E)** `impresión pública vacía (cadena... mensajes, cadena último mensaje)`  
+**A)** `public void print (cadena... mensajes, int count)`  
+**B)** `public void print (int count, String... mensajes)`  
+**C)** `public void print (String... messages...)`  
+**D)** `public void print (Cadena[]... mensajes)`  
+**E)** `public void print (cadena... mensajes, cadena lastMessage)`  
 
 
 
 
-**15. Dada la clase `Vehículo`:**```java
+**15. Dada la clase `Vehículo`:**
+
+```java
 public class Vehicle {
     private String type;
     private int maxSpeed;
@@ -2396,7 +3153,10 @@ public class Vehicle {
 
     // Additional methods here
 }
-```¿Cuál de las siguientes afirmaciones es verdadera con respecto a sus constructores?
+
+```
+
+¿Cuál de las siguientes afirmaciones es verdadera con respecto a sus constructores?
 
 **A)** La clase `Vehicle` demuestra la sobrecarga del constructor al tener múltiples constructores con diferentes listas de parámetros.  
 **B)** La clase `Vehicle` se compilará con un error porque no proporciona un constructor predeterminado.  
@@ -2405,7 +3165,9 @@ public class Vehicle {
 
 
 
-**16. Considere la siguiente clase con un bloque inicializador de instancia:**```java
+**16. Considere la siguiente clase con un bloque inicializador de instancia:**
+
+```java
 public class Library {
     private int bookCount;
     private List<String> books;
@@ -2427,7 +3189,10 @@ public class Library {
 
     // Additional methods here
 }
-```Dada la clase `Biblioteca` anterior, ¿cuál de las siguientes afirmaciones describe con precisión la función y el efecto del bloque inicializador de instancia?
+
+```
+
+Dada la clase `Biblioteca` anterior, ¿cuál de las siguientes afirmaciones describe con precisión la función y el efecto del bloque inicializador de instancia?
 
 **A)** El bloque inicializador de instancia se ejecuta antes que el constructor, inicializando la lista de `libros` y agregándole dos libros.  
 **B)** El bloque inicializador de instancia reemplaza la necesidad de un constructor en la clase `Biblioteca`.  
@@ -2436,7 +3201,9 @@ public class Library {
 
 
 
-**17. Considere la siguiente clase Java con un bloque inicializador "estático":**```java
+**17. Considere la siguiente clase Java con un bloque inicializador "estático":**
+
+```java
 public class Configuration {
     private static Map<String, String> settings;
     
@@ -2453,16 +3220,21 @@ public class Configuration {
 
     // Additional methods here
 }
-```Dada la clase "Configuración" anterior, ¿cuál de las siguientes afirmaciones describe con precisión la función y el efecto del bloque inicializador "estático"?
 
-**A)** El bloque inicializador `estático` se ejecuta solo una vez cuando la clase se carga por primera vez en la memoria, inicializando el mapa de `configuración` con los valores predeterminados.  
-**B)** El bloque inicializador `estático` permite que los métodos de instancia modifiquen el mapa de `configuración` sin crear una instancia de la clase `Configuración`.  
+```
+
+Dada la clase "Configuración" anterior, ¿cuál de las siguientes afirmaciones describe con precisión la función y el efecto del bloque inicializador "estático"?
+
+**A)** El bloque inicializador `static` se ejecuta solo una vez cuando la clase se carga por primera vez en la memoria, inicializando el mapa de `configuración` con los valores predeterminados.  
+**B)** El bloque inicializador `static` permite que los métodos de instancia modifiquen el mapa de `configuración` sin crear una instancia de la clase `Configuración`.  
 **C)** Los bloques inicializadores `estáticos` se ejecutan cada vez que se crea una nueva instancia de la clase `Configuración`.  
-**D)** El bloque inicializador `estático` se ejecuta antes que cualquier bloque o constructor inicializador de instancia, cuando se crea una instancia de la clase.
+**D)** El bloque inicializador `static` se ejecuta antes que cualquier bloque o constructor inicializador de instancia, cuando se crea una instancia de la clase.
 
 
 
-**18. Considere la siguiente definición de clase:**```java
+**18. Considere la siguiente definición de clase:**
+
+```java
 public class InitializationOrder {
     static {
         System.out.println("1. Static initializer");
@@ -2494,37 +3266,69 @@ public class InitializationOrder {
         new InitializationOrder();
     }
 }
-```Cuando se ejecuta el método `main` de la clase `InitializationOrder`, ¿cuál es el orden correcto de ejecución para los bloques de inicialización, llamadas a métodos y constructor?
 
-**A)**```
-   1. Static initializer
+```
+
+Cuando se ejecuta el método `main` de la clase `InitializationOrder`, ¿cuál es el orden correcto de ejecución para los bloques de inicialización, llamadas a métodos y constructor?
+
+**A)**
+
+```
+
+1. Static initializer
    2. Static value initializer
    3. Instance initializer
    3. Instance value initializer
-   4. Constructor 
-   ```**B)**```
-   1. Static initializer
+   4. Constructor
+
+```
+
+**B)**
+
+```
+
+1. Static initializer
    2. Static value initializer
    3. Instance value initializer
    3. Instance initializer
-   4. Constructor 
-   ```**DO)**```
-   1. Static initializer
+   4. Constructor
+
+```
+
+**DO)**
+
+```
+
+1. Static initializer
    3. Instance initializer
    2. Static value initializer
    3. Instance value initializer
    4. Constructor
-   ```**D)**```
-   2. Static value initializer
+
+```
+
+**D)**
+
+```
+
+2. Static value initializer
    1. Static initializer
    3. Instance value initializer
    3. Instance initializer
-   4. Constructor 
-   ```**19. Considere una clase `CustomObject` que no anula explícitamente ningún método de `java.lang.Object`:**```java
+   4. Constructor
+
+```
+
+**19. Considere una clase `CustomObject` que no anula explícitamente ningún método de `java.lang.Object`:**
+
+```java
 public class CustomObject {
     // Class implementation goes here
 }
-```¿Cuál de las siguientes afirmaciones refleja correctamente los resultados cuando se utilizan métodos de `java.lang.Object` con instancias de `CustomObject`? (Elija todas las que correspondan).
+
+```
+
+¿Cuál de las siguientes afirmaciones refleja correctamente los resultados cuando se utilizan métodos de `java.lang.Object` con instancias de `CustomObject`? (Elija todas las que correspondan).
 
 **A)** Al invocar `toString()` en una instancia de `CustomObject` se devolverá una `String` que incluye el nombre de la clase seguido del símbolo `@` y el código hash del objeto.  
 **B)** Llamar a `equals(Object obj)` en dos instancias diferentes de `CustomObject` que tienen contenido idéntico devolverá `true` porque son instancias de la misma clase.  
@@ -2533,7 +3337,9 @@ public class CustomObject {
 
 
 
-**20. Considere el siguiente fragmento de código que demuestra el uso de una clase anidada estática:**```java
+**20. Considere el siguiente fragmento de código que demuestra el uso de una clase anidada estática:**
+
+```java
 public class OuterClass {
     private static String message = "Hello, World!";
 
@@ -2549,7 +3355,10 @@ public class OuterClass {
         nested.printMessage();
     }
 }
-```¿Cuál de las siguientes afirmaciones es cierta con respecto a las clases anidadas estáticas en Java?
+
+```
+
+¿Cuál de las siguientes afirmaciones es cierta con respecto a las clases anidadas estáticas en Java?
 
 **A)** Una clase anidada estática puede acceder directamente a miembros estáticos y no estáticos de su clase adjunta.  
 **B)** Pueden existir instancias de una clase anidada estática sin una instancia de su clase adjunta.  
@@ -2558,7 +3367,9 @@ public class OuterClass {
 
 
 
-**21. Considere el siguiente fragmento de código que demuestra el uso de una clase anidada (interna) no estática:**```java
+**21. Considere el siguiente fragmento de código que demuestra el uso de una clase anidada (interna) no estática:**
+
+```java
 public class OuterClass {
     private String message = "Hello, World!";
 
@@ -2574,7 +3385,10 @@ public class OuterClass {
         inner.printMessage();
     }
 }
-```¿Cuál de las siguientes afirmaciones es cierta con respecto a las clases anidadas (internas) no estáticas en Java?
+
+```
+
+¿Cuál de las siguientes afirmaciones es cierta con respecto a las clases anidadas (internas) no estáticas en Java?
 
 **A)** Una clase anidada no estática puede acceder directamente a miembros estáticos y no estáticos de su clase adjunta.  
 **B)** Las instancias de una clase anidada no estática pueden existir independientemente de una instancia de su clase adjunta.  
@@ -2583,7 +3397,9 @@ public class OuterClass {
 
 
 
-**22. Considere el siguiente fragmento de código que demuestra el uso de una clase local dentro de un método:**```java
+**22. Considere el siguiente fragmento de código que demuestra el uso de una clase local dentro de un método:**
+
+```java
 public class LocalClassExample {
     public void printEvenNumbers(int[] numbers, int max) {
         class EvenNumberPrinter {
@@ -2605,7 +3421,10 @@ public class LocalClassExample {
         example.printEvenNumbers(numbers, 6);
     }
 }
-```¿Cuál de las siguientes afirmaciones describe correctamente las clases locales en Java, según el ejemplo proporcionado?
+
+```
+
+¿Cuál de las siguientes afirmaciones describe correctamente las clases locales en Java, según el ejemplo proporcionado?
 
 **A)** Las clases locales se pueden declarar dentro de cualquier bloque que preceda a una declaración.  
 **B)** Las instancias de una clase local se pueden crear y utilizar fuera del bloque donde se define la clase local.  
@@ -2614,7 +3433,9 @@ public class LocalClassExample {
 
 
 
-**23. Considere el siguiente fragmento de código Java que demuestra el uso de una clase anónima:**```java
+**23. Considere el siguiente fragmento de código Java que demuestra el uso de una clase anónima:**
+
+```java
 public class HelloWorld {
     interface HelloWorldInterface {
         void greet();
@@ -2634,7 +3455,10 @@ public class HelloWorld {
         new HelloWorld().sayHello();
     }
 }
-```¿Cuál de las siguientes afirmaciones es cierta sobre las clases anónimas en Java?
+
+```
+
+¿Cuál de las siguientes afirmaciones es cierta sobre las clases anónimas en Java?
 
 **A)** Las clases anónimas pueden implementar interfaces y ampliar clases sin la necesidad de declarar una clase con nombre.  
 **B)** Una clase anónima debe anular todos los métodos de la superclase o interfaz que declara que está implementando o ampliando.  

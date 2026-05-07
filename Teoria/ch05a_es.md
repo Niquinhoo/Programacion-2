@@ -33,36 +33,61 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 if (emp instanceof Employee) {
     var (id, Person(name, age)) = emp;
     System.out.println(name + " is " + age + " years old.");
 }
-```- Esta opción es incorrecta. Si bien intenta utilizar la desestructuración, esta sintaxis no es válida en Java. Java no admite la asignación de desestructuración de esta manera.
 
-- **B)**```java
+```
+
+- Esta opción es incorrecta. Si bien intenta utilizar la desestructuración, esta sintaxis no es válida en Java. Java no admite la asignación de desestructuración de esta manera.
+
+- **B)**
+
+```java
 if (emp instanceof Employee(_, Person(var name, var age))) {
     System.out.println(name + " is " + age + " years old.");
 }
-```- Esta opción es incorrecta. Utiliza el guión bajo (`_`) para ignorar el campo `id`, que no es una técnica válida en Java 21.
 
-- **C)**```java
+```
+
+- Esta opción es incorrecta. Utiliza el guión bajo (`_`) para ignorar el campo `id`, que no es una técnica válida en Java 21.
+
+- **C)**
+
+```java
 if (emp instanceof Employee e) {
     System.out.println(e.person().name() + " is " + e.person().age() + " years old.");
 }
-```- Esta opción es incorrecta. Utiliza la tradicional "instancia de" sin coincidencia de patrones, confiando en métodos de acceso para extraer los datos.
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta. Utiliza la tradicional "instancia de" sin coincidencia de patrones, confiando en métodos de acceso para extraer los datos.
+
+- **D)**
+
+```java
 if (emp instanceof Employee(var id, Person(var name, var age))) {
     System.out.println(name + " is " + age + " years old.");
 }
-```- Esta opción es correcta. Utiliza una coincidencia de patrones de registros anidados para extraer los datos de "Empleado" y "Persona" en un solo paso. Utiliza `var` para la inferencia de tipos y nombra correctamente las variables `nombre` y `edad` según sea necesario.
 
-- **E)**```java
+```
+
+- Esta opción es correcta. Utiliza una coincidencia de patrones de registros anidados para extraer los datos de "Empleado" y "Persona" en un solo paso. Utiliza `var` para la inferencia de tipos y nombra correctamente las variables `nombre` y `edad` según sea necesario.
+
+- **E)**
+
+```java
 if (emp instanceof Employee(var id, var person)) {
     System.out.println(person.name() + " is " + person.age() + " years old.");
 }
-```- Esta opción es incorrecta. Si bien utiliza la coincidencia de patrones para el registro "Empleado", no anida la coincidencia de patrones para el registro "Persona", por lo que aún requiere llamar a métodos de acceso en "persona".
+
+```
+
+- Esta opción es incorrecta. Si bien utiliza la coincidencia de patrones para el registro "Empleado", no anida la coincidencia de patrones para el registro "Persona", por lo que aún requiere llamar a métodos de acceso en "persona".
 
 
 
@@ -129,62 +154,102 @@ if (emp instanceof Employee(var id, var person)) {
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 case CarType.SEDAN, CarType.HATCHBACK -> System.out.println("Compact vehicle");
 case CarType.SUV -> System.out.println("Large vehicle");
 case CarType.CONVERTIBLE -> System.out.println("Open-top vehicle");
-```- Esta opción es correcta. En Java 21, puede usar nombres completos de constantes de enumeración en declaraciones de cambio, incluso cuando la expresión del selector es de un tipo que es compatible con la asignación con el tipo de enumeración (en este caso, `Vehicle` es compatible con la asignación con `CarType`).
 
-- **B)**```java
+```
+
+- Esta opción es correcta. En Java 21, puede usar nombres completos de constantes de enumeración en declaraciones de cambio, incluso cuando la expresión del selector es de un tipo que es compatible con la asignación con el tipo de enumeración (en este caso, `Vehicle` es compatible con la asignación con `CarType`).
+
+- **B)**
+
+```java
 case SEDAN, HATCHBACK -> System.out.println("Compact vehicle");
 case SUV -> System.out.println("Large vehicle");
 case CONVERTIBLE -> System.out.println("Open-top vehicle");
-```- Esta opción es incorrecta. Cuando utilice un tipo de interfaz ("Vehículo") como expresión de selección, debe utilizar nombres completos para las constantes de enumeración. El uso de nombres no calificados (`SEDAN`, `HATCHBACK`, etc.) generará un error de compilación.
 
-- **C)**```java
+```
+
+- Esta opción es incorrecta. Cuando utilice un tipo de interfaz ("Vehículo") como expresión de selección, debe utilizar nombres completos para las constantes de enumeración. El uso de nombres no calificados (`SEDAN`, `HATCHBACK`, etc.) generará un error de compilación.
+
+- **C)**
+
+```java
 case CarType.SEDAN || CarType.HATCHBACK -> System.out.println("Compact vehicle");
 case CarType.SUV -> System.out.println("Large vehicle");
 case CarType.CONVERTIBLE -> System.out.println("Open-top vehicle");
-```- Esta opción es incorrecta. Intenta utilizar el operador lógico OR (`||`) en la etiqueta del caso, que no es una sintaxis válida para declaraciones de cambio. Las etiquetas de casos múltiples deben estar separadas por comas, no por operadores lógicos.
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta. Intenta utilizar el operador lógico OR (`||`) en la etiqueta del caso, que no es una sintaxis válida para declaraciones de cambio. Las etiquetas de casos múltiples deben estar separadas por comas, no por operadores lógicos.
+
+- **D)**
+
+```java
 case Vehicle.SEDAN, Vehicle.HATCHBACK -> System.out.println("Compact vehicle");
 case Vehicle.SUV -> System.out.println("Large vehicle");
 case Vehicle.CONVERTIBLE -> System.out.println("Open-top vehicle");
-```- Esta opción es incorrecta. Aunque utiliza nombres completos, antepone incorrectamente las constantes de enumeración con "Vehicle" en lugar de "CarType". Las constantes de enumeración pertenecen a la enumeración `CarType`, no a la interfaz `Vehicle`, por lo que esto provocará un error de compilación.
+
+```
+
+- Esta opción es incorrecta. Aunque utiliza nombres completos, antepone incorrectamente las constantes de enumeración con "Vehicle" en lugar de "CarType". Las constantes de enumeración pertenecen a la enumeración `CarType`, no a la interfaz `Vehicle`, por lo que esto provocará un error de compilación.
 
 
 **7. La respuesta correcta es D.**
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 case Circle c -> Math.PI * c.radius() * c.radius();
 case Square s -> s.side() * s.side();
 case null -> 0;
-```- Esta opción es incorrecta. No se compila porque la expresión `switch` no es exhaustiva, no cubre todos los valores posibles de `Shape`.
 
-- **B)**```java
+```
+
+- Esta opción es incorrecta. No se compila porque la expresión `switch` no es exhaustiva, no cubre todos los valores posibles de `Shape`.
+
+- **B)**
+
+```java
 default -> 0;
 case Circle c -> Math.PI * c.radius() * c.radius();
 case Square s -> s.side() * s.side();
 case Triangle t -> 0.5 * t.base() * t.height();
-```- Esta opción es incorrecta. No se compila porque el caso "predeterminado" (innecesario) viene antes que el resto de las declaraciones "caso".
 
-- **C)**```java
+```
+
+- Esta opción es incorrecta. No se compila porque el caso "predeterminado" (innecesario) viene antes que el resto de las declaraciones "caso".
+
+- **C)**
+
+```java
 case Shape s when s instanceof Circle ->
         Math.PI * ((Circle)s).radius() * ((Circle)s).radius();
 case Shape s when s instanceof Square ->
         ((Square)s).side() * ((Square)s).side();
 case Shape s when s instanceof Triangle ->
         0.5 * ((Triangle)s).base() * ((Triangle)s).height();
-```- Esta opción es incorrecta. No compila porque no es exhaustivo. Dado que utiliza comprobaciones detalladas de `instanceof` en lugar de aprovechar la coincidencia de patrones, le falta una rama `default`.
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta. No compila porque no es exhaustivo. Dado que utiliza comprobaciones detalladas de `instanceof` en lugar de aprovechar la coincidencia de patrones, le falta una rama `default`.
+
+- **D)**
+
+```java
 case Circle c -> Math.PI * c.radius() * c.radius();
 case Square s -> s.side() * s.side();
 case Triangle t -> 0.5 * t.base() * t.height();
-```- Esta opción es correcta. Cubre todos los subtipos posibles de la interfaz "Shape" sellada sin un caso "predeterminado" innecesario.
+
+```
+
+- Esta opción es correcta. Cubre todos los subtipos posibles de la interfaz "Shape" sellada sin un caso "predeterminado" innecesario.
 
 
 **8. La respuesta correcta es B.**

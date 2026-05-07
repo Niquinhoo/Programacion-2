@@ -228,7 +228,7 @@ exam_objectives:
 **Explicación:**
 
 - **A)** Compila e imprime `"Cadena con Java: ¡Hola Java!"` seguido de `"Entero mayor que 10: 15"`.
-  - Esta opción es correcta. El fragmento de código demuestra efectivamente el uso de la coincidencia de patrones con el operador `instanceof` para los tipos `String` e `Integer`. La función de coincidencia de patrones verifica si `input` es una instancia de `String` o `Integer` y la vincula a una variable (`s` para `String` e `i` para `Integer`) dentro del alcance de los bloques `if` y `else if`. El operador lógico `&&` se usa correctamente para verificar más condicionalmente las propiedades de las variables (`s.contains("Java")` y `i > 10`). Por lo tanto, el método `proceso` imprime la salida para las entradas que son una `Cadena` que contiene `"Java"` y un `Entero` mayor que `10`, respectivamente.
+  - Esta opción es correcta. El fragmento de código demuestra efectivamente el uso de la coincidencia de patrones con el operador `instanceof` para los tipos `String` e `Integer`. La función de coincidencia de patrones verifica si `input` es una instancia de `String` o `Integer` y la vincula a una variable (`s` para `String` e `i` para `Integer`) dentro del alcance de los bloques `if` y `else if`. El operador lógico `&&` se usa correctamente para verificar más condicionalmente las propiedades de las variables (`s.contains("Java")` y `i > 10`). Por lo tanto, el método `proceso` imprime la salida para las entradas que son una `String` que contiene `"Java"` y un `Entero` mayor que `10`, respectivamente.
 
 - **B)** Compila pero solo imprime `"Cadena con Java: ¡Hola Java!"` porque los números enteros no son compatibles con la coincidencia de patrones.
   - Esta opción es incorrecta porque la coincidencia de patrones funciona para cualquier tipo de referencia, incluido "Entero". El código admite números enteros y realiza comprobaciones adicionales utilizando correctamente la coincidencia de patrones.
@@ -264,10 +264,10 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)** La clase `CuentaDeAhorros` no puede acceder al campo `saldo` directamente debido a su modificador de acceso `privado` en la clase `Cuenta`.
+- **A)** La clase `CuentaDeAhorros` no puede acceder al campo `saldo` directamente debido a su modificador de acceso `private` en la clase `Cuenta`.
   - Esta opción es correcta. El diseño restringe intencionalmente el acceso directo al campo "saldo" para mantener la encapsulación.
 
-- **B)** El método `getBalance` debe ser `público` para permitir que `SavingsAccount` acceda al saldo de la cuenta.
+- **B)** El método `getBalance` debe ser `public` para permitir que `SavingsAccount` acceda al saldo de la cuenta.
   - Esta opción es incorrecta. Hacer "getBalance" "público" aumentaría su visibilidad innecesariamente. "protected" es suficiente para el acceso a la subclase y este cambio no es necesario para que "SavingsAccount" funcione correctamente, lo que hace que esta declaración sea incorrecta.
 
 - **C)** El método `depósito` en la clase `Cuenta` debe marcarse como `final` para evitar su anulación.
@@ -277,7 +277,7 @@ exam_objectives:
   - Esta opción es incorrecta. Usar un modificador de acceso "privado" para "interestRate" en "SavingsAccount" es un ejemplo de encapsulación adecuada. Restringe el acceso al campo desde fuera de la clase, lo cual está alineado con los principios de encapsulación, lo que hace que esta opción sea incorrecta.
 
 - **E)** La clase `Cuenta` encapsula correctamente el campo `saldo`, y `SavingsAccount` se adhiere a la encapsulación accediendo a `saldo` a través de `getBalance` y `deposit`.
-  - Esta opción es correcta. La clase `Cuenta` usa acceso `privado` para el campo `saldo` para encapsular su estado, proporcionando métodos `protegidos` y de paquete privado (`getBalance` y `depósito`) para acceso controlado y modificación. `SavingsAccount` respeta esta encapsulación al utilizar estos métodos para interactuar con el campo `saldo`, lo que demuestra una comprensión y aplicación adecuadas de los principios de encapsulación. Este diseño permite que "SavingsAccount" aproveche la funcionalidad proporcionada por "Account" sin romper la encapsulación, que es un objetivo clave en el diseño orientado a objetos.
+  - Esta opción es correcta. La clase `Cuenta` usa acceso `private` para el campo `saldo` para encapsular su estado, proporcionando métodos `protegidos` y de paquete privado (`getBalance` y `depósito`) para acceso controlado y modificación. `SavingsAccount` respeta esta encapsulación al utilizar estos métodos para interactuar con el campo `saldo`, lo que demuestra una comprensión y aplicación adecuadas de los principios de encapsulación. Este diseño permite que "SavingsAccount" aproveche la funcionalidad proporcionada por "Account" sin romper la encapsulación, que es un objetivo clave en el diseño orientado a objetos.
 
 
 **16. La respuesta correcta es C.**

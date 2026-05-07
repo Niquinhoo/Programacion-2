@@ -18,7 +18,7 @@ exam_objectives:
 - **B)** Los campos `nombre` y `edad` se pueden reasignar a nuevos valores después de crear un objeto `Empleado`.
   - Esta opción es incorrecta ya que los campos dentro de un registro son "finales", lo que significa que no se pueden reasignar a nuevos valores después de que se haya creado un objeto "Empleado". Esta inmutabilidad es una de las características clave de los registros.
 
-- **C)** El registro `Empleado` crea implícitamente un constructor `público` y campos `privados` `finales` para `nombre` y `edad`.
+- **C)** El registro `Empleado` crea implícitamente un constructor `public` y campos `privados` `finales` para `nombre` y `edad`.
   - Esta es la opción correcta. Los registros crean implícitamente un constructor público para los campos del registro y también hacen que estos campos sean "privados" y "finales". Esto significa que no es necesario escribir manualmente código repetitivo para constructores, captadores o para garantizar la inmutabilidad.
 
 - **D)** Es obligatorio definir captadores para los campos `nombre` y `edad` en el registro `Empleado`.
@@ -81,25 +81,42 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 public enum Day {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
-```- Esta opción es correcta. Demuestra una declaración válida de una enumeración en Java. Las enumeraciones se utilizan para definir un conjunto de constantes con nombre y esta sintaxis es la forma estándar de declararlas. El modificador de acceso "público" hace que esta enumeración sea accesible desde cualquier otra clase.
 
-- **B)**```java
+```
+
+- Esta opción es correcta. Demuestra una declaración válida de una enumeración en Java. Las enumeraciones se utilizan para definir un conjunto de constantes con nombre y esta sintaxis es la forma estándar de declararlas. El modificador de acceso "público" hace que esta enumeración sea accesible desde cualquier otra clase.
+
+- **B)**
+
+```java
 enum Month {
     private JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER;
 }
-```- Esta opción es incorrecta. Las enumeraciones no pueden tener modificadores de acceso "privados" para sus constantes. Las constantes de enumeración son implícitamente "públicas", "estáticas" y "finales" y deben declararse sin modificadores de acceso.
 
-- **C)**```java
+```
+
+- Esta opción es incorrecta. Las enumeraciones no pueden tener modificadores de acceso "privados" para sus constantes. Las constantes de enumeración son implícitamente "públicas", "estáticas" y "finales" y deben declararse sin modificadores de acceso.
+
+- **C)**
+
+```java
 protected enum Season {
     WINTER, SPRING, SUMMER, FALL
 }
-```- Esta opción es incorrecta porque las enumeraciones no se pueden declarar con niveles de acceso "protegido" o "privado". Las enumeraciones son implícitamente "públicas" si se definen fuera de una clase. Si se definen dentro de una clase, pueden tener cualquier nivel de acceso, pero la palabra clave "protegida" no se puede usar en el nivel de enumeración en sí.
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta porque las enumeraciones no se pueden declarar con niveles de acceso "protegido" o "privado". Las enumeraciones son implícitamente "públicas" si se definen fuera de una clase. Si se definen dentro de una clase, pueden tener cualquier nivel de acceso, pero la palabra clave "protegida" no se puede usar en el nivel de enumeración en sí.
+
+- **D)**
+
+```java
 enum Status {
     ACTIVE, INACTIVE, DELETED;
 
@@ -107,7 +124,10 @@ enum Status {
         System.out.println("Current status: " + this);
     }
 }
-```- Esta opción es correcta. Muestra una enumeración `Estado` con un método `printStatus()`. Las enumeraciones en Java pueden contener métodos, campos, constructores e implementar interfaces. Esto demuestra la capacidad de las enumeraciones para tener métodos, lo que hace que esta declaración sea válida.
+
+```
+
+- Esta opción es correcta. Muestra una enumeración `Estado` con un método `printStatus()`. Las enumeraciones en Java pueden contener métodos, campos, constructores e implementar interfaces. Esto demuestra la capacidad de las enumeraciones para tener métodos, lo que hace que esta declaración sea válida.
 
 
 **6. La respuesta correcta es A.**
@@ -131,38 +151,58 @@ enum Status {
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 public enum Size {
     SMALL, MEDIUM, LARGE;
     public static void printSize() {
         System.out.println("The size is " + this.name());
     }
 }
-```- Esta opción es incorrecta porque el método `printSize()` está definido como `estático`, lo que significa que no puede acceder a la referencia `this`. Los métodos estáticos en enumeraciones no pueden acceder directamente a las constantes de enumeración sin especificar la constante explícitamente o pasar una referencia.
 
-- **B)**```java
+```
+
+- Esta opción es incorrecta porque el método `printSize()` está definido como `static`, lo que significa que no puede acceder a la referencia `this`. Los métodos estáticos en enumeraciones no pueden acceder directamente a las constantes de enumeración sin especificar la constante explícitamente o pasar una referencia.
+
+- **B)**
+
+```java
 enum Flavor {
     CHOCOLATE, VANILLA, STRAWBERRY;
     void printFlavor() {
         System.out.println("Flavor: " + Flavor.name);
     }
 }
-```- Esta opción es incorrecta porque la propiedad "nombre" de una constante de enumeración es "privada". Sólo puedes acceder a él usando la referencia `this` y el método `name()` (`this.name()`).
 
-- **C)**```java
+```
+
+- Esta opción es incorrecta porque la propiedad "nombre" de una constante de enumeración es "privada". Sólo puedes acceder a él usando la referencia `this` y el método `name()` (`this.name()`).
+
+- **C)**
+
+```java
 protected enum Direction {
     NORTH, SOUTH, EAST, WEST;
     private printDirection() {
         System.out.println("Going " + this.toString());
     }
 }
-```- Esta opción es incorrecta por dos motivos. Primero, "protegido" no es un modificador de acceso válido para una enumeración de nivel superior, las enumeraciones de nivel superior solo pueden ser "públicas" o privadas de paquete (sin modificador). En segundo lugar, al método `printDirection()` le falta un tipo de retorno (por ejemplo, `void`).
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta por dos motivos. Primero, "protegido" no es un modificador de acceso válido para una enumeración de nivel superior, las enumeraciones de nivel superior solo pueden ser "públicas" o privadas de paquete (sin modificador). En segundo lugar, al método `printDirection()` le falta un tipo de retorno (por ejemplo, `void`).
+
+- **D)**
+
+```java
 public enum Season {
     WINTER, SPRING, SUMMER, FALL;
     public void printSeason() {
         System.out.println("The season is " + this.name());
     }
 }
-```- Esta es la opción correcta. El método `printSeason()` está definido correctamente: es `público`, no estático y utiliza la referencia `this` para acceder al nombre de la constante de enumeración actual. Este método proporciona correctamente un comportamiento personalizado para cada constante de enumeración, lo que le permite imprimir un mensaje que indica la temporada actual.
+
+```
+
+- Esta es la opción correcta. El método `printSeason()` está definido correctamente: es `public`, no estático y utiliza la referencia `this` para acceder al nombre de la constante de enumeración actual. Este método proporciona correctamente un comportamiento personalizado para cada constante de enumeración, lo que le permite imprimir un mensaje que indica la temporada actual.

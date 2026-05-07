@@ -10,70 +10,126 @@ exam_objectives:
 
 **Explicación:**
 
-- **A)**```
-0 0 0 
-0 0 0 
-```- Esta opción es incorrecta porque los elementos de la matriz se inicializan y modifican dentro de los bucles. Los valores no son todos ceros.
+- **A)**
 
-- **B)**```
-0 1 2 
-0 1 2 
-```- Esta opción es incorrecta porque cada fila se inicializa con valores incrementales basados ​​en la suma de índices, no idénticos para ambas filas.
+```
 
-- **C)**```
 0 0 0 
-1 1 1 
-```- Esta opción es incorrecta porque los valores deben ser la suma del índice de la fila y el índice de la columna, no todos ceros o todos unos para la segunda fila.
+0 0 0
 
-- **D)**```
+```
+
+- Esta opción es incorrecta porque los elementos de la matriz se inicializan y modifican dentro de los bucles. Los valores no son todos ceros.
+
+- **B)**
+
+```
+
 0 1 2 
-1 2 3 
-```- Esta es la respuesta correcta. Cada elemento de la matriz se establece en la suma de sus índices. Entonces, `arr[0][0] = 0 + 0 = 0`, `arr[0][1] = 0 + 1 = 1`, `arr[0][2] = 0 + 2 = 2`, `arr[1][0] = 1 + 0 = 1`, `arr[1][1] = 1 + 1 = 2`, `arr[1][2] = 1 + 2 = 3`.
+0 1 2
+
+```
+
+- Esta opción es incorrecta porque cada fila se inicializa con valores incrementales basados ​​en la suma de índices, no idénticos para ambas filas.
+
+- **C)**
+
+```
+
+0 0 0 
+1 1 1
+
+```
+
+- Esta opción es incorrecta porque los valores deben ser la suma del índice de la fila y el índice de la columna, no todos ceros o todos unos para la segunda fila.
+
+- **D)**
+
+```
+
+0 1 2 
+1 2 3
+
+```
+
+- Esta es la respuesta correcta. Cada elemento de la matriz se establece en la suma de sus índices. Entonces, `arr[0][0] = 0 + 0 = 0`, `arr[0][1] = 0 + 1 = 1`, `arr[0][2] = 0 + 2 = 2`, `arr[1][0] = 1 + 0 = 1`, `arr[1][1] = 1 + 1 = 2`, `arr[1][2] = 1 + 2 = 3`.
 
 
 **2. La respuesta correcta es B.**
 
 **Explicación:**
 
-- **A)**```java
+- **A)**
+
+```java
 public static T getFirstElement(T[] array) {
     return array[0];
 }
-```- Esta opción es incorrecta porque falta el tipo genérico `<T>` antes del tipo de retorno `T`.
 
-- **B)**```java
+```
+
+- Esta opción es incorrecta porque falta el tipo genérico `<T>` antes del tipo de retorno `T`.
+
+- **B)**
+
+```java
 public static <T> T getFirstElement(T[] array) {
     return array[0];
 }
-```- Esta es la respuesta correcta. El tipo genérico `<T>` se declara correctamente antes del tipo de retorno `T`.
 
-- **C)**```java
+```
+
+- Esta es la respuesta correcta. El tipo genérico `<T>` se declara correctamente antes del tipo de retorno `T`.
+
+- **C)**
+
+```java
 public static <T> getFirstElement(T[] array) {
     return array[0];
 }
-```- Esta opción es incorrecta porque falta el tipo de retorno `T`.
 
-- **D)**```java
+```
+
+- Esta opción es incorrecta porque falta el tipo de retorno `T`.
+
+- **D)**
+
+```java
 public static <T> T[] getFirstElement(T[] array) {
     return array[0];
 }
-```- Esta opción es incorrecta porque el tipo de retorno es `T[]`, que no coincide con el tipo de retorno del método previsto.
+
+```
+
+- Esta opción es incorrecta porque el tipo de retorno es `T[]`, que no coincide con el tipo de retorno del método previsto.
 
 
 **3. La respuesta correcta es D.**
 
 **Explicación:**
 
-**A)** El código compila e imprime:```
+**A)** El código compila e imprime:
+
+```
+
 1 2 3
 1.1 2.2 3.3
 one two three
-```- Esta opción es incorrecta. El código no se compila, por lo que no puede generar ningún resultado.
 
-**B)** El código compila e imprime:```
+```
+
+- Esta opción es incorrecta. El código no se compila, por lo que no puede generar ningún resultado.
+
+**B)** El código compila e imprime:
+
+```
+
 1 2 3
 1.1 2.2 3.3
-```- Esta opción es incorrecta. Si bien este sería el resultado si se eliminara la línea `printList(strings)`, el código tal como está escrito no se compila.
+
+```
+
+- Esta opción es incorrecta. Si bien este sería el resultado si se eliminara la línea `printList(strings)`, el código tal como está escrito no se compila.
 
 **C)** El código no se compila debido a un error en el método `printList`.
   - Esta opción es incorrecta. El método `printList` está definido correctamente utilizando un comodín de límite superior `<? extiende Número>`.
@@ -169,35 +225,65 @@ one two three
 
 **Explicación:**
 
-- **A)**```
+- **A)**
+
+```
+
 Alice 30  
 Bob 25  
 Charlie 35
-```- Esta opción es incorrecta. Esta opción enumera los elementos en su orden original, no en el orden según la edad.
 
-- **B)**```
+```
+
+- Esta opción es incorrecta. Esta opción enumera los elementos en su orden original, no en el orden según la edad.
+
+- **B)**
+
+```
+
 Charlie 35  
 Alice 30  
 Bob 25
-```- Esta opción es incorrecta. Esta opción enumera los elementos en orden descendente de edad, pero el método `compareTo` los ordena en orden ascendente de edad.
 
-- **C)**```
+```
+
+- Esta opción es incorrecta. Esta opción enumera los elementos en orden descendente de edad, pero el método `compareTo` los ordena en orden ascendente de edad.
+
+- **C)**
+
+```
+
 Bob 25  
 Alice 30  
 Charlie 35
-```- Esta opción es correcta. El método `compareTo` ordena los objetos `Persona` en orden ascendente según su edad. Por lo tanto, el orden de clasificación es "Bob (25)", "Alice (30)" y "Charlie (35)".
 
-- **D)**```
+```
+
+- Esta opción es correcta. El método `compareTo` ordena los objetos `Persona` en orden ascendente según su edad. Por lo tanto, el orden de clasificación es "Bob (25)", "Alice (30)" y "Charlie (35)".
+
+- **D)**
+
+```
+
 Bob 25  
 Charlie 35  
 Alice 30
-```- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
 
-- **E)**```
+```
+
+- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
+
+- **E)**
+
+```
+
 Alice 30  
 Charlie 35  
 Bob 25
-```- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
+
+```
+
+- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
 
 
 **9 .La respuesta correcta es A.**
@@ -205,32 +291,62 @@ Bob 25
 
 **Explicación:**
 
-- **A)**```
+- **A)**
+
+```
+
 Bob 25  
 Alice 30  
 Charlie 35
-```- Esta opción es incorrecta. El "AgeComparator" ordena los objetos "Persona" en orden ascendente según su edad. Por lo tanto, el orden de clasificación es "Bob (25)", "Alice (30)" y "Charlie (35)".
 
-- **B)**```
+```
+
+- Esta opción es incorrecta. El "AgeComparator" ordena los objetos "Persona" en orden ascendente según su edad. Por lo tanto, el orden de clasificación es "Bob (25)", "Alice (30)" y "Charlie (35)".
+
+- **B)**
+
+```
+
 Charlie 35  
 Alice 30  
 Bob 25
-```- Esta opción es incorrecta. Esta opción enumera los elementos en orden descendente de edad, pero "AgeComparator" los ordena en orden ascendente de edad.
 
-- **C)**```
+```
+
+- Esta opción es incorrecta. Esta opción enumera los elementos en orden descendente de edad, pero "AgeComparator" los ordena en orden ascendente de edad.
+
+- **C)**
+
+```
+
 Alice 30  
 Bob 25  
 Charlie 35
-```- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
 
-- **D)**```
+```
+
+- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
+
+- **D)**
+
+```
+
 Bob 25  
 Charlie 35  
 Alice 30
-```- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
 
-- **E)**```
+```
+
+- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
+
+- **E)**
+
+```
+
 Alice 30  
 Charlie 35  
 Bob 25
-```- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.
+
+```
+
+- Esta opción es incorrecta. Esta opción no sigue correctamente el orden ascendente de edad.

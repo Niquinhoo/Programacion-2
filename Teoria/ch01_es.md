@@ -1,4 +1,4 @@
--"None"
+---
 layout: chapter
 
 title: "Capítulo UNO"
@@ -13,49 +13,50 @@ previous_title: "Introducción"
 next_link: "/ch02.html"
 next_title: "Utilizando el enfoque orientado a objetos de Java - Parte 2"
 answers_link: "/ch01a.html"
--"None"## Contenido del capítulo
+---
+## Contenido del capítulo
 
 - [Introducción a la Programación Orientada a Objetos](#introducción-a-la-programación-orientada-a-objetos)
     - [Objetos y clases](#objetos-y-clases)
-    - [Principios de programación orientada a objetos de nivel superior] (#principios de programación orientada a objetos de nivel superior)
-- [Ciclo de vida del objeto en Java](#ciclo de vida del objeto en Java)
-    - [Reasignación de referencia](#reasignación-referencia)
+    - [Principios de programación orientada a objetos de nivel superior](#principios-de-programación-orientada-a-objetos-de-nivel-superior)
+- [Ciclo de vida del objeto en Java](#ciclo-de-vida-del-objeto-en-java)
+    - [Reasignación de referencia](#reasignación-de-referencia)
     - [Recolección de basura](#recolección-de-basura)
-- [Palabras clave](#palabras clave)
+- [Palabras clave](#palabras-clave)
 - [Comentarios](#comentarios)
 - [Organizar clases en paquetes](#organizar-clases-en-paquetes)
     - [Creando un paquete](#creando-un-paquete)
-    - [Uso de declaraciones de importación](#using-import-statements)
-    - [Casos especiales y mejores prácticas](#casos-especiales-y-mejores-practicas)
+    - [Uso de declaraciones de importación](#uso-de-declaraciones-de-importación)
+    - [Casos especiales y mejores prácticas](#casos-especiales-y-mejores-prácticas)
     - [Importaciones redundantes](#importaciones-redundantes)
-    - [Control de acceso](#control-acceso)
-- [Modificadores de acceso](#modificadores de acceso)
-- [Declaración de clases](#declaración-clases)
+    - [Control de acceso](#control-de-acceso)
+- [Modificadores de acceso](#modificadores-de-acceso)
+- [Declaración de clases](#declaración-de-clases)
 - [Miembros estáticos y de instancia](#miembros-estáticos-y-de-instancia)
-- [Declaración de campos](#campos-declaración)
+- [Declaración de campos](#declaración-de-campos)
     - [Acceder y modificar campos](#acceder-y-modificar-campos)
-- [Métodos de declaración](#métodos-declaración)
-    - [Firmas de método](#método-firmas)
-    - [Llamar a un método](#llamar-a-método)
-    - [Usar modificadores de acceso con métodos](#usar-modificadores-de-acceso-con-métodos)
+- [Declaración de métodos](#declaración-de-métodos)
+    - [Firmas de métodos](#firmas-de-métodos)
+    - [Llamar a un método](#llamar-a-un-método)
+    - [Uso de modificadores de acceso con métodos](#uso-de-modificadores-de-acceso-con-métodos)
     - [Pasar argumentos entre métodos](#pasar-argumentos-entre-métodos)
-    - [Sobrecarga de método](#sobrecarga de método)
+    - [Sobrecarga de métodos](#sobrecarga-de-métodos)
     - [Varargs](#varargs)
-    - [El método `principal`] (#el-método-principal)
+    - [El método `main`](#el-método-main)
 - [Constructores e inicializadores](#constructores-e-inicializadores)
     - [Constructores](#constructores)
-    - [Inicializadores de instancia](#inicializadores de instancia)
-    - [Inicializadores estáticos](#static-initializers)
-    - [Orden de inicialización](#orden de inicialización)
-- [Extendiendo desde `java.lang.Object`](#extendiendo-desde-javalangobject)
+    - [Inicializadores de instancia](#inicializadores-de-instancia)
+    - [Inicializadores estáticos](#inicializadores-estáticos)
+    - [Orden de inicialización](#orden-de-inicialización)
+- [Extendiéndose desde `java.lang.Object`](#extendiéndose-desde-javalangobject)
 - [Clases anidadas](#clases-anidadas)
     - [Clases anidadas estáticas](#clases-anidadas-estáticas)
-    - [Clases anidadas no estáticas](#clases-anidadas-no estáticas)
+    - [Clases anidadas no estáticas](#clases-anidadas-no-estáticas)
     - [Clases locales](#clases-locales)
     - [Clases anónimas](#clases-anónimas)
 - [Clases y archivos fuente](#clases-y-archivos-fuente)
-- [Puntos clave](#puntos clave)
-- [Preguntas de práctica](#preguntas-de-practica)
+- [Puntos clave](#puntos-clave)
+- [Preguntas de práctica](#preguntas-de-práctica)
 
 ---
 ## Introducción a la programación orientada a objetos

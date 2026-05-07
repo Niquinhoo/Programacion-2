@@ -1,4 +1,4 @@
--"None"
+---
 layout: answer
 
 title: "Capítulo UNO"
@@ -7,7 +7,8 @@ exam_objectives:
   - "Declare y cree instancias de objetos Java, incluidos objetos de clases anidados, y explique el ciclo de vida del objeto, incluida la creación, la reasignación de referencias y la recolección de basura."
   - "Cree clases y registros, y defina y utilice campos y métodos estáticos y de instancia, constructores e inicializadores estáticos y de instancia."
   - "Implemente la sobrecarga, incluidos los métodos var-arg."
--"None"## Respuestas
+---
+## Respuestas
 
 **1. La respuesta correcta es B.**
 

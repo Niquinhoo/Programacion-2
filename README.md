@@ -1,78 +1,30 @@
-# Concurrencia y Multitarea Basica - Programacion 2
+# Teoría de Java - Programación 2
 
-Este repositorio contiene la resolucion completa de la unidad de Concurrencia y Multitarea de Programacion 2, desarrollada en Java como aplicacion de consola.
+Este repositorio, en su rama **Teoría**, contiene una guía de estudio completa para Java SE 21, adaptada para la materia Programación 2.
 
-## Estructura
+## Contenido Teórico
 
-```text
-ConcurrenciayMultitareaBasica/
-`-- src/
-    |-- App.java
-    |-- TareaHilo.java
-    |-- TareaRunnable.java
-    |-- Contador.java
-    |-- OperadorContador.java
-    |-- ContadorSynchronizedMetodo.java
-    |-- ContadorSynchronizedBloque.java
-    |-- TareaHiloConIdentidad.java
-    |-- HiloLento.java
-    |-- HiloLentoInterrumpible.java
-    `-- Incrementador.java
-`-- Documentacion/
-    |-- Checklist/
-    |   `-- CHECKLISTCONCURRENCIA.md
-    |-- Conclusion/
-    |   `-- CONCLUSIONCONCURRENCIA.md
-    |-- Ejercicio/
-    |   `-- ConcurrenciayMultitarea.md
-    `-- Logs/
-        `-- LOGSCONCURRENCIA.md
-```
+La teoría está organizada en capítulos que cubren desde los fundamentos hasta temas avanzados de la certificación de Java:
 
-## Contenido resuelto
+- **[Introducción](Teoria/intro.md)**: Conceptos básicos y configuración.
+- **[Capítulo 1](Teoria/ch01.md)**: Enfoque orientado a objetos (Parte 1) - Clases, Objetos y Ciclo de vida.
+- **[Capítulo 2](Teoria/ch02.md)**: Enfoque orientado a objetos (Parte 2) - Herencia, Polimorfismo y Encapsulamiento.
+- **[Capítulo 3](Teoria/ch03.md)**: Tipos de Datos y Operadores.
+- **[Capítulo 4](Teoria/ch04.md)**: Control de Flujo.
+- **[Capítulo 5](Teoria/ch05.md)**: Trabajo con Arreglos (Arrays) y Colecciones.
+- **[Capítulo 6](Teoria/ch06.md)**: Manejo de Excepciones.
+- **[Capítulo 7](Teoria/ch07.md)**: Programación Funcional y Lambdas.
+- **[Capítulo 8](Teoria/ch08.md)**: Streams y Pipelines.
+- **[Capítulo 9](Teoria/ch09.md)**: Concurrencia y Multitarea.
+- **[Capítulo 10](Teoria/ch10.md)**: Entrada/Salida (I/O) y Archivos.
+- **[Capítulo 11](Teoria/ch11.md)**: JDBC y Acceso a Datos.
+- **[Capítulo 12](Teoria/ch12.md)**: Modularidad en Java.
+- **[Capítulo 13](Teoria/ch13.md)**: Localización y Formateo.
+- **[Capítulo 14](Teoria/ch14.md)**: Seguridad en Java.
 
-- Creacion de hilos con `Thread`.
-- Ejecucion concurrente con `Runnable`.
-- Condicion de carrera sobre recurso compartido (`Contador`).
-- Sincronizacion por metodo (`synchronized`).
-- Sincronizacion por bloque (`synchronized` en secciones criticas).
-- Prioridades e identidad de hilos.
-- Coordinacion con `join()` e interrupcion con `interrupt()`.
-- Documentacion tecnica con Javadoc en clases y metodos principales.
+## Adaptación
 
-## Como ejecutar
+Este material ha sido extraído y adaptado del repositorio [ocpj21-book](https://github.com/eh3rrera/ocpj21-book) de Esteban Herrera.
 
-Desde la carpeta `ConcurrenciayMultitareaBasica/src`:
-
-```bash
-javac *.java
-java -cp . App
-```
-
-La salida de la ejecucion queda documentada en `Documentacion/Logs/LOGSCONCURRENCIA.md`.
-
-## Documentacion Javadoc
-
-El proyecto cuenta con documentacion Javadoc completa en:
-
-- App.java: descripcion general y orquestacion de ejercicios de concurrencia.
-- Contador y OperadorContador: entidad compartida y operaciones concurrentes.
-- ContadorSynchronizedMetodo y ContadorSynchronizedBloque: estrategias de sincronizacion.
-- HiloLento y HiloLentoInterrumpible: demostracion de `join()` e `interrupt()`.
-
-Para generar documentacion HTML desde `ConcurrenciayMultitareaBasica/src`:
-
-```bash
-javadoc -d docs *.java
-```
-
-Ese comando crea la carpeta `docs/` con la navegacion HTML de la documentacion generada.
-
-## Documentacion adicional
-
-- `Documentacion/Ejercicio/ConcurrenciayMultitarea.md`: resumen de ejercicios implementados.
-- `Documentacion/Checklist/CHECKLISTCONCURRENCIA.md`: validacion de requisitos y pruebas realizadas.
-- `Documentacion/Conclusion/CONCLUSIONCONCURRENCIA.md`: analisis final de implementacion.
-- `Documentacion/Logs/LOGSCONCURRENCIA.md`: salida completa de ejecucion en consola.
-
-Toda la documentacion fue actualizada y testeada por Codex.
+---
+*Nota: Para ver la resolución de ejercicios prácticos, consulta las ramas correspondientes (ej. `ConcurrenciayMultitareaBasica`, `FuncionalyStreams`, etc.).*

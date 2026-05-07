@@ -1,4 +1,4 @@
--"None"
+---
 layout: chapter
 
 title: "Capítulo TRES"

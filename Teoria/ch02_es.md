@@ -1,4 +1,4 @@
--"None"
+---
 layout: chapter
 
 title: "Capítulo DOS"
@@ -13,7 +13,8 @@ previous_title: "Utilizando el enfoque orientado a objetos de Java - Parte 1"
 next_link: "/ch03.html"
 next_title: "Trabajar con registros y enumeraciones"
 answers_link: "/ch02a.html"
--"None"## Contenido del capítulo
+---
+## Contenido del capítulo
 
 - [Variables](#variables)
     - [Ámbitos variables](#ámbitos-variables)

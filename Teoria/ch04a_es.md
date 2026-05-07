@@ -1,4 +1,5 @@
--"None"
+---
+
 layout: answer
 
 title: "Capítulo CUATRO"
@@ -6,7 +7,8 @@ subtitle: "Trabajar con datos"
 exam_objectives:
   - "Utilice primitivas y clases contenedoras. Evalúe expresiones aritméticas y booleanas utilizando la API de matemáticas y aplicando reglas de precedencia, conversiones de tipos y conversión."
   - "Manipule texto, incluidos bloques de texto, utilizando las clases String y StringBuilder."
--"None"## Respuestas
+---
+## Respuestas
 **1. La respuesta correcta es C.**
 
 **Explicación:**

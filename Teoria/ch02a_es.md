@@ -1,4 +1,4 @@
--"None"
+---
 layout: answer
 
 title: "Capítulo DOS"

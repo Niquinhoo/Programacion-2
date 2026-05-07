@@ -1,4 +1,4 @@
--"None"
+---
 layout: answer
 
 title: "Capítulo TRES"
@@ -6,7 +6,7 @@ subtitle: "Trabajar con registros y enumeraciones"
 exam_objectives:
   - "Cree clases y registros, y defina y utilice campos y métodos estáticos y de instancia, constructores e inicializadores estáticos y de instancia."
   - "Cree y utilice tipos de enumeración con campos, métodos y constructores."
--"None"## Respuestas
+---## Respuestas
 
 **1. La respuesta correcta es C.**
 

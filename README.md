@@ -1,66 +1,58 @@
-# 📘 Programación 2 — Repositorio de Cursada
+# Interfaces Swing - Programacion 2
 
-Repositorio personal donde organizo todo el material producido durante la materia **Programación 2**. Incluye el código resuelto en clase, trabajos prácticos completos, consignas originales y documentación de verificación generada por Codex.
+Este repositorio contiene la resolución de los ejercicios de **Interfaces Gráficas con Swing** de **Programación 2**, desarrollada en Java.
 
----
+## Estructura
 
-## 🗂️ Estructura de Ramas
+```text
+InterfacesSwing/
+|-- InterfacesSwing/
+|   |-- src/
+|   |   `-- App.java
+|   `-- lib/
+`-- Documentacion/
+    |-- Checklist/
+    |   `-- CHECKLIST-SWING.md
+    |-- Conclusion/
+    |   `-- CONCLUSION.md
+    |-- Ejercicio/
+    |   `-- GuiaInterfacesSwing.md
+    `-- Logs/
+        `-- LOGS_CONSOLA-SWING.md
+```
 
-El proyecto se organiza mediante ramas (branches) para cada unidad temática y Trabajo Práctico:
+## Contenido resuelto
 
-- **`GuiaFundamentos`**: Fundamentos de Programación (TP1)
-- **`GuiaColecciones1`**: Colecciones y Estructuras de Datos (TP2)
-- **`GestionErroresyExcepciones`**: Manejo de Errores y Excepciones (TP3)
-- **`FuncionalyStreams`**: Programación Funcional y Streams (TP4)
-- **`ConcurrenciayMultitareaBasica`**: Concurrencia y Multitarea (TP5)
+- Creación de ventanas (`JFrame`).
+- Uso de Layout Managers.
+- Componentes básicos (`JButton`, `JLabel`, `JTextField`, etc.).
+- Manejo de eventos (`ActionListener`).
+- Diálogos y ventanas emergentes.
 
----
+## Cómo ejecutar
 
-## 📁 Criterio de Organización
+Desde la carpeta `InterfacesSwing`:
 
-Cada rama mantiene una estructura consistente para facilitar la navegación y el seguimiento:
+```powershell
+javac -d bin src/App.java
+java -cp bin App
+```
 
-### Trabajos Prácticos
-Dentro de cada rama se dividen en dos secciones principales:
+## Documentación Javadoc
 
-#### 🖥️ Código Fuente (`src/`)
-Contiene los archivos `.java` con la implementación de los ejercicios y el `App.java` principal.
+El proyecto cuenta con documentación Javadoc completa en el código fuente.
 
-#### 📄 Documentación (`Documentacion/`)
-Organizada para asegurar la trazabilidad del desarrollo:
+Para generar la documentación HTML:
 
-| Carpeta | Contenido |
-|---|---|
-| `Checklist/` | Verificación de requerimientos punto a punto. |
-| `Logs/` | Registros de ejecución y validación de consola. |
-| `Ejercicio/` | Consignas originales y enunciados del TP. |
-| `Conclusion/` | Reflexiones y aprendizajes finales del módulo. |
+```powershell
+javadoc -d docs src/*.java
+```
 
----
+## Documentación adicional
 
-## ✅ Estado del Proyecto
+- `Documentacion/Ejercicio/GuiaInterfacesSwing.md`: resumen de la guía de ejercicios.
+- `Documentacion/Checklist/CHECKLIST-SWING.md`: validación de requisitos y pruebas realizadas.
+- `Documentacion/Conclusion/CONCLUSION.md`: análisis final de la implementación.
+- `Documentacion/Logs/LOGS_CONSOLA-SWING.md`: salida completa de la ejecución en consola.
 
-| TP | Temática | Branch | Estado |
-|---|---|---|---|
-| **TP1** | Fundamentos | [GuiaFundamentos](https://github.com/Niquinhoo/Programacion-2/tree/GuiaFundamentos) | ✅ Finalizado |
-| **TP2** | Colecciones | [GuiaColecciones1](https://github.com/Niquinhoo/Programacion-2/tree/GuiaColecciones1) | ✅ Finalizado |
-| **TP3** | Errores | [GestionErroresyExcepciones](https://github.com/Niquinhoo/Programacion-2/tree/GestionErroresyExcepciones) | ✅ Finalizado |
-| **TP4** | Funcional y Streams | [FuncionalyStreams](https://github.com/Niquinhoo/Programacion-2/tree/FuncionalyStreams) | ✅ Finalizado |
-| **TP5** | Concurrencia | [ConcurrenciayMultitareaBasica](https://github.com/Niquinhoo/Programacion-2/tree/ConcurrenciayMultitareaBasica) | ✅ Finalizado |
-
----
-
-## 🛠️ Tecnologías
-
-- **Lenguaje**: Java ☕
-- **Entorno**: VS Code + Extension Pack for Java
-- **Control de Versiones**: Git & GitHub
-
----
-
-## 📌 Notas
-
-- Cada rama representa un hito en la cursada.
-- Se utiliza una estructura de documentación rigurosa para cada entrega.
-- Este repositorio es de uso personal y académico.
-
+Toda la documentación fue actualizada y testeada por Codex.

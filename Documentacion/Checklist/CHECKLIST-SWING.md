@@ -15,16 +15,39 @@
 - [x] Se actualizo la etiqueta de resultado con el mensaje `¡Hola, [Nombre]!`.
 - [x] La solucion fue modularizada en clases separadas y con nombres en espanol.
 
-## Clases involucradas
+## Clases involucradas en el ejercicio 1
 
-- `App`: punto de entrada de la aplicacion.
+- `App`: punto de entrada original de la aplicacion para este ejercicio.
 - `LanzadorEjercicio1`: inicializa la interfaz usando `SwingUtilities.invokeLater`.
 - `VentanaFormularioSaludo`: configura la ventana principal.
 - `PanelFormularioSaludo`: arma el formulario y maneja la interaccion del boton.
 
+## Ejercicio 2: Mini editor de texto con barra de menus
+
+- [x] Se creo una ventana principal mediante `JFrame`.
+- [x] Se agrego una barra superior `JMenuBar` usando `setJMenuBar()`.
+- [x] Se creo un menu `Archivo`.
+- [x] Se agrego el item `Limpiar texto`.
+- [x] Se agrego el item `Salir`.
+- [x] Se incorporo un `JTextArea` para multiples lineas.
+- [x] El `JTextArea` fue envuelto en un `JScrollPane`.
+- [x] Se asociaron `ActionListener` a ambos items del menu.
+- [x] La opcion `Limpiar texto` ejecuta `setText("")`.
+- [x] La opcion `Salir` cierra la ventana principal.
+- [x] La solucion fue modularizada en clases separadas y con nombres en espanol.
+
+## Clases involucradas en el ejercicio 2
+
+- `App`: punto de entrada actual de la aplicacion.
+- `LanzadorEjercicio2`: inicializa la interfaz del editor usando `SwingUtilities.invokeLater`.
+- `VentanaEditorTexto`: configura la ventana principal del ejercicio 2.
+- `PanelEditorTexto`: contiene el area de texto y el `JScrollPane`.
+- `BarraMenuEditorTexto`: construye la barra de menus y sus opciones.
+- `ControladorEditorTexto`: maneja los eventos de `Limpiar texto` y `Salir`.
+
 ## Estado actual
 
 - [x] Ejercicio 1 implementado.
-- [ ] Ejercicio 2 implementado.
+- [x] Ejercicio 2 implementado.
 - [ ] Ejercicio 3 implementado.
 - [ ] Ejercicio 4 implementado.

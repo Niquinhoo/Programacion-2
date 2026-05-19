@@ -1,3 +1,4 @@
+
 import javax.swing.SwingUtilities;
 
 public final class LanzadorEjercicio2 {

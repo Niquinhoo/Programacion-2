@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
@@ -21,7 +22,7 @@ public class VentanaEditorTexto extends JFrame {
     private void configurarVentana() {
         setTitle("Ejercicio 2 - Mini editor de texto");
         setSize(640, 420);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
     }

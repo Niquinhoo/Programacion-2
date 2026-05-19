@@ -1,3 +1,4 @@
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -69,6 +70,6 @@ public class PanelFormularioSaludo extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evento) {
         String nombreIngresado = campoNombre.getText().trim();
-        etiquetaResultado.setText("¡Hola, " + nombreIngresado + "!");
+        etiquetaResultado.setText("Â¡Hola, " + nombreIngresado + "!");
     }
 }

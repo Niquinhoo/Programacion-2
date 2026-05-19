@@ -1,14 +1,14 @@
 
 import javax.swing.SwingUtilities;
 
-public final class LanzadorEjercicio1 {
+public final class LanzadorMenuEjercicios {
 
-    private LanzadorEjercicio1() {
+    private LanzadorMenuEjercicios() {
     }
 
     public static void iniciar() {
         SwingUtilities.invokeLater(() -> {
-            VentanaFormularioSaludo ventana = new VentanaFormularioSaludo();
+            VentanaMenuEjercicios ventana = new VentanaMenuEjercicios();
             ventana.setVisible(true);
         });
     }

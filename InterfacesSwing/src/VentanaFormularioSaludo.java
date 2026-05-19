@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
@@ -12,7 +13,7 @@ public class VentanaFormularioSaludo extends JFrame {
     private void configurarVentana() {
         setTitle("Ejercicio 1 - Formulario interactivo");
         setSize(420, 180);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
     }

@@ -40,7 +40,7 @@ public class PanelLogin extends JPanel {
 
     private JPanel crearFilaContrasena() {
         JPanel filaContrasena = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        filaContrasena.add(new JLabel("ContraseÃ±a:"));
+        filaContrasena.add(new JLabel("Contraseña:"));
         filaContrasena.add(campoContrasena);
         return filaContrasena;
     }

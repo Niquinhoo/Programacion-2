@@ -19,7 +19,7 @@ public class VentanaLogin extends JFrame {
     }
 
     private void configurarVentana() {
-        setTitle("Ejercicio 4 - Pantalla de autenticaciÃ³n");
+        setTitle("Ejercicio 4 - Pantalla de autenticación");
         setSize(420, 220);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

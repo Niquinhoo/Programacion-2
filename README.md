@@ -95,12 +95,10 @@ Programacion-2/
 
 ## Como compilar y ejecutar
 
-Desde `C:\Users\nicot\Desktop\Programacion-2\InterfacesSwing`:
-
-```powershell
-javac -encoding UTF-8 -d bin src\*.java
-java -cp bin App
-```
+- ```powershell
+PS> javac -d bin src/*.java
+PS> java -cp bin App
+- ```
 
 ## Documentacion complementaria
 

@@ -36,8 +36,8 @@ public class ControladorLogin implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(
                     ventanaLogin,
-                    "La contraseÃ±a ingresada es incorrecta.",
-                    "Error de autenticaciÃ³n",
+                    "La contraseña ingresada es incorrecta.",
+                    "Error de autenticación",
                     JOptionPane.ERROR_MESSAGE);
         }
 

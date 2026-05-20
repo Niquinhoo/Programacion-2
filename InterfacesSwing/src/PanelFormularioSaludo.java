@@ -70,6 +70,6 @@ public class PanelFormularioSaludo extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent evento) {
         String nombreIngresado = campoNombre.getText().trim();
-        etiquetaResultado.setText("Â¡Hola, " + nombreIngresado + "!");
+        etiquetaResultado.setText("¡Hola, " + nombreIngresado + "!");
     }
 }

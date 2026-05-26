@@ -1,9 +1,3 @@
-# Guía: Base de Datos con JDBC
-
-Esta guía contiene las consignas y objetivos a desarrollar para la unidad de Base de Datos utilizando la API de JDBC en Java.
-
----
-
 ## Ejercicio 5: Integración y Conexión a Base de Datos con JDBC
 
 **Objetivo**: Configurar un entorno de base de datos local y utilizar la API JDBC (Java Database Connectivity) para establecer una conexión y realizar las operaciones fundamentales de inserción, actualización y borrado (Insert, Update, Delete).

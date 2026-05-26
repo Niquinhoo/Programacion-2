@@ -4,24 +4,30 @@
 
 Registro de comandos ejecutados y resultados observados en consola.
 
-### Ejercicio 1
+### Conexión a Base de Datos (Clase ConexionDB)
+
+Prueba de conexión con los parámetros de entorno remotos provistos (TiDB Cloud / MySQL).
 
 #### Compilación
 
 ```powershell
-# Comando
+javac -d bin -cp "lib/mysql-connector-j-8.3.0.jar;bin" src/ConexionDB.java
 ```
 
 Resultado:
 ```text
+Compilación completada sin errores.
 ```
 
 #### Ejecución
 
 ```powershell
-# Comando
+java -cp "lib/mysql-connector-j-8.3.0.jar;bin" ConexionDB
 ```
 
 Resultado:
 ```text
+¡Conexión a la base de datos establecida con éxito!
+Conexión cerrada correctamente.
 ```
+

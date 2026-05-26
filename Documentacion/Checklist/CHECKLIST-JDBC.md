@@ -2,18 +2,19 @@
 
 ## Requisitos Generales de Conexión
 
-- [ ] Descarga del conector MySQL JDBC (`mysql-connector-j`) e incorporación en la carpeta `lib/`.
-- [ ] Configuración del servidor MySQL local mediante MySQL Workbench.
+- [x] Descarga del conector MySQL JDBC (`mysql-connector-j`) e incorporación en la carpeta `lib/`.
+- [x] Configuración del servidor MySQL local o remoto (TiDB Cloud).
 - [ ] Creación de la base de datos `empresa_db` y la tabla `empleados`.
 
 ## Ejercicio 5: Integración y Conexión a Base de Datos con JDBC
 
-- [ ] Creación de la clase `ConexionDB` utilizando `DriverManager.getConnection()`.
+- [x] Creación de la clase `ConexionDB` utilizando `DriverManager.getConnection()`.
 - [ ] Implementación de `OperacionesDB` con sentencias preparadas para CRUD básico.
 - [ ] Método `insertarEmpleado(String nombre, String departamento)`.
 - [ ] Método `actualizarDepartamento(int id, String nuevoDepartamento)`.
 - [ ] Método `borrarEmpleado(int id)`.
-- [ ] Validación funcional mediante el método `main`.
+- [x] Validación funcional mediante el método `main`.
+
 
 ## Ejercicio 5 Actualizado: Arquitectura MVC y Patrón DAO para MySQL
 

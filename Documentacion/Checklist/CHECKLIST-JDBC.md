@@ -1,29 +1,60 @@
 # Checklist - Base de Datos con JDBC
 
-## Requisitos de Base de Datos y Conexión
+## Requisitos Generales de Conexión
 
-- [ ] Configuración del entorno de base de datos (SQLite, MySQL, H2, etc.).
-- [ ] Incorporación del driver JDBC correspondiente en la carpeta `lib/`.
-- [ ] Implementación de una clase de utilidad para obtener la conexión (patrón Singleton o similar).
-- [ ] Cierre correcto de recursos (Connection, Statement, ResultSet) utilizando try-with-resources.
+- [ ] Descarga del conector MySQL JDBC (`mysql-connector-j`) e incorporación en la carpeta `lib/`.
+- [ ] Configuración del servidor MySQL local mediante MySQL Workbench.
+- [ ] Creación de la base de datos `empresa_db` y la tabla `empleados`.
 
-## Ejercicio 1: [Nombre del Ejercicio 1]
+## Ejercicio 5: Integración y Conexión a Base de Datos con JDBC
 
-- [ ] Requisito 1.
-- [ ] Requisito 2.
-- [ ] Requisito 3.
+- [ ] Creación de la clase `ConexionDB` utilizando `DriverManager.getConnection()`.
+- [ ] Implementación de `OperacionesDB` con sentencias preparadas para CRUD básico.
+- [ ] Método `insertarEmpleado(String nombre, String departamento)`.
+- [ ] Método `actualizarDepartamento(int id, String nuevoDepartamento)`.
+- [ ] Método `borrarEmpleado(int id)`.
+- [ ] Validación funcional mediante el método `main`.
 
-## Ejercicio 2: [Nombre del Ejercicio 2]
+## Ejercicio 5 Actualizado: Arquitectura MVC y Patrón DAO para MySQL
 
-- [ ] Requisito 1.
-- [ ] Requisito 2.
-- [ ] Requisito 3.
+- [ ] Creación de la clase modelo `Empleado` (POJO: id, nombre, departamento).
+- [ ] Definición de la interfaz `OperacionesDAO` con la firma de los métodos CRUD.
+- [ ] Creación de `EmpleadoDAO` implementando la interfaz `OperacionesDAO`.
+- [ ] Implementación del método `consultarTodos()` en `EmpleadoDAO` retornando un `ArrayList<Empleado>`.
 
-## Clases involucradas
+## Ejercicio 6 Actualizado: Interacción Avanzada con JTable (Eventos de Ratón y Update/Delete)
 
-- `BaseDeDatosConJDBC/src/...`
+- [ ] Diseño visual de la ventana principal con `JTable` (derecha) y formulario lateral de edición (izquierda).
+- [ ] Carga dinámica de la tabla al iniciar usando los datos de `EmpleadoDAO.consultarTodos()`.
+- [ ] Implementación de `MouseListener` sobre la tabla para seleccionar filas (`getSelectedRow()`).
+- [ ] Carga automática de los campos de texto (`JTextField` para ID, Nombre y Departamento) al seleccionar una fila.
+- [ ] Implementación del botón "Modificar" (UPDATE) con actualización en BD y refresco de tabla.
+- [ ] Implementación del botón "Eliminar" (DELETE) con remoción en BD, limpieza de campos y refresco de tabla.
 
-## Estado actual
+## Nuevo Ejercicio 7: CRUD Definitivo con Componentes Complejos y Claves Foráneas
 
-- [ ] Ejercicio 1 implementado.
-- [ ] Ejercicio 2 implementado.
+- [ ] Creación de la tabla `departamentos` en la base de datos y establecimiento de relación FK en `empleados`.
+- [ ] Reemplazo del campo de texto de departamento por un `JComboBox` poblado dinámicamente desde la tabla `departamentos`.
+- [ ] Integración de `JFileChooser` para adjuntar una imagen del empleado.
+- [ ] Almacenamiento de la ruta/bytes de la imagen en base de datos.
+- [ ] Previsualización dinámica de la foto del empleado en un `JLabel` mediante `setIcon()`.
+
+---
+
+## Clases principales esperadas
+
+- `BaseDeDatosConJDBC/src/ConexionDB.java`
+- `BaseDeDatosConJDBC/src/Empleado.java`
+- `BaseDeDatosConJDBC/src/OperacionesDAO.java`
+- `BaseDeDatosConJDBC/src/EmpleadoDAO.java`
+- `BaseDeDatosConJDBC/src/VentanaPrincipal.java`
+
+---
+
+## Estado actual de los Ejercicios
+
+- [ ] Ejercicio 5 implementado.
+- [ ] Ejercicio 5 Actualizado (MVC / DAO) implementado.
+- [ ] Ejercicio 6 Actualizado (JTable interactivo) implementado.
+- [ ] Ejercicio 7 (Componentes complejos y FK) implementado.
+

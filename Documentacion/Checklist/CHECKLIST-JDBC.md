@@ -3,16 +3,16 @@
 ## Requisitos Generales de Conexión
 
 - [x] Descarga del conector MySQL JDBC (`mysql-connector-j`) e incorporación en la carpeta `lib/`.
-- [x] Configuración del servidor MySQL local o remoto (TiDB Cloud).
-- [ ] Creación de la base de datos `empresa_db` y la tabla `empleados`.
+- [x] Configuración del servidor MySQL local o remoto (TiDB Cloud). *(Nota: El usuario ya tenía instalado MySQL local por su cuenta hace mucho tiempo; se configuró la conexión remota a la instancia de TiDB Cloud)*
+- [x] Creación de la base de datos `test` y la tabla `empleados` (verificada y creada automáticamente).
 
 ## Ejercicio 5: Integración y Conexión a Base de Datos con JDBC
 
 - [x] Creación de la clase `ConexionDB` utilizando `DriverManager.getConnection()`.
-- [ ] Implementación de `OperacionesDB` con sentencias preparadas para CRUD básico.
-- [ ] Método `insertarEmpleado(String nombre, String departamento)`.
-- [ ] Método `actualizarDepartamento(int id, String nuevoDepartamento)`.
-- [ ] Método `borrarEmpleado(int id)`.
+- [x] Implementación de `OperacionesDB` con sentencias preparadas para CRUD básico.
+- [x] Método `insertarEmpleado(String nombre, String departamento)`.
+- [x] Método `actualizarDepartamento(int id, String nuevoDepartamento)`.
+- [x] Método `borrarEmpleado(int id)`.
 - [x] Validación funcional mediante el método `main`.
 
 
@@ -54,8 +54,9 @@
 
 ## Estado actual de los Ejercicios
 
-- [ ] Ejercicio 5 implementado.
+- [x] Ejercicio 5 implementado.
 - [ ] Ejercicio 5 Actualizado (MVC / DAO) implementado.
 - [ ] Ejercicio 6 Actualizado (JTable interactivo) implementado.
 - [ ] Ejercicio 7 (Componentes complejos y FK) implementado.
+
 

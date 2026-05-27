@@ -5,9 +5,12 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class VentanaPrincipal extends JFrame {
     private final EmpleadoDAO empleadoDAO;
@@ -264,6 +268,10 @@ public class VentanaPrincipal extends JFrame {
 
     private void seleccionarFoto() {
         JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(new FileNameExtensionFilter(
+            "Imagenes (*.png, *.jpg, *.jpeg, *.gif, *.bmp)",
+            "png", "jpg", "jpeg", "gif", "bmp"
+        ));
         int resultado = chooser.showOpenDialog(this);
         if (resultado == JFileChooser.APPROVE_OPTION) {
             File archivo = chooser.getSelectedFile();
@@ -286,10 +294,27 @@ public class VentanaPrincipal extends JFrame {
             return;
         }
 
-        ImageIcon icono = new ImageIcon(rutaFoto);
-        Image imagenEscalada = icono.getImage().getScaledInstance(180, 180, Image.SCALE_SMOOTH);
-        lblFoto.setText("");
-        lblFoto.setIcon(new ImageIcon(imagenEscalada));
+        try {
+            BufferedImage imagenOriginal = ImageIO.read(archivo);
+            if (imagenOriginal == null) {
+                lblFoto.setText("Formato no soportado");
+                lblFoto.setIcon(null);
+                return;
+            }
+
+            Image imagenEscalada = imagenOriginal.getScaledInstance(180, 180, Image.SCALE_SMOOTH);
+            lblFoto.setText("");
+            lblFoto.setIcon(new ImageIcon(imagenEscalada));
+        } catch (IOException e) {
+            lblFoto.setText("No se pudo cargar");
+            lblFoto.setIcon(null);
+            JOptionPane.showMessageDialog(
+                this,
+                "No se pudo cargar la imagen seleccionada.\nDetalle: " + e.getMessage(),
+                "Error de imagen",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
     }
 
     private void seleccionarDepartamentoPorNombre(String nombre) {
